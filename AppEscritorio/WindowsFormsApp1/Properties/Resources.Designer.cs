@@ -69,5 +69,25 @@ namespace WindowsFormsApp1.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cropped_Nueva_imagen_Chrysallis__1_ {
+            get {
+                object obj = ResourceManager.GetObject("cropped-Nueva-imagen-Chrysallis (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cropped_Nueva_imagen_Chrysallis__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("cropped-Nueva-imagen-Chrysallis (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
