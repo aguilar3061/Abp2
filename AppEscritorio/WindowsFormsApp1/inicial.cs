@@ -16,5 +16,25 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 login = new Form1();
+
+            login.Show();
+        }
+
+        private void inicial_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerLogin_Tick(object sender, EventArgs e)
+        {
+            timerLogin.Enabled = false;
+            Form1 login = new Form1();
+
+            login.ShowDialog();
+        }
     }
 }
