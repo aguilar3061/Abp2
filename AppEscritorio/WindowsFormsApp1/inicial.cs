@@ -12,17 +12,19 @@ namespace WindowsFormsApp1
 {
     public partial class inicial : Form
     {
+        Boolean formAbrir = false;
         public inicial()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 login = new Form1();
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    Form1 login = new Form1();
 
-            login.Show();
-        }
+        //    login.ShowDialog();
+        //    formAbrir = true;
+        //}
 
         private void inicial_Load(object sender, EventArgs e)
         {
@@ -31,10 +33,12 @@ namespace WindowsFormsApp1
 
         private void timerLogin_Tick(object sender, EventArgs e)
         {
-            timerLogin.Enabled = false;
-            Form1 login = new Form1();
+            
+                timerLogin.Enabled = false;
+                FormPantallaPrincipal login = new FormPantallaPrincipal();
 
-            login.ShowDialog();
+                login.ShowDialog();
+            
         }
     }
 }

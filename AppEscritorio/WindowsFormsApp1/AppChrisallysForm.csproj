@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,53 +55,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Assistir.cs">
+      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\ComunitatsORM.cs" />
+    <Compile Include="BD\EventoORM.cs" />
+    <Compile Include="BD\ORM.cs" />
+    <Compile Include="Comunitat.cs">
+      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Documents.cs">
+      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esdeveniment.cs">
+      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormPantallaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormPantallaPrincipal.Designer.cs">
+      <DependentUpon>FormPantallaPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="FormMenu.Designer.cs">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="FormNuevoEvento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="FormNuevoEvento.Designer.cs">
+      <DependentUpon>FormNuevoEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="FormGirdViewUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="FormGirdViewUsuarios.Designer.cs">
+      <DependentUpon>FormGirdViewUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form5.cs">
+    <Compile Include="FormNuevoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form5.Designer.cs">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <Compile Include="FormNuevoUsuario.Designer.cs">
+      <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form6.cs">
+    <Compile Include="FormEditarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form6.Designer.cs">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <Compile Include="FormEditarUsuario.Designer.cs">
+      <DependentUpon>FormEditarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form7.cs">
+    <Compile Include="FormGridViewEventos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form7.Designer.cs">
-      <DependentUpon>Form7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form8.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form8.Designer.cs">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <Compile Include="FormGridViewEventos.Designer.cs">
+      <DependentUpon>FormGridViewEventos.cs</DependentUpon>
     </Compile>
     <Compile Include="inicial.cs">
       <SubType>Form</SubType>
@@ -100,31 +118,49 @@
     <Compile Include="inicial.Designer.cs">
       <DependentUpon>inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelChrysalis.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelChrysalis.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelChrysalis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelChrysalis.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelChrysalis.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacions.cs">
+      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Socis.cs">
+      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormPantallaPrincipal.resx">
+      <DependentUpon>FormPantallaPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="FormMenu.resx">
+      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="FormNuevoEvento.resx">
+      <DependentUpon>FormNuevoEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="FormGirdViewUsuarios.resx">
+      <DependentUpon>FormGirdViewUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
-      <DependentUpon>Form5.cs</DependentUpon>
+    <EmbeddedResource Include="FormNuevoUsuario.resx">
+      <DependentUpon>FormNuevoUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
-      <DependentUpon>Form6.cs</DependentUpon>
+    <EmbeddedResource Include="FormEditarUsuario.resx">
+      <DependentUpon>FormEditarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form7.resx">
-      <DependentUpon>Form7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form8.resx">
-      <DependentUpon>Form8.cs</DependentUpon>
+    <EmbeddedResource Include="FormGridViewEventos.resx">
+      <DependentUpon>FormGridViewEventos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inicial.resx">
       <DependentUpon>inicial.cs</DependentUpon>
@@ -139,6 +175,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="ModelChrysalis.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelChrysalis.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelChrysalis.edmx.diagram">
+      <DependentUpon>ModelChrysalis.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Assistir.datasource" />
+    <None Include="Properties\DataSources\Comunitat.datasource" />
+    <None Include="Properties\DataSources\Documents.datasource" />
+    <None Include="Properties\DataSources\Esdeveniment.datasource" />
+    <None Include="Properties\DataSources\Notificacions.datasource" />
+    <None Include="Properties\DataSources\Socis.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,6 +210,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cropped-Nueva-imagen-Chrysallis %281%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ModelChrysalis.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelChrysalis.edmx</DependentUpon>
+      <LastGenOutput>ModelChrysalis.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelChrysalis.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelChrysalis.edmx</DependentUpon>
+      <LastGenOutput>ModelChrysalis.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\FlechaParaAtras.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
