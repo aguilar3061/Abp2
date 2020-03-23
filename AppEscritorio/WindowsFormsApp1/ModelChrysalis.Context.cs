@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
         public virtual DbSet<Comunitat> Comunitat { get; set; }
         public virtual DbSet<Documents> Documents { get; set; }
         public virtual DbSet<Notificacions> Notificacions { get; set; }
-        public virtual DbSet<Socis> Socis { get; set; }
         public virtual DbSet<Esdeveniment> Esdeveniment { get; set; }
+        public virtual DbSet<Socis> Socis { get; set; }
     }
 }

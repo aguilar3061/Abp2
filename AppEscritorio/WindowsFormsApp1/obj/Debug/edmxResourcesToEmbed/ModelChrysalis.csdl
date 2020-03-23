@@ -10,8 +10,8 @@
     <Property Name="quants" Type="Int32" Nullable="false" />
     <Property Name="valoracio" Type="Int32" />
     <Property Name="comentari" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Socis" Relationship="Self.FK_Assistir_Socis" FromRole="Assistir" ToRole="Socis" />
     <NavigationProperty Name="Esdeveniment" Relationship="chrysallis_grupo3Model.FK_Assistir_Esdeveniment" FromRole="Assistir" ToRole="Esdeveniment" />
+    <NavigationProperty Name="Socis" Relationship="chrysallis_grupo3Model.FK_Assistir_Socis" FromRole="Assistir" ToRole="Socis" />
   </EntityType>
   <EntityType Name="Comunitat">
     <Key>
@@ -19,9 +19,9 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Socis" Relationship="Self.FK_Socis_Comunitat" FromRole="Comunitat" ToRole="Socis" />
-    <NavigationProperty Name="Socis1" Relationship="Self.Comunitat_Soci" FromRole="Comunitat" ToRole="Socis" />
     <NavigationProperty Name="Esdeveniment" Relationship="chrysallis_grupo3Model.FK_Esdeveniment_Comunitat" FromRole="Comunitat" ToRole="Esdeveniment" />
+    <NavigationProperty Name="Socis" Relationship="chrysallis_grupo3Model.FK_Socis_Comunitat" FromRole="Comunitat" ToRole="Socis" />
+    <NavigationProperty Name="Socis1" Relationship="chrysallis_grupo3Model.Comunitat_Soci" FromRole="Comunitat" ToRole="Socis" />
   </EntityType>
   <EntityType Name="Documents">
     <Key>
@@ -40,70 +40,11 @@
     <Property Name="antelacio" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Esdeveniment" Relationship="chrysallis_grupo3Model.Notificacions_Esdeveiment" FromRole="Notificacions" ToRole="Esdeveniment" />
   </EntityType>
-  <EntityType Name="Socis">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="telefon" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="cognoms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="contrasenya" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="actiu" Type="Boolean" Nullable="false" />
-    <Property Name="administrador" Type="Boolean" Nullable="false" />
-    <Property Name="id_comunitat_admin" Type="Int32" />
-    <Property Name="DNI" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Assistir" Relationship="Self.FK_Assistir_Socis" FromRole="Socis" ToRole="Assistir" />
-    <NavigationProperty Name="Comunitat" Relationship="Self.FK_Socis_Comunitat" FromRole="Socis" ToRole="Comunitat" />
-    <NavigationProperty Name="Comunitat1" Relationship="Self.Comunitat_Soci" FromRole="Socis" ToRole="Comunitat" />
-  </EntityType>
-  <Association Name="FK_Assistir_Socis">
-    <End Role="Socis" Type="Self.Socis" Multiplicity="1" />
-    <End Role="Assistir" Type="Self.Assistir" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Socis">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Assistir">
-        <PropertyRef Name="id_Soci" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Socis_Comunitat">
-    <End Role="Comunitat" Type="Self.Comunitat" Multiplicity="0..1" />
-    <End Role="Socis" Type="Self.Socis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Comunitat">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Socis">
-        <PropertyRef Name="id_comunitat_admin" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="Comunitat_Soci">
-    <End Role="Comunitat" Type="Self.Comunitat" Multiplicity="*" />
-    <End Role="Socis" Type="Self.Socis" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="chrysallis_grupo3Entities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Assistir" EntityType="Self.Assistir" />
     <EntitySet Name="Comunitat" EntityType="Self.Comunitat" />
     <EntitySet Name="Documents" EntityType="Self.Documents" />
     <EntitySet Name="Notificacions" EntityType="Self.Notificacions" />
-    <EntitySet Name="Socis" EntityType="Self.Socis" />
-    <AssociationSet Name="FK_Assistir_Socis" Association="Self.FK_Assistir_Socis">
-      <End Role="Socis" EntitySet="Socis" />
-      <End Role="Assistir" EntitySet="Assistir" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Socis_Comunitat" Association="Self.FK_Socis_Comunitat">
-      <End Role="Comunitat" EntitySet="Comunitat" />
-      <End Role="Socis" EntitySet="Socis" />
-    </AssociationSet>
-    <AssociationSet Name="Comunitat_Soci" Association="Self.Comunitat_Soci">
-      <End Role="Comunitat" EntitySet="Comunitat" />
-      <End Role="Socis" EntitySet="Socis" />
-    </AssociationSet>
     <EntitySet Name="Esdeveniment" EntityType="chrysallis_grupo3Model.Esdeveniment" />
     <AssociationSet Name="FK_Assistir_Esdeveniment" Association="chrysallis_grupo3Model.FK_Assistir_Esdeveniment">
       <End Role="Esdeveniment" EntitySet="Esdeveniment" />
@@ -120,6 +61,19 @@
     <AssociationSet Name="Notificacions_Esdeveiment" Association="chrysallis_grupo3Model.Notificacions_Esdeveiment">
       <End Role="Esdeveniment" EntitySet="Esdeveniment" />
       <End Role="Notificacions" EntitySet="Notificacions" />
+    </AssociationSet>
+    <EntitySet Name="Socis" EntityType="chrysallis_grupo3Model.Socis" />
+    <AssociationSet Name="FK_Assistir_Socis" Association="chrysallis_grupo3Model.FK_Assistir_Socis">
+      <End Role="Socis" EntitySet="Socis" />
+      <End Role="Assistir" EntitySet="Assistir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Socis_Comunitat" Association="chrysallis_grupo3Model.FK_Socis_Comunitat">
+      <End Role="Comunitat" EntitySet="Comunitat" />
+      <End Role="Socis" EntitySet="Socis" />
+    </AssociationSet>
+    <AssociationSet Name="Comunitat_Soci" Association="chrysallis_grupo3Model.Comunitat_Soci">
+      <End Role="Comunitat" EntitySet="Comunitat" />
+      <End Role="Socis" EntitySet="Socis" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Esdeveniment">
@@ -178,5 +132,51 @@
   <Association Name="Notificacions_Esdeveiment">
     <End Type="chrysallis_grupo3Model.Esdeveniment" Role="Esdeveniment" Multiplicity="*" />
     <End Type="chrysallis_grupo3Model.Notificacions" Role="Notificacions" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Socis">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="telefon" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="mail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nom" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="cognoms" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contrasenya" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="actiu" Type="Boolean" Nullable="false" />
+    <Property Name="administrador" Type="Boolean" Nullable="false" />
+    <Property Name="id_comunitat_admin" Type="Int32" />
+    <Property Name="DNI" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Assistir" Relationship="chrysallis_grupo3Model.FK_Assistir_Socis" FromRole="Socis" ToRole="Assistir" />
+    <NavigationProperty Name="Comunitat" Relationship="chrysallis_grupo3Model.FK_Socis_Comunitat" FromRole="Socis" ToRole="Comunitat" />
+    <NavigationProperty Name="Comunitat1" Relationship="chrysallis_grupo3Model.Comunitat_Soci" FromRole="Socis" ToRole="Comunitat" />
+  </EntityType>
+  <Association Name="FK_Assistir_Socis">
+    <End Type="chrysallis_grupo3Model.Socis" Role="Socis" Multiplicity="1" />
+    <End Type="chrysallis_grupo3Model.Assistir" Role="Assistir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Socis">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Assistir">
+        <PropertyRef Name="id_Soci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Socis_Comunitat">
+    <End Type="chrysallis_grupo3Model.Comunitat" Role="Comunitat" Multiplicity="0..1" />
+    <End Type="chrysallis_grupo3Model.Socis" Role="Socis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunitat">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Socis">
+        <PropertyRef Name="id_comunitat_admin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Comunitat_Soci">
+    <End Type="chrysallis_grupo3Model.Comunitat" Role="Comunitat" Multiplicity="*" />
+    <End Type="chrysallis_grupo3Model.Socis" Role="Socis" Multiplicity="*" />
   </Association>
 </Schema>

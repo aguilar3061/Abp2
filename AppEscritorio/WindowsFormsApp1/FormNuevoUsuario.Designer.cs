@@ -28,24 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNuevoUsuario));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxCognom = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxDni = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxTelefono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.checkBoxAdministrador = new System.Windows.Forms.CheckBox();
+            this.buttonGuardar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.comboBoxComunitatAdmin = new System.Windows.Forms.ComboBox();
+            this.bindingSourceComunitats = new System.Windows.Forms.BindingSource(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxCorreu = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,46 +62,46 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Nuevo usuario";
             // 
-            // textBox1
+            // textBoxNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(286, 123);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(246, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBoxNombre.Location = new System.Drawing.Point(286, 100);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(246, 20);
+            this.textBoxNombre.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(214, 123);
+            this.label2.Location = new System.Drawing.Point(214, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nombre:";
             // 
-            // textBox2
+            // textBoxCognom
             // 
-            this.textBox2.Location = new System.Drawing.Point(286, 177);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(246, 20);
-            this.textBox2.TabIndex = 6;
+            this.textBoxCognom.Location = new System.Drawing.Point(286, 143);
+            this.textBoxCognom.Name = "textBoxCognom";
+            this.textBoxCognom.Size = new System.Drawing.Size(246, 20);
+            this.textBoxCognom.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(214, 177);
+            this.label3.Location = new System.Drawing.Point(214, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "Cognom";
             // 
-            // textBox3
+            // textBoxDni
             // 
-            this.textBox3.Location = new System.Drawing.Point(286, 230);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(246, 20);
-            this.textBox3.TabIndex = 8;
+            this.textBoxDni.Location = new System.Drawing.Point(286, 230);
+            this.textBoxDni.Name = "textBoxDni";
+            this.textBoxDni.Size = new System.Drawing.Size(246, 20);
+            this.textBoxDni.TabIndex = 8;
             // 
             // label4
             // 
@@ -109,12 +113,13 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "DNI";
             // 
-            // textBox4
+            // textBoxTelefono
             // 
-            this.textBox4.Location = new System.Drawing.Point(286, 278);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(246, 20);
-            this.textBox4.TabIndex = 10;
+            this.textBoxTelefono.Location = new System.Drawing.Point(286, 278);
+            this.textBoxTelefono.Name = "textBoxTelefono";
+            this.textBoxTelefono.Size = new System.Drawing.Size(246, 20);
+            this.textBoxTelefono.TabIndex = 10;
+            this.textBoxTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelefono_KeyPress);
             // 
             // label5
             // 
@@ -136,59 +141,40 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Administrador";
             // 
-            // checkBox1
+            // checkBoxAdministrador
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(265, 344);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxAdministrador.AutoSize = true;
+            this.checkBoxAdministrador.Location = new System.Drawing.Point(265, 344);
+            this.checkBoxAdministrador.Name = "checkBoxAdministrador";
+            this.checkBoxAdministrador.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxAdministrador.TabIndex = 12;
+            this.checkBoxAdministrador.UseVisualStyleBackColor = true;
+            this.checkBoxAdministrador.CheckStateChanged += new System.EventHandler(this.checkBoxAdministrador_CheckStateChanged);
             // 
-            // label7
+            // buttonGuardar
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(505, 340);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 18);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Activo";
+            this.buttonGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.ForeColor = System.Drawing.Color.Black;
+            this.buttonGuardar.Location = new System.Drawing.Point(500, 380);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(128, 49);
+            this.buttonGuardar.TabIndex = 19;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = false;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
-            // comboBox1
+            // buttonCancelar
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "SI",
-            "NO"});
-            this.comboBox1.Location = new System.Drawing.Point(559, 341);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(69, 21);
-            this.comboBox1.TabIndex = 14;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(500, 380);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 49);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(152, 380);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 49);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.ForeColor = System.Drawing.Color.Black;
+            this.buttonCancelar.Location = new System.Drawing.Point(152, 380);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(128, 49);
+            this.buttonCancelar.TabIndex = 20;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = false;
             // 
             // pictureBoxLogo
             // 
@@ -201,31 +187,68 @@
             this.pictureBoxLogo.TabIndex = 21;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // Form5
+            // comboBoxComunitatAdmin
+            // 
+            this.comboBoxComunitatAdmin.DataSource = this.bindingSourceComunitats;
+            this.comboBoxComunitatAdmin.DisplayMember = "nombre";
+            this.comboBoxComunitatAdmin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxComunitatAdmin.FormattingEnabled = true;
+            this.comboBoxComunitatAdmin.Location = new System.Drawing.Point(300, 340);
+            this.comboBoxComunitatAdmin.Name = "comboBoxComunitatAdmin";
+            this.comboBoxComunitatAdmin.Size = new System.Drawing.Size(232, 21);
+            this.comboBoxComunitatAdmin.TabIndex = 22;
+            this.comboBoxComunitatAdmin.ValueMember = "id";
+            // 
+            // bindingSourceComunitats
+            // 
+            this.bindingSourceComunitats.DataSource = typeof(WindowsFormsApp1.Comunitat);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(214, 182);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 18);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Correu";
+            // 
+            // textBoxCorreu
+            // 
+            this.textBoxCorreu.Location = new System.Drawing.Point(286, 183);
+            this.textBoxCorreu.Name = "textBoxCorreu";
+            this.textBoxCorreu.Size = new System.Drawing.Size(246, 20);
+            this.textBoxCorreu.TabIndex = 24;
+            // 
+            // FormNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(192)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBoxLogo);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBoxCorreu);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.comboBoxComunitatAdmin);
+            this.Controls.Add(this.pictureBoxLogo);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonGuardar);
+            this.Controls.Add(this.checkBoxAdministrador);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBoxTelefono);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxDni);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxCognom);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form5";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "FormNuevoUsuario";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,20 +257,22 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxCognom;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxDni;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxTelefono;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.CheckBox checkBoxAdministrador;
+        private System.Windows.Forms.Button buttonGuardar;
+        private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.ComboBox comboBoxComunitatAdmin;
+        private System.Windows.Forms.BindingSource bindingSourceComunitats;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxCorreu;
     }
 }

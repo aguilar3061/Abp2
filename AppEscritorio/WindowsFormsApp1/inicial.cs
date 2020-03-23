@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class inicial : Form
     {
-        Boolean formAbrir = false;
+        //Boolean formAbrir = false;
         public inicial()
         {
             InitializeComponent();
