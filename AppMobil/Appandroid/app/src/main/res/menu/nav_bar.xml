@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_eventOn"
+        android:icon="@drawable/ic_event_available_black_24dp"
+        android:title="Eventos"/>
+
+    <item
+        android:id="@+id/nav_eventOff"
+        android:icon="@drawable/ic_event_busy_black_24dp"
+        android:title="Eventos Finalizados"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Perfil"/>
+
+    <item
+        android:id="@+id/nav_help"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="Ayuda"/>
+
+</menu>
