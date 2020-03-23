@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(357, 22);
+            this.label1.Location = new System.Drawing.Point(369, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 31);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             this.buttonNuevoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.buttonNuevoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevoUsuario.ForeColor = System.Drawing.Color.Black;
-            this.buttonNuevoUsuario.Location = new System.Drawing.Point(1, 84);
+            this.buttonNuevoUsuario.Location = new System.Drawing.Point(11, 81);
             this.buttonNuevoUsuario.Name = "buttonNuevoUsuario";
             this.buttonNuevoUsuario.Size = new System.Drawing.Size(393, 125);
             this.buttonNuevoUsuario.TabIndex = 1;
@@ -64,7 +64,7 @@
             this.buttonNuevoEvento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.buttonNuevoEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevoEvento.ForeColor = System.Drawing.Color.Black;
-            this.buttonNuevoEvento.Location = new System.Drawing.Point(400, 84);
+            this.buttonNuevoEvento.Location = new System.Drawing.Point(410, 81);
             this.buttonNuevoEvento.Name = "buttonNuevoEvento";
             this.buttonNuevoEvento.Size = new System.Drawing.Size(393, 125);
             this.buttonNuevoEvento.TabIndex = 2;
@@ -77,7 +77,7 @@
             this.buttonEditarUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.buttonEditarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditarUsuario.ForeColor = System.Drawing.Color.Black;
-            this.buttonEditarUsuario.Location = new System.Drawing.Point(1, 215);
+            this.buttonEditarUsuario.Location = new System.Drawing.Point(11, 212);
             this.buttonEditarUsuario.Name = "buttonEditarUsuario";
             this.buttonEditarUsuario.Size = new System.Drawing.Size(393, 125);
             this.buttonEditarUsuario.TabIndex = 3;
@@ -90,7 +90,7 @@
             this.buttonEditarEvento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.buttonEditarEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditarEvento.ForeColor = System.Drawing.Color.Black;
-            this.buttonEditarEvento.Location = new System.Drawing.Point(400, 215);
+            this.buttonEditarEvento.Location = new System.Drawing.Point(410, 212);
             this.buttonEditarEvento.Name = "buttonEditarEvento";
             this.buttonEditarEvento.Size = new System.Drawing.Size(393, 125);
             this.buttonEditarEvento.TabIndex = 4;
@@ -103,7 +103,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(192)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(800, 349);
+            this.ClientSize = new System.Drawing.Size(815, 349);
             this.Controls.Add(this.buttonEditarEvento);
             this.Controls.Add(this.buttonEditarUsuario);
             this.Controls.Add(this.buttonNuevoEvento);
