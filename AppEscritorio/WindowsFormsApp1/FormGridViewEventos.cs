@@ -22,10 +22,13 @@ namespace WindowsFormsApp1
         {
             bindingSourceComunidades.DataSource = BD.ComunitatsORM.SelectAllComunitats();
             bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllHotelesPorComunidad((int)comboBoxComunitats.SelectedValue);
+            //comboBoxComunitats.SelectedItem = null;
+
         }
 
         private void comboBoxComunitats_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllHotelesPorComunidad((int)comboBoxComunitats.SelectedValue);
         }
 
