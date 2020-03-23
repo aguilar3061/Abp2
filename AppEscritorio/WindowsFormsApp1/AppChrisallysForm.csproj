@@ -61,6 +61,7 @@
     <Compile Include="BD\ComunitatsORM.cs" />
     <Compile Include="BD\EventoORM.cs" />
     <Compile Include="BD\ORM.cs" />
+    <Compile Include="BD\SociORM.cs" />
     <Compile Include="Comunitat.cs">
       <DependentUpon>ModelChrysalis.tt</DependentUpon>
     </Compile>

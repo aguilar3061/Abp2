@@ -17,19 +17,19 @@ namespace WindowsFormsApp1
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Comunitat()
         {
+            this.Esdeveniment = new HashSet<Esdeveniment>();
             this.Socis = new HashSet<Socis>();
             this.Socis1 = new HashSet<Socis>();
-            this.Esdeveniment = new HashSet<Esdeveniment>();
         }
     
         public int id { get; set; }
         public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Esdeveniment> Esdeveniment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Socis> Socis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Socis> Socis1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Esdeveniment> Esdeveniment { get; set; }
     }
 }

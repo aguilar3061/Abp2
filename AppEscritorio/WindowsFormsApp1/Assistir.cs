@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         public Nullable<int> valoracio { get; set; }
         public string comentari { get; set; }
     
-        public virtual Socis Socis { get; set; }
         public virtual Esdeveniment Esdeveniment { get; set; }
+        public virtual Socis Socis { get; set; }
     }
 }

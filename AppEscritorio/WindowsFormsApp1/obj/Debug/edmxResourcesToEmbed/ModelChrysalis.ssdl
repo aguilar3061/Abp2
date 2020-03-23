@@ -66,12 +66,12 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="telefon" Type="varchar" MaxLength="9" Nullable="false" />
     <Property Name="mail" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="nom" Type="varchar" MaxLength="25" Nullable="false" />
     <Property Name="cognoms" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="contrasenya" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="contrasenya" Type="varchar" MaxLength="20" />
     <Property Name="actiu" Type="bit" Nullable="false" />
     <Property Name="administrador" Type="bit" Nullable="false" />
     <Property Name="id_comunitat_admin" Type="int" />

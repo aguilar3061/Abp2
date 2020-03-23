@@ -255,6 +255,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormNuevoEvento";
             this.Load += new System.EventHandler(this.FormNuevoEvento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).EndInit();

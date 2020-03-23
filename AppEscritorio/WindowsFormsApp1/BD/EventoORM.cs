@@ -24,6 +24,23 @@ namespace WindowsFormsApp1.BD
             return hotels;
 
         }
+        public static String DeleteEvento(Esdeveniment esdevenimentEliminar)
+        {
+            String mensaje="";
+             ORM.bd.Esdeveniment.Remove(esdevenimentEliminar);
+            try
+            {
+                ORM.bd.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                ORM.RejectChanges();
+                SqlException sqlEx = (SqlException)ex.InnerException.InnerException;
+                mensaje = ORM.mensaje(sqlEx);
+
+            }
+            return mensaje;
+        }
         public static String InsertEvento(DateTime dataInici, DateTime horaInici, int idComunitat, DateTime fechaFin, DateTime horaFinal, String Direccion, String NombreEvento )
         {
             String mensaje = "";
