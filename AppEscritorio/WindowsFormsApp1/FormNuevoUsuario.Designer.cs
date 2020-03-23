@@ -247,6 +247,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormNuevoUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).EndInit();
             this.ResumeLayout(false);
