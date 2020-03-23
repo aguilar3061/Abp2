@@ -83,6 +83,12 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModificarEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModificarEvento.Designer.cs">
+      <DependentUpon>FormModificarEvento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNuevoEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModificarEvento.resx">
+      <DependentUpon>FormModificarEvento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNuevoEvento.resx">
       <DependentUpon>FormNuevoEvento.cs</DependentUpon>

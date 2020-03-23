@@ -44,97 +44,103 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.comboBoxComunidad = new System.Windows.Forms.ComboBox();
             this.bindingSourceComunidades = new System.Windows.Forms.BindingSource(this.components);
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.dateTimePickerFechaIncio = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerHoraInicio = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerHoraFinal = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(325, 31);
+            this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nuevo evento";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(246, 106);
+            this.label2.Location = new System.Drawing.Point(38, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBoxNombreEvento
             // 
-            this.textBoxNombreEvento.Location = new System.Drawing.Point(318, 106);
+            this.textBoxNombreEvento.Location = new System.Drawing.Point(110, 73);
             this.textBoxNombreEvento.Name = "textBoxNombreEvento";
-            this.textBoxNombreEvento.Size = new System.Drawing.Size(246, 20);
+            this.textBoxNombreEvento.Size = new System.Drawing.Size(372, 20);
             this.textBoxNombreEvento.TabIndex = 2;
+            this.textBoxNombreEvento.TextChanged += new System.EventHandler(this.textBoxNombreEvento_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(141, 173);
+            this.label3.Location = new System.Drawing.Point(65, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(91, 18);
             this.label3.TabIndex = 3;
             this.label3.Text = "Fecha inicio:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(474, 172);
+            this.label4.Location = new System.Drawing.Point(428, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "Fecha fin:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(141, 206);
+            this.label5.Location = new System.Drawing.Point(65, 156);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 18);
             this.label5.TabIndex = 7;
             this.label5.Text = "Hora inicio:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(474, 202);
+            this.label6.Location = new System.Drawing.Point(428, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 18);
             this.label6.TabIndex = 9;
             this.label6.Text = "Hora fin:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(67, 269);
+            this.label7.Location = new System.Drawing.Point(38, 217);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 18);
             this.label7.TabIndex = 11;
             this.label7.Text = "Comunidad";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // textBoxDireccion
             // 
-            this.textBoxDireccion.Location = new System.Drawing.Point(510, 267);
+            this.textBoxDireccion.Location = new System.Drawing.Point(348, 238);
             this.textBoxDireccion.Name = "textBoxDireccion";
-            this.textBoxDireccion.Size = new System.Drawing.Size(246, 20);
+            this.textBoxDireccion.Size = new System.Drawing.Size(372, 20);
             this.textBoxDireccion.TabIndex = 16;
             this.textBoxDireccion.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
@@ -142,30 +148,32 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(433, 269);
+            this.label9.Location = new System.Drawing.Point(345, 217);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 18);
             this.label9.TabIndex = 15;
             this.label9.Text = "Direccion";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // buttonCancelar
             // 
             this.buttonCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancelar.ForeColor = System.Drawing.Color.Black;
-            this.buttonCancelar.Location = new System.Drawing.Point(129, 369);
+            this.buttonCancelar.Location = new System.Drawing.Point(499, 283);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(128, 49);
             this.buttonCancelar.TabIndex = 17;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonGuardar
             // 
             this.buttonGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.buttonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGuardar.ForeColor = System.Drawing.Color.Black;
-            this.buttonGuardar.Location = new System.Drawing.Point(546, 369);
+            this.buttonGuardar.Location = new System.Drawing.Point(633, 283);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(128, 49);
             this.buttonGuardar.TabIndex = 18;
@@ -179,69 +187,62 @@
             this.comboBoxComunidad.DisplayMember = "nombre";
             this.comboBoxComunidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxComunidad.FormattingEnabled = true;
-            this.comboBoxComunidad.Location = new System.Drawing.Point(166, 266);
+            this.comboBoxComunidad.Location = new System.Drawing.Point(41, 238);
             this.comboBoxComunidad.Name = "comboBoxComunidad";
-            this.comboBoxComunidad.Size = new System.Drawing.Size(240, 21);
+            this.comboBoxComunidad.Size = new System.Drawing.Size(202, 21);
             this.comboBoxComunidad.TabIndex = 20;
             this.comboBoxComunidad.ValueMember = "id";
+            this.comboBoxComunidad.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidad_SelectedIndexChanged);
             // 
             // bindingSourceComunidades
             // 
             this.bindingSourceComunidades.DataSource = typeof(WindowsFormsApp1.Comunitat);
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxLogo.Image = global::WindowsFormsApp1.Properties.Resources.FlechaParaAtras;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(12, 12);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(48, 38);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 19;
-            this.pictureBoxLogo.TabStop = false;
-            // 
             // dateTimePickerFechaIncio
             // 
-            this.dateTimePickerFechaIncio.Location = new System.Drawing.Point(238, 173);
+            this.dateTimePickerFechaIncio.Location = new System.Drawing.Point(162, 114);
             this.dateTimePickerFechaIncio.Name = "dateTimePickerFechaIncio";
-            this.dateTimePickerFechaIncio.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFechaIncio.Size = new System.Drawing.Size(206, 20);
             this.dateTimePickerFechaIncio.TabIndex = 21;
+            this.dateTimePickerFechaIncio.ValueChanged += new System.EventHandler(this.dateTimePickerFechaIncio_ValueChanged);
             // 
             // dateTimePickerFechaFinal
             // 
-            this.dateTimePickerFechaFinal.Location = new System.Drawing.Point(556, 173);
+            this.dateTimePickerFechaFinal.Location = new System.Drawing.Point(506, 114);
             this.dateTimePickerFechaFinal.Name = "dateTimePickerFechaFinal";
             this.dateTimePickerFechaFinal.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerFechaFinal.TabIndex = 22;
+            this.dateTimePickerFechaFinal.ValueChanged += new System.EventHandler(this.dateTimePickerFechaFinal_ValueChanged);
             // 
             // dateTimePickerHoraInicio
             // 
             this.dateTimePickerHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHoraInicio.Location = new System.Drawing.Point(238, 206);
+            this.dateTimePickerHoraInicio.Location = new System.Drawing.Point(205, 154);
             this.dateTimePickerHoraInicio.Name = "dateTimePickerHoraInicio";
-            this.dateTimePickerHoraInicio.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerHoraInicio.Size = new System.Drawing.Size(98, 20);
             this.dateTimePickerHoraInicio.TabIndex = 23;
+            this.dateTimePickerHoraInicio.ValueChanged += new System.EventHandler(this.dateTimePickerHoraInicio_ValueChanged);
             // 
             // dateTimePickerHoraFinal
             // 
             this.dateTimePickerHoraFinal.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHoraFinal.Location = new System.Drawing.Point(556, 206);
+            this.dateTimePickerHoraFinal.Location = new System.Drawing.Point(548, 154);
             this.dateTimePickerHoraFinal.Name = "dateTimePickerHoraFinal";
-            this.dateTimePickerHoraFinal.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerHoraFinal.Size = new System.Drawing.Size(98, 20);
             this.dateTimePickerHoraFinal.TabIndex = 24;
+            this.dateTimePickerHoraFinal.ValueChanged += new System.EventHandler(this.dateTimePickerHoraFinal_ValueChanged);
             // 
             // FormNuevoEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(192)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(769, 342);
             this.Controls.Add(this.dateTimePickerHoraFinal);
             this.Controls.Add(this.dateTimePickerHoraInicio);
             this.Controls.Add(this.dateTimePickerFechaFinal);
             this.Controls.Add(this.dateTimePickerFechaIncio);
             this.Controls.Add(this.comboBoxComunidad);
-            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.textBoxDireccion);
@@ -261,7 +262,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormNuevoEvento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,7 +281,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonGuardar;
-        private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.ComboBox comboBoxComunidad;
         private System.Windows.Forms.BindingSource bindingSourceComunidades;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaIncio;
