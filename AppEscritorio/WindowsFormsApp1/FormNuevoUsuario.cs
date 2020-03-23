@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormNuevoUsuario : Form
+    public partial class FormNuevoUsuario : System.Windows.Forms.Form
     {
         Boolean admin = false;
         String mensaje = "";

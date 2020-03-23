@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormGirdViewUsuarios : Form
+    public partial class FormGirdViewUsuarios : System.Windows.Forms.Form
     {
         public FormGirdViewUsuarios()
         {

@@ -71,11 +71,11 @@
     <Compile Include="Esdeveniment.cs">
       <DependentUpon>ModelChrysalis.tt</DependentUpon>
     </Compile>
-    <Compile Include="FormPantallaPrincipal.cs">
+    <Compile Include="FormInicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPantallaPrincipal.Designer.cs">
-      <DependentUpon>FormPantallaPrincipal.cs</DependentUpon>
+    <Compile Include="FormInicioSesion.Designer.cs">
+      <DependentUpon>FormInicioSesion.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
@@ -142,8 +142,8 @@
     <Compile Include="Socis.cs">
       <DependentUpon>ModelChrysalis.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormPantallaPrincipal.resx">
-      <DependentUpon>FormPantallaPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="FormInicioSesion.resx">
+      <DependentUpon>FormInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>

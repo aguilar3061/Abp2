@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class inicial : Form
+    public partial class inicial : System.Windows.Forms.Form
     {
         //Boolean formAbrir = false;
         public inicial()
@@ -35,10 +35,10 @@ namespace WindowsFormsApp1
         {
             
                 timerLogin.Enabled = false;
-                FormPantallaPrincipal login = new FormPantallaPrincipal();
-
+                FormInicioSesion login = new FormInicioSesion();
+              
                 login.ShowDialog();
-            
+
         }
     }
 }

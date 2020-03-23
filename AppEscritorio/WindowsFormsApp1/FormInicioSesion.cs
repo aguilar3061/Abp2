@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormPantallaPrincipal : Form
+    public partial class FormInicioSesion : System.Windows.Forms.Form
     {
-        public FormPantallaPrincipal()
+        public FormInicioSesion()
         {
             InitializeComponent();
         }
@@ -20,9 +20,12 @@ namespace WindowsFormsApp1
         
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
+
             FormMenu menu = new FormMenu();
 
-            menu.ShowDialog();
+            this.Close();
+
+            menu.Show();
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)

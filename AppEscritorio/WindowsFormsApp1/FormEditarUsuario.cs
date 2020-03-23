@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormEditarUsuario : Form
+    public partial class FormEditarUsuario : System.Windows.Forms.Form
     {
         public FormEditarUsuario()
         {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormMenu : Form
+    public partial class FormMenu : System.Windows.Forms.Form
     {
         public FormMenu()
         {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormGridViewEventos : Form
+    public partial class FormGridViewEventos : System.Windows.Forms.Form
     {
         String mensaje;
         public FormGridViewEventos()

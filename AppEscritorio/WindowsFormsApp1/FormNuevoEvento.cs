@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormNuevoEvento : Form
+    public partial class FormNuevoEvento : System.Windows.Forms.Form
     {
         Boolean modificar = false;
         String mensaje="";
