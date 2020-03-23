@@ -10,6 +10,21 @@ namespace WindowsFormsApp1.BD
 {
     public static class EventoORM
     {
+
+        public static List<Esdeveniment> SelectAllEventos()
+        {
+
+            List<Esdeveniment> hotels =
+            (
+                from p in ORM.bd.Esdeveniment
+                select p
+
+            ).ToList();
+
+            return hotels;
+
+        }
+
         public static List<Esdeveniment> SelectAllHotelesPorComunidad(int idComunitat)
         {
 

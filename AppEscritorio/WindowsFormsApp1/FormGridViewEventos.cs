@@ -21,15 +21,19 @@ namespace WindowsFormsApp1
         private void FormGridViewEventos_Load(object sender, EventArgs e)
         {
             bindingSourceComunidades.DataSource = BD.ComunitatsORM.SelectAllComunitats();
-            bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllHotelesPorComunidad((int)comboBoxComunitats.SelectedValue);
-            //comboBoxComunitats.SelectedItem = null;
+            bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllEventos();
+            comboBoxComunitats.SelectedItem = null;
 
         }
 
         private void comboBoxComunitats_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBoxComunitats.SelectedItem != null) {
 
-            bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllHotelesPorComunidad((int)comboBoxComunitats.SelectedValue);
+                bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllHotelesPorComunidad((int)comboBoxComunitats.SelectedValue);
+
+            }
+
         }
 
         private void dataGridViewEventos_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
