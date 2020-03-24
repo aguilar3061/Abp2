@@ -62,6 +62,8 @@ namespace WindowsFormsApp1
             FormModificarEvento f1 = new FormModificarEvento( (Esdeveniment)dataGridViewEventos.SelectedRows[0].DataBoundItem);
 
             f1.ShowDialog();
+            bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllEventos();
+
 
         }
 
@@ -69,6 +71,11 @@ namespace WindowsFormsApp1
         {
            
             this.Close();
+
+        }
+
+        private void dataGridViewEventos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

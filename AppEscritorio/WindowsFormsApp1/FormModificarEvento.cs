@@ -65,9 +65,39 @@ namespace WindowsFormsApp1
             if (ComprobarDatos())
             {
 
-                BD.EventoORM.UpdateHotel(eventoModificar);
-                MessageBox.Show("Modificaccio correcte", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                eventoModificar.NombreEvento = textBoxNombreEvento.Text;
+                eventoModificar.fechaInicio = dateTimePickerFechaIncio.Value;
+                eventoModificar.fechaFin = dateTimePickerFechaFinal.Value;
+                
 
+
+
+
+
+
+
+
+                //eventoModificar.horaFin = dateTimePickerHoraFinal.Value;
+                //eventoModificar.horaInicio = dateTimePickerHoraInicio.Value; 
+
+                eventoModificar.id_Comunitat = (int)comboBoxComunidad.SelectedValue;
+                eventoModificar.Direccio = textBoxDireccion.Text;
+
+
+
+                String mensaje = BD.EventoORM.UpdateHotel(eventoModificar);
+
+                if (!mensaje.Equals(""))
+                {
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+
+                    MessageBox.Show("Modificaccio correcte", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
 
         }
