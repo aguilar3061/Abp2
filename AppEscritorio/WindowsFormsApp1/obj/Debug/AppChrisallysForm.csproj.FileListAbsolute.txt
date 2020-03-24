@@ -82,3 +82,4 @@ C:\Users\carlo\Documents\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\Ap
 C:\Users\carlo\Documents\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\carlo\Documents\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\carlo\Documents\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormInicioSesion.resources
+C:\Users\carlo\Documents\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormModificarEvento.resources

@@ -62,8 +62,10 @@
             this.dataGridViewEventos.Location = new System.Drawing.Point(12, 91);
             this.dataGridViewEventos.Name = "dataGridViewEventos";
             this.dataGridViewEventos.ReadOnly = true;
+            this.dataGridViewEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEventos.Size = new System.Drawing.Size(776, 292);
             this.dataGridViewEventos.TabIndex = 22;
+            this.dataGridViewEventos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEventos_CellMouseDoubleClick);
             this.dataGridViewEventos.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridViewEventos_UserDeletingRow);
             // 
             // nombreEventoDataGridViewTextBoxColumn
@@ -152,6 +154,7 @@
             this.button1.TabIndex = 26;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormGridViewEventos
             // 

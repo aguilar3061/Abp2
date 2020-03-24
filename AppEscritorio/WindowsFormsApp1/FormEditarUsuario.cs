@@ -12,9 +12,16 @@ namespace WindowsFormsApp1
 {
     public partial class FormEditarUsuario : System.Windows.Forms.Form
     {
+
+   
+
+
         public FormEditarUsuario()
         {
+    
+
             InitializeComponent();
         }
+
     }
 }

@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
         {
             if (comboBoxComunitats.SelectedItem != null) {
 
-                bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllHotelesPorComunidad((int)comboBoxComunitats.SelectedValue);
+                bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllEventosPorComunidad((int)comboBoxComunitats.SelectedValue);
 
             }
 
@@ -54,6 +54,22 @@ namespace WindowsFormsApp1
             {
                 e.Cancel = true;
             }
+        }
+
+        private void dataGridViewEventos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            FormModificarEvento f1 = new FormModificarEvento( (Esdeveniment)dataGridViewEventos.SelectedRows[0].DataBoundItem);
+
+            f1.ShowDialog();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+            this.Close();
+
         }
     }
 }

@@ -27,6 +27,8 @@ namespace WindowsFormsApp1.BD
             soci.contrasenya = null;
             soci.telefon = Telefon;
             soci.DNI = DNI;
+
+
             if (administrador != true)
             {
                 soci.id_comunitat_admin = null;

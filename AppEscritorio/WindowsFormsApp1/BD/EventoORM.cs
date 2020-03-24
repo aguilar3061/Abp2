@@ -11,6 +11,31 @@ namespace WindowsFormsApp1.BD
     public static class EventoORM
     {
 
+
+        public static String UpdateHotel(Esdeveniment hotelM)
+        {
+            String mensaje = "";
+            try
+            {
+                ORM.bd.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                ORM.RejectChanges();
+                SqlException sqlEx = (SqlException)ex.InnerException.InnerException;
+                mensaje = ORM.mensaje(sqlEx);
+
+            }
+            return mensaje;
+        }
+
+
+
+
+
+
+
+
         public static List<Esdeveniment> SelectAllEventos()
         {
 
@@ -25,10 +50,10 @@ namespace WindowsFormsApp1.BD
 
         }
 
-        public static List<Esdeveniment> SelectAllHotelesPorComunidad(int idComunitat)
+        public static List<Esdeveniment> SelectAllEventosPorComunidad(int idComunitat)
         {
 
-            List<Esdeveniment> hotels =
+            List<Esdeveniment> listEventos =
             (
                 from p in ORM.bd.Esdeveniment
                 where p.id_Comunitat == idComunitat
@@ -36,7 +61,7 @@ namespace WindowsFormsApp1.BD
 
             ).ToList();
 
-            return hotels;
+            return listEventos;
 
         }
         public static String DeleteEvento(Esdeveniment esdevenimentEliminar)

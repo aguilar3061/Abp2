@@ -12,99 +12,114 @@ namespace WindowsFormsApp1
 {
     public partial class FormModificarEvento : Form
     {
-        public FormModificarEvento()
+
+        Esdeveniment eventoModificar = new Esdeveniment();
+
+
+        public FormModificarEvento(Esdeveniment eventoModificar)
         {
+            this.eventoModificar = eventoModificar;
+
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void FormModificarEvento_Load(object sender, EventArgs e)
         {
 
-        }
 
-        private void dateTimePickerHoraFinal_ValueChanged(object sender, EventArgs e)
-        {
+            bindingSourceComunidades.DataSource = BD.ComunitatsORM.SelectAllComunitats();
+            comboBoxComunidad.SelectedItem = null;
 
-        }
+            textBoxNombreEvento.Text = eventoModificar.NombreEvento;
+            dateTimePickerFechaIncio.Text = eventoModificar.fechaInicio.ToString();
+            dateTimePickerFechaFinal.Text = eventoModificar.fechaFin.ToString();
+            dateTimePickerHoraFinal.Text = eventoModificar.horaFin.ToString();
+            dateTimePickerHoraInicio.Text = eventoModificar.horaInicio.ToString();
+            comboBoxComunidad.SelectedValue = eventoModificar.id_Comunitat;
+            textBoxDireccion.Text = eventoModificar.Direccio;
 
-        private void dateTimePickerHoraInicio_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePickerFechaFinal_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePickerFechaIncio_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxComunidad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonGuardar_Click(object sender, EventArgs e)
-        {
+           
+            
 
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
 
+            DialogResult respuesta = MessageBox.Show("Seguro que desea cerrar la pantalla de crear un nuevo evento?? Los datos introducidos de este evento no se modificaran ", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+            if (respuesta == DialogResult.Yes)
+            {
+
+                this.Close();
+
+            }
+
         }
 
-        private void textBoxDireccion_TextChanged(object sender, EventArgs e)
+ 
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
         {
 
+            if (ComprobarDatos())
+            {
+
+                BD.EventoORM.UpdateHotel(eventoModificar);
+                MessageBox.Show("Modificaccio correcte", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private Boolean ComprobarDatos()
         {
+            Boolean datosCorrectos = false;
 
+            if (textBoxDireccion.Text.Equals(""))
+            {
+                MessageBox.Show("La direccion no puede estar vacia", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxDireccion.Focus();
+            }
+            else if (dateTimePickerFechaIncio.Value.Date > dateTimePickerFechaFinal.Value.Date)
+            {
+
+                MessageBox.Show("La fecha de inicio no puede ser posterior a la de finalizacion", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateTimePickerFechaIncio.Focus();
+
+            }
+
+            else if (dateTimePickerFechaIncio.Value.Date == dateTimePickerFechaFinal.Value.Date && dateTimePickerHoraFinal.Value.TimeOfDay < dateTimePickerHoraInicio.Value.TimeOfDay)
+            {
+
+
+                MessageBox.Show("La hora de inicio no puede ser mayor a la final", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dateTimePickerHoraFinal.Focus();
+
+
+            }
+            else if (comboBoxComunidad.SelectedValue.ToString().Equals(""))
+            {
+                MessageBox.Show("No hay ninguna comunidad seleccionada ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxComunidad.Focus();
+            }
+            else if (textBoxNombreEvento.Text.Equals(""))
+            {
+                MessageBox.Show("El nombre del evento no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxNombreEvento.Focus();
+            }
+            else
+            {
+
+                datosCorrectos = true;
+
+            }
+
+            return datosCorrectos;
         }
 
-        private void label7_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxNombreEvento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
+
 }

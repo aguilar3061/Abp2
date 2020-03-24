@@ -53,6 +53,7 @@
             // bindingSourceComunidades
             // 
             this.bindingSourceComunidades.DataSource = typeof(WindowsFormsApp1.Comunitat);
+          
             // 
             // label1
             // 
@@ -117,6 +118,7 @@
             this.buttonGuardar.TabIndex = 36;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = false;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // buttonCancelar
             // 
@@ -129,6 +131,7 @@
             this.buttonCancelar.TabIndex = 35;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // textBoxDireccion
             // 
