@@ -61,11 +61,11 @@ namespace WindowsFormsApp1
                 MessageBox.Show("El apellido del usuario no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxCognom.Focus();
             }
-            //else if (textBoxTelefono.Text.Length > 9 || textBoxTelefono.Text.Length < 9 || textBoxTelefono.Text.Equals(""))
-            //{
-            //    MessageBox.Show("El telefono del usuario no es correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    textBoxTelefono.Focus();
-            //}
+            else if (textBoxTelefono.Text.Length > 9 || textBoxTelefono.Text.Length < 9 || textBoxTelefono.Text.Equals(""))
+            {
+                MessageBox.Show("El telefono del usuario no es correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxTelefono.Focus();
+            }
             else if (textBoxCorreu.Text.Equals(""))
             {
                 MessageBox.Show("El correo del usuario no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
