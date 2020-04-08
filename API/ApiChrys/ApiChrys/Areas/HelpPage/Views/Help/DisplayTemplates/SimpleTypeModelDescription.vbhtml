@@ -1,3 +1,0 @@
-@Imports ApiChrys.Areas.HelpPage.ModelDescriptions
-@ModelType SimpleTypeModelDescription
-@Model.Documentation
