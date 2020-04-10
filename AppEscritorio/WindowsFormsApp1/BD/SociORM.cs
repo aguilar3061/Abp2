@@ -1,8 +1,10 @@
-﻿using System;
+﻿using OC.Core.Crypto;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +19,11 @@ namespace WindowsFormsApp1.BD
         {
             String mensaje = "";
 
+            String contrasenya = "1234";
+
+            //Hash hash = new Hash();
+            //SHA512.Create(contrasenya);
+            //hash.Sha512(contrasenya);
             Socis soci = new Socis();
 
             soci.actiu = true;
@@ -31,11 +38,14 @@ namespace WindowsFormsApp1.BD
 
             if (administrador != true)
             {
+                
                 soci.id_comunitat_admin = null;
             }
             else
             {
                 soci.id_comunitat_admin = idComunitatAdmin;
+                soci.contrasenya = "1234";
+
             }
             
 
@@ -58,6 +68,21 @@ namespace WindowsFormsApp1.BD
             }
 
             return mensaje;
+
+        }
+
+
+        public static List<Socis> SelectAllsocis()
+        {
+
+            List<Socis> socis =
+            (
+                from p in ORM.bd.Socis
+                select p
+
+            ).ToList();
+
+            return socis;
 
         }
 
