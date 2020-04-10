@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
@@ -13,9 +14,16 @@ namespace WindowsFormsApp1.BD
 
 
 
-        public static String InsertSoci(Boolean administrador,String Correu, String Nom, String Cognoms, String Telefon, String DNI, int idComunitatAdmin)
+        public static String InsertSoci(Boolean administrador,String Correu, String Nom, String Cognoms, String Telefon, String DNI, Comunitat comunidad)
         {
+
             String mensaje = "";
+            String contrasenya = "1234";
+
+            //Hash hash = new Hash();
+            //SHA512.Create(contrasenya);
+            //hash.Sha512(contrasenya);
+
 
             Socis soci = new Socis();
 
@@ -29,13 +37,21 @@ namespace WindowsFormsApp1.BD
             soci.DNI = DNI;
 
 
+
+            soci.Comunitat1.Add(comunidad);
+
+
+
+
+
             if (administrador != true)
             {
                 soci.id_comunitat_admin = null;
             }
             else
             {
-                soci.id_comunitat_admin = idComunitatAdmin;
+                soci.id_comunitat_admin = comunidad.id;
+                soci.contrasenya = "1234";
             }
             
 
@@ -60,6 +76,61 @@ namespace WindowsFormsApp1.BD
             return mensaje;
 
         }
+
+
+
+
+
+        public static List<Socis> SelectAllSocis()
+        {
+
+            List<Socis> socio =
+            (
+                from p in ORM.bd.Socis
+                select p
+
+            ).ToList();
+
+            return socio;
+
+        }
+
+
+
+
+
+        public static String UpdateSocio(Socis socioM)
+        {
+            String mensaje = "";
+            try
+            {
+
+                //Esdeveniment h2 = ORM.bd.Esdeveniment.Find(hotelM.id);
+
+                //h2.NombreEvento = hotelM.NombreEvento;
+                //h2.fechaInicio = hotelM.fechaInicio;
+                //h2.fechaFin = hotelM.fechaFin;
+                //h2.horaFin = hotelM.horaFin;
+                //h2.horaInicio = hotelM.horaInicio;
+                //h2.id_Comunitat = hotelM.id_Comunitat;
+                //h2.Direccio = hotelM.Direccio;
+
+
+                ORM.bd.SaveChanges();
+            }
+            catch (DbUpdateException ex)
+            {
+                ORM.RejectChanges();
+                SqlException sqlEx = (SqlException)ex.InnerException.InnerException;
+                mensaje = ORM.mensaje(sqlEx);
+
+            }
+            return mensaje;
+        }
+
+
+
+
 
 
     }

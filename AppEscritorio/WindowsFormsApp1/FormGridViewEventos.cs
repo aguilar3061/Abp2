@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
 
         private void FormGridViewEventos_Load(object sender, EventArgs e)
         {
+
             bindingSourceComunidades.DataSource = BD.ComunitatsORM.SelectAllComunitats();
             bindingSourceEventosGridview.DataSource = BD.EventoORM.SelectAllEventos();
             comboBoxComunitats.SelectedItem = null;

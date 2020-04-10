@@ -16,5 +16,46 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+
+        private void FormGirdViewUsuarios_Load(object sender, EventArgs e)
+        {
+
+            bindingSourceSocis.DataSource = BD.SociORM.SelectAllSocis();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+        private void dataGridViewSocios_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+
+
+
+
+
+
+        }
+
+        private void dataGridViewSocios_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+
+
+
+            FormEditarUsuario f2 = new FormEditarUsuario( (Socis) dataGridViewSocios.SelectedRows[0].DataBoundItem ) ;
+
+            f2.ShowDialog();
+            dataGridViewSocios.DataSource = BD.SociORM.SelectAllSocis();
+
+
+
+
+        }
     }
 }

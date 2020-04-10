@@ -17,8 +17,8 @@ namespace WindowsFormsApp1
         public FormNuevoUsuario()
         {
             InitializeComponent();
-            comboBoxComunitatAdmin.Visible = false;
             bindingSourceComunitats.DataSource = BD.ComunitatsORM.SelectAllComunitats();
+            comboBoxComarca.SelectedItem = null;
         }
 
         private void textBoxTelefono_KeyPress(object sender, KeyPressEventArgs e)
@@ -33,12 +33,10 @@ namespace WindowsFormsApp1
         {
             if (checkBoxAdministrador.Checked)
             {
-                comboBoxComunitatAdmin.Visible = true;
                 admin = true;
             }
             else
             {
-                comboBoxComunitatAdmin.Visible = false;
                 admin = false;
             }
             
@@ -73,7 +71,10 @@ namespace WindowsFormsApp1
             }
             else
             {
-               mensaje = BD.SociORM.InsertSoci(admin, textBoxCorreu.Text,textBoxNombre.Text,textBoxCognom.Text,textBoxTelefono.Text,textBoxDni.Text,(int) comboBoxComunitatAdmin.SelectedValue);
+
+
+
+                mensaje = BD.SociORM.InsertSoci(admin, textBoxCorreu.Text,textBoxNombre.Text,textBoxCognom.Text,textBoxTelefono.Text,textBoxDni.Text, (Comunitat) comboBoxComarca.SelectedItem);
 
                 if (!mensaje.Equals(""))
                 {
