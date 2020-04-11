@@ -79,5 +79,15 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void buttonInformacioEvent_Click(object sender, EventArgs e)
+        {
+
+            FormInformacioEsdeveniment formEsdeveniment = new FormInformacioEsdeveniment((Esdeveniment)dataGridViewEventos.SelectedRows[0].DataBoundItem);
+
+
+            formEsdeveniment.ShowDialog();
+            
+        }
     }
 }

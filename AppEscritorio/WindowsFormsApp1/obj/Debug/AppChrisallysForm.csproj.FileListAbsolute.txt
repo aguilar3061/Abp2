@@ -114,3 +114,4 @@ C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\OC.C
 C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
 C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormInicioSesion.resources
 C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormModificarEvento.resources
+C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormInformacioEsdeveniment.resources

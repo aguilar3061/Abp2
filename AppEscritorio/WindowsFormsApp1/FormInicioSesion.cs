@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
         
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            List<Socis> socis = BD.SociORM.SelectAllsocis();
+            List<Socis> socis = BD.SociORM.SelectAllSocis();
             bool login = false;
 
             //Hash hash = new Hash();
@@ -54,27 +54,27 @@ namespace WindowsFormsApp1
                     }
 
                 }
-            }
-
-
-
-
-            if (login == true)
-            {
-                FormMenu menu = new FormMenu();
-
-                this.Close();
-
-                menu.Show();
-            }
-            else
-            {
-                MessageBox.Show("Les credencials introduides no son valides", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-
             
+
+
+
+
+                if (login == true)
+                {
+                    FormMenu menu = new FormMenu();
+
+                    this.Close();
+
+                    menu.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Les credencials introduides no son valides", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+            }
+
 
 
         }

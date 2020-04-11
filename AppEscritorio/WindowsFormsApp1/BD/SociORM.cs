@@ -81,6 +81,20 @@ namespace WindowsFormsApp1.BD
 
 
 
+        public static List<Socis> SelectunSoci(int idSoci)
+        {
+            
+
+            List<Socis> socio =
+            (
+                from p in ORM.bd.Socis
+                where p.id == idSoci
+                select p
+
+            ).ToList();
+
+            return socio;
+        }
         public static List<Socis> SelectAllSocis()
         {
 

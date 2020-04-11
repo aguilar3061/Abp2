@@ -67,6 +67,7 @@
     <Compile Include="Assistir.cs">
       <DependentUpon>ModelChrysalis.tt</DependentUpon>
     </Compile>
+    <Compile Include="BD\AssistirORM.cs" />
     <Compile Include="BD\ComunitatsORM.cs" />
     <Compile Include="BD\EventoORM.cs" />
     <Compile Include="BD\ORM.cs" />
@@ -79,6 +80,12 @@
     </Compile>
     <Compile Include="Esdeveniment.cs">
       <DependentUpon>ModelChrysalis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformacioEsdeveniment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformacioEsdeveniment.Designer.cs">
+      <DependentUpon>FormInformacioEsdeveniment.cs</DependentUpon>
     </Compile>
     <Compile Include="FormInicioSesion.cs">
       <SubType>Form</SubType>
@@ -157,6 +164,9 @@
     <Compile Include="Socis.cs">
       <DependentUpon>ModelChrysalis.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormInformacioEsdeveniment.resx">
+      <DependentUpon>FormInformacioEsdeveniment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicioSesion.resx">
       <DependentUpon>FormInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
