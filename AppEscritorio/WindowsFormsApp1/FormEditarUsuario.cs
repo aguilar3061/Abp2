@@ -38,9 +38,8 @@ namespace WindowsFormsApp1
             textBoxDni.Text = socio.DNI;
             textBoxTelefono.Text = socio.telefon;
             textBoxCorreu.Text = socio.mail;
-
-
-
+            textBoxContrasena.Text = socio.contrasenya;
+            textBoxContrasenaR.Text = socio.contrasenya;
 
             if (socio.Comunitat1 != null)
             {
@@ -93,13 +92,22 @@ namespace WindowsFormsApp1
             else if (!textBoxContrasena.Text.Equals(textBoxContrasenaR.Text))
             {
                     
-                    MessageBox.Show("La contraseña no coincide.. ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    comboBoxComunidad.Focus();
+                MessageBox.Show("La contraseña no coincide.. ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxComunidad.Focus();
+
+            }
+            else if (textBoxContrasena.Text.Equals(""))
+            {
+
+                MessageBox.Show("La no puede estar vacia.. ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxComunidad.Focus();
 
             }
             else
             {
 
+
+            
                 socio.contrasenya = textBoxContrasena.Text;
                 socio.nom = textBoxNombre.Text;
                 socio.cognoms = textBoxCognom.Text;
@@ -108,10 +116,16 @@ namespace WindowsFormsApp1
                 socio.mail = textBoxCorreu.Text;
                 socio.actiu = checkBoxActivo.Checked;
 
+
+
                 //socio.Comunitat1.Clear();
                 //socio.Comunitat1.Add( (Comunitat) comboBoxComunidad.SelectedItem );
 
+
+
                 BD.SociORM.UpdateSocio(socio);
+
+
 
                 if (!mensaje.Equals(""))
                 {

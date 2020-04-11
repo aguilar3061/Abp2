@@ -69,7 +69,7 @@ namespace WindowsFormsApp1
                 MessageBox.Show("El correo del usuario no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxTelefono.Focus();
             }
-            else if (comboBoxComunidad.SelectedItem != null)
+            else if (comboBoxComunidad.SelectedItem == null)
             {
 
                 MessageBox.Show("La comunidad del usuario no puede estar vacia", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
