@@ -174,6 +174,7 @@
             // 
             this.textBoxContrasena.Location = new System.Drawing.Point(298, 343);
             this.textBoxContrasena.Name = "textBoxContrasena";
+            this.textBoxContrasena.PasswordChar = 'x';
             this.textBoxContrasena.Size = new System.Drawing.Size(246, 20);
             this.textBoxContrasena.TabIndex = 37;
             // 
@@ -191,6 +192,7 @@
             // 
             this.textBoxContrasenaR.Location = new System.Drawing.Point(298, 377);
             this.textBoxContrasenaR.Name = "textBoxContrasenaR";
+            this.textBoxContrasenaR.PasswordChar = 'x';
             this.textBoxContrasenaR.Size = new System.Drawing.Size(246, 20);
             this.textBoxContrasenaR.TabIndex = 39;
             // 
