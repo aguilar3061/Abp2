@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
         
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            List<Socis> socis = BD.SociORM.SelectAllsocis();
+            List<Socis> socis = BD.SociORM.SelectAllSocis();
             bool login = false;
 
             //Hash hash = new Hash();

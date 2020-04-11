@@ -14,7 +14,7 @@ namespace WindowsFormsApp1.BD
 
 
 
-        public static String InsertSoci(Boolean administrador,String Correu, String Nom, String Cognoms, String Telefon, String DNI, Comunitat comunidad)
+        public static String InsertSoci(Boolean activo, Boolean administrador,String Correu, String Nom, String Cognoms, String Telefon, String DNI, Comunitat comunidad)
         {
 
             String mensaje = "";
@@ -27,7 +27,7 @@ namespace WindowsFormsApp1.BD
 
             Socis soci = new Socis();
 
-            soci.actiu = true;
+            soci.actiu = activo;
             soci.administrador= administrador;
             soci.mail = Correu;
             soci.nom = Nom;
@@ -60,6 +60,11 @@ namespace WindowsFormsApp1.BD
 
 
             ORM.bd.Socis.Add(soci);
+
+
+
+
+
 
             try
             {
@@ -97,26 +102,14 @@ namespace WindowsFormsApp1.BD
 
 
 
-
-
         public static String UpdateSocio(Socis socioM)
         {
             String mensaje = "";
             try
             {
 
-                //Esdeveniment h2 = ORM.bd.Esdeveniment.Find(hotelM.id);
-
-                //h2.NombreEvento = hotelM.NombreEvento;
-                //h2.fechaInicio = hotelM.fechaInicio;
-                //h2.fechaFin = hotelM.fechaFin;
-                //h2.horaFin = hotelM.horaFin;
-                //h2.horaInicio = hotelM.horaInicio;
-                //h2.id_Comunitat = hotelM.id_Comunitat;
-                //h2.Direccio = hotelM.Direccio;
-
-
                 ORM.bd.SaveChanges();
+
             }
             catch (DbUpdateException ex)
             {

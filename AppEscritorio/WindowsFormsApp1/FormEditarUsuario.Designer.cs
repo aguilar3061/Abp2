@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEditarUsuario));
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonGuardar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxTelfon = new System.Windows.Forms.TextBox();
+            this.textBoxTelefono = new System.Windows.Forms.TextBox();
             this.labelTelefon = new System.Windows.Forms.Label();
             this.textBoxDni = new System.Windows.Forms.TextBox();
             this.labelDni = new System.Windows.Forms.Label();
@@ -47,39 +47,39 @@
             this.textBoxContrasenaR = new System.Windows.Forms.TextBox();
             this.label = new System.Windows.Forms.Label();
             this.checkBoxActivo = new System.Windows.Forms.CheckBox();
-            this.textBoxCorreo = new System.Windows.Forms.TextBox();
+            this.textBoxCorreu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxComarca = new System.Windows.Forms.ComboBox();
+            this.comboBoxComunidad = new System.Windows.Forms.ComboBox();
             this.bindingSourceComunidad = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidad)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // buttonCancel
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(577, 423);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 49);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.Color.Black;
+            this.buttonCancel.Location = new System.Drawing.Point(577, 423);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(128, 49);
+            this.buttonCancel.TabIndex = 35;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // button1
+            // buttonGuardar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(721, 423);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 49);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.buttonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.ForeColor = System.Drawing.Color.Black;
+            this.buttonGuardar.Location = new System.Drawing.Point(721, 423);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(128, 49);
+            this.buttonGuardar.TabIndex = 34;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = false;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // label7
             // 
@@ -91,12 +91,12 @@
             this.label7.TabIndex = 32;
             this.label7.Text = "Activo";
             // 
-            // textBoxTelfon
+            // textBoxTelefono
             // 
-            this.textBoxTelfon.Location = new System.Drawing.Point(297, 221);
-            this.textBoxTelfon.Name = "textBoxTelfon";
-            this.textBoxTelfon.Size = new System.Drawing.Size(246, 20);
-            this.textBoxTelfon.TabIndex = 29;
+            this.textBoxTelefono.Location = new System.Drawing.Point(297, 221);
+            this.textBoxTelefono.Name = "textBoxTelefono";
+            this.textBoxTelefono.Size = new System.Drawing.Size(246, 20);
+            this.textBoxTelefono.TabIndex = 29;
             // 
             // labelTelefon
             // 
@@ -110,6 +110,7 @@
             // 
             // textBoxDni
             // 
+            this.textBoxDni.Enabled = false;
             this.textBoxDni.Location = new System.Drawing.Point(297, 183);
             this.textBoxDni.Name = "textBoxDni";
             this.textBoxDni.Size = new System.Drawing.Size(246, 20);
@@ -212,12 +213,12 @@
             this.checkBoxActivo.TabIndex = 40;
             this.checkBoxActivo.UseVisualStyleBackColor = true;
             // 
-            // textBoxCorreo
+            // textBoxCorreu
             // 
-            this.textBoxCorreo.Location = new System.Drawing.Point(297, 255);
-            this.textBoxCorreo.Name = "textBoxCorreo";
-            this.textBoxCorreo.Size = new System.Drawing.Size(246, 20);
-            this.textBoxCorreo.TabIndex = 42;
+            this.textBoxCorreu.Location = new System.Drawing.Point(297, 255);
+            this.textBoxCorreu.Name = "textBoxCorreu";
+            this.textBoxCorreu.Size = new System.Drawing.Size(246, 20);
+            this.textBoxCorreu.TabIndex = 42;
             // 
             // label3
             // 
@@ -233,27 +234,26 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(214, 292);
+            this.label4.Location = new System.Drawing.Point(200, 291);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 18);
+            this.label4.Size = new System.Drawing.Size(88, 18);
             this.label4.TabIndex = 43;
-            this.label4.Text = "Comarca:";
+            this.label4.Text = "Comunidad:";
             // 
-            // comboBoxComarca
+            // comboBoxComunidad
             // 
-            this.comboBoxComarca.DataSource = this.bindingSourceComunidad;
-            this.comboBoxComarca.DisplayMember = "nombre";
-            this.comboBoxComarca.FormattingEnabled = true;
-            this.comboBoxComarca.Location = new System.Drawing.Point(298, 288);
-            this.comboBoxComarca.Name = "comboBoxComarca";
-            this.comboBoxComarca.Size = new System.Drawing.Size(246, 21);
-            this.comboBoxComarca.TabIndex = 44;
-            this.comboBoxComarca.ValueMember = "id";
+            this.comboBoxComunidad.DataSource = this.bindingSourceComunidad;
+            this.comboBoxComunidad.DisplayMember = "nombre";
+            this.comboBoxComunidad.FormattingEnabled = true;
+            this.comboBoxComunidad.Location = new System.Drawing.Point(298, 288);
+            this.comboBoxComunidad.Name = "comboBoxComunidad";
+            this.comboBoxComunidad.Size = new System.Drawing.Size(246, 21);
+            this.comboBoxComunidad.TabIndex = 44;
+            this.comboBoxComunidad.ValueMember = "id";
             // 
             // bindingSourceComunidad
             // 
             this.bindingSourceComunidad.DataSource = typeof(WindowsFormsApp1.Comunitat);
-            this.bindingSourceComunidad.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
             // 
             // FormEditarUsuario
             // 
@@ -261,19 +261,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(192)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(861, 484);
-            this.Controls.Add(this.comboBoxComarca);
+            this.Controls.Add(this.comboBoxComunidad);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBoxCorreo);
+            this.Controls.Add(this.textBoxCorreu);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.checkBoxActivo);
             this.Controls.Add(this.textBoxContrasenaR);
             this.Controls.Add(this.label);
             this.Controls.Add(this.textBoxContrasena);
             this.Controls.Add(this.labelContrasena);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxTelfon);
+            this.Controls.Add(this.textBoxTelefono);
             this.Controls.Add(this.labelTelefon);
             this.Controls.Add(this.textBoxDni);
             this.Controls.Add(this.labelDni);
@@ -296,10 +296,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBoxTelfon;
+        private System.Windows.Forms.TextBox textBoxTelefono;
         private System.Windows.Forms.Label labelTelefon;
         private System.Windows.Forms.TextBox textBoxDni;
         private System.Windows.Forms.Label labelDni;
@@ -313,10 +313,10 @@
         private System.Windows.Forms.TextBox textBoxContrasenaR;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.CheckBox checkBoxActivo;
-        private System.Windows.Forms.TextBox textBoxCorreo;
+        private System.Windows.Forms.TextBox textBoxCorreu;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxComarca;
+        private System.Windows.Forms.ComboBox comboBoxComunidad;
         private System.Windows.Forms.BindingSource bindingSourceComunidad;
     }
 }

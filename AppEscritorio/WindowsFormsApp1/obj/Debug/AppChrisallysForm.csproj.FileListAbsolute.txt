@@ -114,3 +114,10 @@ C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\OC.C
 C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
 C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormInicioSesion.resources
 C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormModificarEvento.resources
+C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.config
+C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\OC.Core.Crypto.dll
+C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\OC.Core.dll
+C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\BouncyCastle.Crypto.pdb
+C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\OC.Core.pdb
+C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\OC.Core.Crypto.pdb
