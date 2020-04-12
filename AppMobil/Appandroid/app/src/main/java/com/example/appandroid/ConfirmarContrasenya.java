@@ -15,6 +15,9 @@ public class ConfirmarContrasenya extends AppCompatActivity {
         setContentView(R.layout.activity_confirmar_contrasenya);
 
         Button acceder = (Button) findViewById(R.id.button_acceder);
+
+
+
         acceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -8,12 +8,65 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class Eventos extends Fragment {
+
+
+
+    RecyclerView recView;
+    AdaptadorEventos adapter;
+
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.activity_eventos,container,false);
     }
+
+    @Override
+    public void onActivityCreated(Bundle state) {
+        super.onActivityCreated(state);
+
+        ArrayList<Evento> listaEventos = new ArrayList<>();
+
+
+
+        recView = (RecyclerView) getView().findViewById(R.id.RecViewEventos);
+
+
+
+        listaEventos.add(new Evento("HOLAA1"));
+        listaEventos.add(new Evento("ADIIIOS1"));
+        listaEventos.add(new Evento("QUE TAL1"));
+        listaEventos.add(new Evento("HOLAA2"));
+        listaEventos.add(new Evento("ADIIIOS2"));
+        listaEventos.add(new Evento("QUE TAL2"));
+        listaEventos.add(new Evento("HOLAA3"));
+        listaEventos.add(new Evento("ADIIIOS3"));
+        listaEventos.add(new Evento("QUE TAL3"));
+
+
+        adapter = new AdaptadorEventos(listaEventos);
+        recView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(), RecyclerView.VERTICAL, false));
+        recView.setHasFixedSize(true);
+        recView.setAdapter(adapter);
+
+
+        recView.setHasFixedSize(true);
+        recView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
+
+
+    }
+
+
+
+
+
 }
