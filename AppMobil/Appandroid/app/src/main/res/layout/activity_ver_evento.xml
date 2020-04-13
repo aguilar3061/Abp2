@@ -40,21 +40,45 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <Button
+            android:id="@+id/button_ubicacion"
+            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_gravity="end"
+            android:layout_PaddingTop="50dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/colorAzul"
+            android:text="@string/ubicacion" />
+
+        <Button
+            android:id="@+id/button_informacion"
+            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_gravity="end"
+            android:layout_PaddingTop="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="@color/colorAzul"
+            android:text="@string/informacion" />
+
+
+    </LinearLayout>
+
 
     <FrameLayout
+        android:layout_margin="10dp"
         android:id="@+id/RecViewEventosF"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
 
         />
-
-
-
-
-
-
-
-
-
 </LinearLayout>
