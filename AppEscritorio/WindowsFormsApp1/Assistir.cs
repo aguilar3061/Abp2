@@ -16,9 +16,9 @@ namespace WindowsFormsApp1
     {
         public int id_Soci { get; set; }
         public int id_Esdeveiment { get; set; }
-        public int quants { get; set; }
         public Nullable<int> valoracio { get; set; }
         public string comentari { get; set; }
+        public Nullable<bool> aiste { get; set; }
     
         public virtual Esdeveniment Esdeveniment { get; set; }
         public virtual Socis Socis { get; set; }
