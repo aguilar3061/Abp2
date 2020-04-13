@@ -54,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_width="120dp"
             android:layout_gravity="end"
-            android:layout_PaddingTop="50dp"
             android:layout_marginRight="30dp"
             android:background="@color/colorAzul"
             android:text="@string/ubicacion" />
@@ -64,7 +63,6 @@
             android:layout_height="wrap_content"
             android:layout_width="120dp"
             android:layout_gravity="end"
-            android:layout_PaddingTop="50dp"
             android:layout_marginLeft="30dp"
             android:background="@color/colorAzul"
             android:text="@string/informacion" />
