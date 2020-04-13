@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assistir.cs">
-      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+      <DependentUpon>ModelChris.tt</DependentUpon>
     </Compile>
     <Compile Include="BD\AssistirORM.cs" />
     <Compile Include="BD\ComunitatsORM.cs" />
@@ -73,13 +73,10 @@
     <Compile Include="BD\ORM.cs" />
     <Compile Include="BD\SociORM.cs" />
     <Compile Include="Comunitat.cs">
-      <DependentUpon>ModelChrysalis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Documents.cs">
-      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+      <DependentUpon>ModelChris.tt</DependentUpon>
     </Compile>
     <Compile Include="Esdeveniment.cs">
-      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+      <DependentUpon>ModelChris.tt</DependentUpon>
     </Compile>
     <Compile Include="FormInformacioEsdeveniment.cs">
       <SubType>Form</SubType>
@@ -141,28 +138,25 @@
     <Compile Include="inicial.Designer.cs">
       <DependentUpon>inicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModelChrysalis.Context.cs">
+    <Compile Include="ModelChris.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelChrysalis.Context.tt</DependentUpon>
+      <DependentUpon>ModelChris.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelChrysalis.cs">
+    <Compile Include="ModelChris.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+      <DependentUpon>ModelChris.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelChrysalis.Designer.cs">
+    <Compile Include="ModelChris.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelChrysalis.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Notificacions.cs">
-      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+      <DependentUpon>ModelChris.edmx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Socis.cs">
-      <DependentUpon>ModelChrysalis.tt</DependentUpon>
+      <DependentUpon>ModelChris.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormInformacioEsdeveniment.resx">
       <DependentUpon>FormInformacioEsdeveniment.cs</DependentUpon>
@@ -204,12 +198,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="ModelChrysalis.edmx">
+    <EntityDeploy Include="ModelChris.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelChrysalis.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelChris.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModelChrysalis.edmx.diagram">
-      <DependentUpon>ModelChrysalis.edmx</DependentUpon>
+    <None Include="ModelChris.edmx.diagram">
+      <DependentUpon>ModelChris.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Assistir.datasource" />
@@ -243,18 +237,19 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="ModelChrysalis.Context.tt">
+    <Content Include="ModelChris.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelChrysalis.edmx</DependentUpon>
-      <LastGenOutput>ModelChrysalis.Context.cs</LastGenOutput>
+      <DependentUpon>ModelChris.edmx</DependentUpon>
+      <LastGenOutput>ModelChris.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelChrysalis.tt">
+    <Content Include="ModelChris.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelChrysalis.edmx</DependentUpon>
-      <LastGenOutput>ModelChrysalis.cs</LastGenOutput>
+      <DependentUpon>ModelChris.edmx</DependentUpon>
+      <LastGenOutput>ModelChris.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\FlechaParaAtras.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

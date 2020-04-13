@@ -18,7 +18,6 @@ namespace WindowsFormsApp1
         public Socis()
         {
             this.Assistir = new HashSet<Assistir>();
-            this.Comunitat1 = new HashSet<Comunitat>();
         }
     
         public int id { get; set; }
@@ -31,11 +30,12 @@ namespace WindowsFormsApp1
         public bool administrador { get; set; }
         public Nullable<int> id_comunitat_admin { get; set; }
         public string DNI { get; set; }
+        public Nullable<int> id_comunidad_socio { get; set; }
+        public bool contrasena_cambiada { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Assistir> Assistir { get; set; }
         public virtual Comunitat Comunitat { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comunitat> Comunitat1 { get; set; }
+        public virtual Comunitat Comunitat1 { get; set; }
     }
 }

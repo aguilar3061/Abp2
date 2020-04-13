@@ -13,10 +13,10 @@ namespace WindowsFormsApp1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class chrysallis_grupo3Entities3 : DbContext
+    public partial class chrysallis_grupo3Entities4 : DbContext
     {
-        public chrysallis_grupo3Entities3()
-            : base("name=chrysallis_grupo3Entities3")
+        public chrysallis_grupo3Entities4()
+            : base("name=chrysallis_grupo3Entities4")
         {
         }
     
@@ -27,8 +27,6 @@ namespace WindowsFormsApp1
     
         public virtual DbSet<Assistir> Assistir { get; set; }
         public virtual DbSet<Comunitat> Comunitat { get; set; }
-        public virtual DbSet<Documents> Documents { get; set; }
-        public virtual DbSet<Notificacions> Notificacions { get; set; }
         public virtual DbSet<Esdeveniment> Esdeveniment { get; set; }
         public virtual DbSet<Socis> Socis { get; set; }
     }
