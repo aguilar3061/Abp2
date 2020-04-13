@@ -122,3 +122,4 @@ C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\Boun
 C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\OC.Core.pdb
 C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\bin\Debug\OC.Core.Crypto.pdb
 C:\Users\carlo\Desktop\GitHub\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormInformacioEsdeveniment.resources
+C:\Users\Usuario\Desktop\ABP2\Abp2\AppEscritorio\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormInformacioEsdeveniment.resources

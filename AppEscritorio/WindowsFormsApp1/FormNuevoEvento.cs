@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +44,7 @@ namespace WindowsFormsApp1
                 if (ComprobarDatos() != false)
                 {
 
-                    mensaje = BD.EventoORM.InsertEvento(dateTimePickerFechaIncio.Value, dateTimePickerHoraInicio.Value, (int)comboBoxComunidad.SelectedValue, dateTimePickerFechaFinal.Value, dateTimePickerHoraFinal.Value, textBoxDireccion.Text, textBoxNombreEvento.Text);
+                    mensaje = BD.EventoORM.InsertEvento(dateTimePickerFechaIncio.Value, dateTimePickerHoraInicio.Value, (int)comboBoxComunidad.SelectedValue, dateTimePickerFechaFinal.Value, dateTimePickerHoraFinal.Value, textBoxDireccion.Text, textBoxNombreEvento.Text, ImageToByteArray(pictureBoxImatgeEsdeveniment.Image), richTextBoxDescripcio.Text);
 
                     if (!mensaje.Equals(""))
                     {
@@ -63,16 +64,25 @@ namespace WindowsFormsApp1
 
 
         }
+
+        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
         private Boolean ComprobarDatos()
         {
-            Boolean datosCorrectos = false; 
+            Boolean datosCorrectos = false;
 
             if (textBoxDireccion.Text.Equals(""))
             {
                 MessageBox.Show("La direccion no puede estar vacia", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxDireccion.Focus();
             }
-            else if ( dateTimePickerFechaIncio.Value.Date > dateTimePickerFechaFinal.Value.Date)
+            else if (dateTimePickerFechaIncio.Value.Date > dateTimePickerFechaFinal.Value.Date)
             {
 
                 MessageBox.Show("La fecha de inicio no puede ser posterior a la de finalizacion", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -82,14 +92,14 @@ namespace WindowsFormsApp1
 
             else if (dateTimePickerFechaIncio.Value.Date == dateTimePickerFechaFinal.Value.Date && dateTimePickerHoraFinal.Value.TimeOfDay < dateTimePickerHoraInicio.Value.TimeOfDay)
             {
-               
-         
+
+
                 MessageBox.Show("La hora de inicio no puede ser mayor a la final", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateTimePickerHoraFinal.Focus();
-                
-           
+
+
             }
-            else if ( comboBoxComunidad.SelectedValue.ToString().Equals("") )
+            else if (comboBoxComunidad.SelectedValue.ToString().Equals(""))
             {
                 MessageBox.Show("No hay ninguna comunidad seleccionada ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 comboBoxComunidad.Focus();
@@ -99,9 +109,19 @@ namespace WindowsFormsApp1
                 MessageBox.Show("El nombre del evento no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxNombreEvento.Focus();
             }
+            else if (pictureBoxImatgeEsdeveniment.Image == null)
+            {
+                MessageBox.Show("L'esdeveniment necessita tinde una imatge", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                pictureBoxImatgeEsdeveniment.Focus();
+            }
+            else if (richTextBoxDescripcio.Text == "")
+            {
+                MessageBox.Show("L'esdeveniment necessita una descripcio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                richTextBoxDescripcio.Focus();
+            }
             else
             {
-                
+
                 datosCorrectos = true;
 
             }
@@ -128,6 +148,29 @@ namespace WindowsFormsApp1
         private void comboBoxComunidad_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBoxImatgeEsdeveniment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBoxImatgeEsdeveniment.Image = Image.FromFile(imagen);
+                    pictureBoxImatgeEsdeveniment.BackColor = Color.DarkGray;
+                }
+            }
+            catch (Exception)
+            {
+                errorImatge();
+            }
+            
+        }
+
+        private void errorImatge()
+        {
+            MessageBox.Show("El arxiu seleccionat no es una imatge");
         }
     }
 }
