@@ -4,15 +4,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="center_horizontal"
+    android:padding="5dp"
     android:background="@color/colorFondo">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="50dp"
-        android:text="AYUDA"/>
+        android:text="AYUDA"
+        android:textColor="#000000"
+        android:padding="15dp"
+        android:textSize="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eventos Finalizados:"
+        android:textColor="#000000"
+        android:textSize="28dp"
+        android:paddingBottom="8dp"/>
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_vew_circular"
+        android:paddingBottom="15dp"
+        android:text="Este Color Rojo en la pantalla de Eventos Finalizados significa que el evento ha acabado i no he asistido."
+        android:textColor="#000000"
+        android:padding="15dp"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/text_vew_circular_berde"
+        android:paddingBottom="15dp"
+        android:text="Este Color Verde en la pantalla de Eventos Finalizados significa que el evento ha acabado y se ha asistido."
+        android:textColor="#000000"
+        android:padding="15dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eventos:"
+        android:textColor="#000000"
+        android:textSize="28dp"
+        android:paddingBottom="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/redondo_gris"
+        android:paddingBottom="15dp"
+        android:text="Este Color Gris en la pantalla de Eventos significa que el evento no ha acabado pero no se esa apuntado."
+        android:textColor="#000000"
+        android:padding="15dp"
+        android:textSize="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/redondo_verde_bien"
+        android:paddingBottom="15dp"
+        android:text="Este Color Verde en la pantalla de Eventos significa que el evento no ha acabado y al cual se esta apuntando."
+        android:textColor="#000000"
+        android:padding="15dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20dp" />
 </LinearLayout>
