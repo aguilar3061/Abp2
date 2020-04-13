@@ -35,13 +35,9 @@ namespace WindowsFormsApp1.BD
             soci.contrasenya = null;
             soci.telefon = Telefon;
             soci.DNI = DNI;
-
-
-
-            soci.Comunitat1.Add(comunidad);
-
-
-
+            soci.id_comunidad_socio = comunidad.id;
+            soci.contrasena_cambiada = false;
+            soci.contrasenya = "chrisallys";
 
 
             if (administrador != true)
@@ -55,14 +51,8 @@ namespace WindowsFormsApp1.BD
             }
             
 
-            
-
-
 
             ORM.bd.Socis.Add(soci);
-
-
-
 
 
 

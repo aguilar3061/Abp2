@@ -11,7 +11,7 @@ namespace WindowsFormsApp1.BD
 {
     public static class ORM
     {
-        public static chrysallis_grupo3Entities3 bd = new chrysallis_grupo3Entities3();
+        public static chrysallis_grupo3Entities4 bd = new chrysallis_grupo3Entities4();
 
         public static String mensaje(SqlException ex)
         {

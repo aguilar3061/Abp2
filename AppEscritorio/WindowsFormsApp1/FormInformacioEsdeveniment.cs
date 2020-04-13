@@ -17,14 +17,11 @@ namespace WindowsFormsApp1
             InitializeComponent();
             List<Assistir> assistir = BD.AssistirORM.SelectAllAssitir(esdeveniment.id);
 
-            if (assistir.Count > 0)
-            {
-                labelAssistencia.Text = assistir[0].quants.ToString();
-            }
+        
             
             labelNomEsdeveniment.Text = esdeveniment.NombreEvento;
 
-           bindingSourceAssistir.DataSource = BD.AssistirORM.SelectAllAssitir(esdeveniment.id);
+            bindingSourceAssistir.DataSource = BD.AssistirORM.SelectAllAssitir(esdeveniment.id);
 
 
           

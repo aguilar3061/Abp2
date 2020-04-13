@@ -28,7 +28,13 @@ namespace WindowsFormsApp1
 
         private void FormEditarUsuario_Load(object sender, EventArgs e)
         {
+            if (socio.administrador)
+            {
 
+                labelEditar.Text = "Editar ADMINISTRADOR";
+
+
+            }
      
             bindingSourceComunidad.DataSource = BD.ComunitatsORM.SelectAllComunitats();
 
@@ -41,11 +47,11 @@ namespace WindowsFormsApp1
             textBoxContrasena.Text = socio.contrasenya;
             textBoxContrasenaR.Text = socio.contrasenya;
 
+
             if (socio.Comunitat1 != null)
             {
-                //Comunitat c1 = BD.ComunitatsORM.BuscarRelacionSocio(socio);
               
-                //comboBoxComunidad.SelectedItem = c1.id;
+                comboBoxComunidad.SelectedItem = socio.Comunitat1;
 
             }
 
@@ -115,11 +121,7 @@ namespace WindowsFormsApp1
                 socio.telefon = textBoxTelefono.Text;
                 socio.mail = textBoxCorreu.Text;
                 socio.actiu = checkBoxActivo.Checked;
-
-
-
-                //socio.Comunitat1.Clear();
-                //socio.Comunitat1.Add( (Comunitat) comboBoxComunidad.SelectedItem );
+                socio.Comunitat1 = (Comunitat) comboBoxComunidad.SelectedItem;
 
 
 

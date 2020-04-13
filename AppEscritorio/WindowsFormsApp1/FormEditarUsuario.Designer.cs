@@ -41,7 +41,7 @@
             this.labelApellido = new System.Windows.Forms.Label();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelEditar = new System.Windows.Forms.Label();
             this.textBoxContrasena = new System.Windows.Forms.TextBox();
             this.labelContrasena = new System.Windows.Forms.Label();
             this.textBoxContrasenaR = new System.Windows.Forms.TextBox();
@@ -160,15 +160,15 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "Nombre:";
             // 
-            // label1
+            // labelEditar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(339, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 31);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Editar usuario";
+            this.labelEditar.AutoSize = true;
+            this.labelEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEditar.Location = new System.Drawing.Point(331, 42);
+            this.labelEditar.Name = "labelEditar";
+            this.labelEditar.Size = new System.Drawing.Size(181, 31);
+            this.labelEditar.TabIndex = 21;
+            this.labelEditar.Text = "Editar usuario";
             // 
             // textBoxContrasena
             // 
@@ -283,7 +283,7 @@
             this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelEditar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -309,7 +309,7 @@
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEditar;
         private System.Windows.Forms.TextBox textBoxContrasena;
         private System.Windows.Forms.Label labelContrasena;
         private System.Windows.Forms.TextBox textBoxContrasenaR;
