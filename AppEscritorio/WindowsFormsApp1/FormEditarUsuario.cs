@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
     {
 
         Socis socio = new Socis();
-
+        String mensaje = "";
 
         public FormEditarUsuario(Socis socio)
         {
@@ -36,30 +36,121 @@ namespace WindowsFormsApp1
             textBoxNombre.Text = socio.nom;
             textBoxCognom.Text = socio.cognoms;
             textBoxDni.Text = socio.DNI;
-            textBoxTelfon.Text = socio.telefon;
-            textBoxCorreo.Text = socio.mail;
+            textBoxTelefono.Text = socio.telefon;
+            textBoxCorreu.Text = socio.mail;
+            textBoxContrasena.Text = socio.contrasenya;
+            textBoxContrasenaR.Text = socio.contrasenya;
 
-            //comboBoxComarca.SelectedIndex = socio.Comunitat1.ElementAt;
+            if (socio.Comunitat1 != null)
+            {
+                //Comunitat c1 = BD.ComunitatsORM.BuscarRelacionSocio(socio);
+              
+                //comboBoxComunidad.SelectedItem = c1.id;
+
+            }
 
             
             checkBoxActivo.Checked = socio.actiu;
 
+        }
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+
+
+            if (textBoxDni.Text.Length > 9 || textBoxDni.Text.Length < 9 || textBoxDni.Text.Equals(""))
+            {
+                MessageBox.Show("El DNI del usuario no es correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxDni.Focus();
+            }
+            else if (textBoxNombre.Text.Equals(""))
+            {
+                MessageBox.Show("El nombre del usuario no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxNombre.Focus();
+            }
+            else if (textBoxCognom.Text.Equals(""))
+            {
+                MessageBox.Show("El apellido del usuario no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCognom.Focus();
+            }
+            else if (textBoxTelefono.Text.Length > 9 || textBoxTelefono.Text.Length < 9 || textBoxTelefono.Text.Equals(""))
+            {
+                MessageBox.Show("El telefono del usuario no es correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxTelefono.Focus();
+            }
+            else if (textBoxCorreu.Text.Equals(""))
+            {
+                MessageBox.Show("El correo del usuario no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxTelefono.Focus();
+            }
+            else if (comboBoxComunidad.SelectedItem == null)
+            {
+                MessageBox.Show("La comunidad del usuario no puede estar vacia", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxComunidad.Focus();
+
+            }
+            else if (!textBoxContrasena.Text.Equals(textBoxContrasenaR.Text))
+            {
+                    
+                MessageBox.Show("La contraseña no coincide.. ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxComunidad.Focus();
+
+            }
+            else if (textBoxContrasena.Text.Equals(""))
+            {
+
+                MessageBox.Show("La no puede estar vacia.. ", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxComunidad.Focus();
+
+            }
+            else
+            {
+
+
+            
+                socio.contrasenya = textBoxContrasena.Text;
+                socio.nom = textBoxNombre.Text;
+                socio.cognoms = textBoxCognom.Text;
+                socio.DNI = textBoxDni.Text;
+                socio.telefon = textBoxTelefono.Text;
+                socio.mail = textBoxCorreu.Text;
+                socio.actiu = checkBoxActivo.Checked;
+
+
+
+                //socio.Comunitat1.Clear();
+                //socio.Comunitat1.Add( (Comunitat) comboBoxComunidad.SelectedItem );
+
+
+
+                BD.SociORM.UpdateSocio(socio);
+
+
+
+                if (!mensaje.Equals(""))
+                {
+                    MessageBox.Show(mensaje, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+
+                    MessageBox.Show("Modificaccio correcte", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+
+            }
+
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
+
             this.Close();
-        }
-
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
-        {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
+  
     }
 }

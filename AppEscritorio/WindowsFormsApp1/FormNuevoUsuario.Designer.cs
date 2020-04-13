@@ -42,13 +42,15 @@
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.bindingSourceComunitats = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxCorreu = new System.Windows.Forms.TextBox();
-            this.comboBoxComarca = new System.Windows.Forms.ComboBox();
+            this.comboBoxComunidad = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelTelefon = new System.Windows.Forms.Label();
             this.labelDni = new System.Windows.Forms.Label();
             this.labelApellido = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxActivo = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +98,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(331, 329);
+            this.label6.Location = new System.Drawing.Point(188, 324);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 18);
             this.label6.TabIndex = 11;
@@ -105,7 +107,7 @@
             // checkBoxAdministrador
             // 
             this.checkBoxAdministrador.AutoSize = true;
-            this.checkBoxAdministrador.Location = new System.Drawing.Point(445, 333);
+            this.checkBoxAdministrador.Location = new System.Drawing.Point(302, 328);
             this.checkBoxAdministrador.Name = "checkBoxAdministrador";
             this.checkBoxAdministrador.Size = new System.Drawing.Size(15, 14);
             this.checkBoxAdministrador.TabIndex = 12;
@@ -136,6 +138,7 @@
             this.buttonCancelar.TabIndex = 20;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // pictureBoxLogo
             // 
@@ -159,27 +162,27 @@
             this.textBoxCorreu.Size = new System.Drawing.Size(246, 20);
             this.textBoxCorreu.TabIndex = 24;
             // 
-            // comboBoxComarca
+            // comboBoxComunidad
             // 
-            this.comboBoxComarca.DataSource = this.bindingSourceComunitats;
-            this.comboBoxComarca.DisplayMember = "nombre";
-            this.comboBoxComarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxComarca.FormattingEnabled = true;
-            this.comboBoxComarca.Location = new System.Drawing.Point(286, 283);
-            this.comboBoxComarca.Name = "comboBoxComarca";
-            this.comboBoxComarca.Size = new System.Drawing.Size(246, 21);
-            this.comboBoxComarca.TabIndex = 46;
-            this.comboBoxComarca.ValueMember = "id";
+            this.comboBoxComunidad.DataSource = this.bindingSourceComunitats;
+            this.comboBoxComunidad.DisplayMember = "nombre";
+            this.comboBoxComunidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxComunidad.FormattingEnabled = true;
+            this.comboBoxComunidad.Location = new System.Drawing.Point(286, 283);
+            this.comboBoxComunidad.Name = "comboBoxComunidad";
+            this.comboBoxComunidad.Size = new System.Drawing.Size(246, 21);
+            this.comboBoxComunidad.TabIndex = 46;
+            this.comboBoxComunidad.ValueMember = "id";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(206, 283);
+            this.label8.Location = new System.Drawing.Point(188, 282);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 18);
+            this.label8.Size = new System.Drawing.Size(88, 18);
             this.label8.TabIndex = 45;
-            this.label8.Text = "Comarca:";
+            this.label8.Text = "Comunidad:";
             // 
             // label3
             // 
@@ -231,18 +234,41 @@
             this.label2.TabIndex = 47;
             this.label2.Text = "Nombre:";
             // 
+            // checkBoxActivo
+            // 
+            this.checkBoxActivo.AutoSize = true;
+            this.checkBoxActivo.Checked = true;
+            this.checkBoxActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxActivo.Location = new System.Drawing.Point(538, 332);
+            this.checkBoxActivo.Name = "checkBoxActivo";
+            this.checkBoxActivo.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxActivo.TabIndex = 53;
+            this.checkBoxActivo.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(484, 328);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 18);
+            this.label7.TabIndex = 52;
+            this.label7.Text = "Activo";
+            // 
             // FormNuevoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(192)))), ((int)(((byte)(239)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBoxActivo);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelTelefon);
             this.Controls.Add(this.labelDni);
             this.Controls.Add(this.labelApellido);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBoxComarca);
+            this.Controls.Add(this.comboBoxComunidad);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxCorreu);
             this.Controls.Add(this.pictureBoxLogo);
@@ -281,12 +307,14 @@
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.BindingSource bindingSourceComunitats;
         private System.Windows.Forms.TextBox textBoxCorreu;
-        private System.Windows.Forms.ComboBox comboBoxComarca;
+        private System.Windows.Forms.ComboBox comboBoxComunidad;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelTelefon;
         private System.Windows.Forms.Label labelDni;
         private System.Windows.Forms.Label labelApellido;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBoxActivo;
+        private System.Windows.Forms.Label label7;
     }
 }

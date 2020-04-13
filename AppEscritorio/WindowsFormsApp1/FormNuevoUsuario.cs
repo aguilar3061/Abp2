@@ -18,7 +18,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             bindingSourceComunitats.DataSource = BD.ComunitatsORM.SelectAllComunitats();
-            comboBoxComarca.SelectedItem = null;
+            comboBoxComunidad.SelectedItem = null;
         }
 
         private void textBoxTelefono_KeyPress(object sender, KeyPressEventArgs e)
@@ -69,12 +69,21 @@ namespace WindowsFormsApp1
                 MessageBox.Show("El correo del usuario no puede estar vacio", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxTelefono.Focus();
             }
+            else if (comboBoxComunidad.SelectedItem == null)
+            {
+
+                MessageBox.Show("La comunidad del usuario no puede estar vacia", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxComunidad.Focus();
+
+
+            }
+
             else
             {
 
+               
 
-
-                mensaje = BD.SociORM.InsertSoci(admin, textBoxCorreu.Text,textBoxNombre.Text,textBoxCognom.Text,textBoxTelefono.Text,textBoxDni.Text, (Comunitat) comboBoxComarca.SelectedItem);
+                mensaje = BD.SociORM.InsertSoci(checkBoxActivo.Checked , admin, textBoxCorreu.Text,textBoxNombre.Text,textBoxCognom.Text,textBoxTelefono.Text,textBoxDni.Text, (Comunitat) comboBoxComunidad.SelectedItem);
 
                 if (!mensaje.Equals(""))
                 {
@@ -88,6 +97,12 @@ namespace WindowsFormsApp1
                 }
                 
             }
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
         }
     }
 }
