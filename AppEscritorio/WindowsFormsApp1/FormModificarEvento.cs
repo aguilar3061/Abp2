@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,11 +39,21 @@ namespace WindowsFormsApp1
             comboBoxComunidad.SelectedValue = eventoModificar.id_Comunitat;
             textBoxDireccion.Text = eventoModificar.Direccio;
 
-           
-            
+            pictureBoxImatgeEsdeveniment.Image = byteArrayToImage(eventoModificar.imagen);
+            richTextBoxDescripcio.Text = eventoModificar.descripcion;
+
+
+
+
 
         }
-
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            using (MemoryStream mStream = new MemoryStream(byteArrayIn))
+            {
+                return Image.FromStream(mStream);
+            }
+        }
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
 
@@ -68,13 +79,13 @@ namespace WindowsFormsApp1
                 eventoModificar.NombreEvento = textBoxNombreEvento.Text;
                 eventoModificar.fechaInicio = dateTimePickerFechaIncio.Value;
                 eventoModificar.fechaFin = dateTimePickerFechaFinal.Value;
-                
+
+
+                eventoModificar.descripcion = richTextBoxDescripcio.Text;
 
 
 
-
-
-
+                eventoModificar.imagen = ImageToByteArray(pictureBoxImatgeEsdeveniment.Image);
 
 
                 //eventoModificar.horaFin = dateTimePickerHoraFinal.Value;
@@ -101,7 +112,14 @@ namespace WindowsFormsApp1
             }
 
         }
-
+        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
         private Boolean ComprobarDatos()
         {
             Boolean datosCorrectos = false;
@@ -148,8 +166,26 @@ namespace WindowsFormsApp1
             return datosCorrectos;
         }
 
-
-
+        private void pictureBoxImatgeEsdeveniment_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string imagen = openFileDialog1.FileName;
+                    pictureBoxImatgeEsdeveniment.Image = Image.FromFile(imagen);
+                    pictureBoxImatgeEsdeveniment.BackColor = Color.DarkGray;
+                }
+            }
+            catch (Exception)
+            {
+                errorImatge();
+            }
+        }
+        private void errorImatge()
+        {
+            MessageBox.Show("El arxiu seleccionat no es una imatge");
+        }
     }
 
 }

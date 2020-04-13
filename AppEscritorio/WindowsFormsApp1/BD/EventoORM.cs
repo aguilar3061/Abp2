@@ -27,6 +27,9 @@ namespace WindowsFormsApp1.BD
                 h2.horaInicio = hotelM.horaInicio;
                 h2.id_Comunitat = hotelM.id_Comunitat;
                 h2.Direccio = hotelM.Direccio;
+                h2.imagen = hotelM.imagen;
+                h2.cuants = hotelM.cuants;
+                h2.Assistir = hotelM.Assistir;
 
 
                 ORM.bd.SaveChanges();
@@ -93,7 +96,7 @@ namespace WindowsFormsApp1.BD
             }
             return mensaje;
         }
-        public static String InsertEvento(DateTime dataInici, DateTime horaInici, int idComunitat, DateTime fechaFin, DateTime horaFinal, String Direccion, String NombreEvento )
+        public static String InsertEvento(DateTime dataInici, DateTime horaInici, int idComunitat, DateTime fechaFin, DateTime horaFinal, String Direccion, String NombreEvento, byte[] imagen , String descripcio)
         {
             String mensaje = "";
 
@@ -106,7 +109,10 @@ namespace WindowsFormsApp1.BD
             esdeveniment.horaFin = horaFinal.TimeOfDay;
             esdeveniment.NombreEvento = Direccion;
             esdeveniment.Direccio = NombreEvento;
-
+            esdeveniment.imagen = imagen;
+            esdeveniment.descripcion = descripcio;
+            esdeveniment.cuants = 0;
+            esdeveniment.Assistir = null;
 
 
             ORM.bd.Esdeveniment.Add(esdeveniment);
@@ -122,6 +128,9 @@ namespace WindowsFormsApp1.BD
                 mensaje = ORM.mensaje(sqlEx);
 
             }
+
+
+            
 
             return mensaje;
 

@@ -37,8 +37,7 @@ namespace WindowsFormsApp1.BD
             soci.DNI = DNI;
 
 
-
-            soci.Comunitat1.Add(comunidad);
+            
 
 
 

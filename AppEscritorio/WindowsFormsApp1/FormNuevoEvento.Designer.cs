@@ -48,7 +48,13 @@
             this.dateTimePickerFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerHoraInicio = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerHoraFinal = new System.Windows.Forms.DateTimePicker();
+            this.pictureBoxImatgeEsdeveniment = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.richTextBoxDescripcio = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImatgeEsdeveniment)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -219,12 +225,57 @@
             this.dateTimePickerHoraFinal.Size = new System.Drawing.Size(98, 20);
             this.dateTimePickerHoraFinal.TabIndex = 24;
             // 
+            // pictureBoxImatgeEsdeveniment
+            // 
+            this.pictureBoxImatgeEsdeveniment.Location = new System.Drawing.Point(548, 13);
+            this.pictureBoxImatgeEsdeveniment.Name = "pictureBoxImatgeEsdeveniment";
+            this.pictureBoxImatgeEsdeveniment.Size = new System.Drawing.Size(209, 80);
+            this.pictureBoxImatgeEsdeveniment.TabIndex = 25;
+            this.pictureBoxImatgeEsdeveniment.TabStop = false;
+            this.pictureBoxImatgeEsdeveniment.Click += new System.EventHandler(this.pictureBoxImatgeEsdeveniment_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // richTextBoxDescripcio
+            // 
+            this.richTextBoxDescripcio.Location = new System.Drawing.Point(41, 299);
+            this.richTextBoxDescripcio.Name = "richTextBoxDescripcio";
+            this.richTextBoxDescripcio.Size = new System.Drawing.Size(327, 96);
+            this.richTextBoxDescripcio.TabIndex = 26;
+            this.richTextBoxDescripcio.Text = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(38, 278);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 18);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Descripcio";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(463, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 18);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Imatge";
+            // 
             // FormNuevoEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(192)))), ((int)(((byte)(239)))));
-            this.ClientSize = new System.Drawing.Size(769, 342);
+            this.ClientSize = new System.Drawing.Size(769, 421);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.richTextBoxDescripcio);
+            this.Controls.Add(this.pictureBoxImatgeEsdeveniment);
             this.Controls.Add(this.dateTimePickerHoraFinal);
             this.Controls.Add(this.dateTimePickerHoraInicio);
             this.Controls.Add(this.dateTimePickerFechaFinal);
@@ -249,6 +300,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FormNuevoEvento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImatgeEsdeveniment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +326,10 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaFinal;
         private System.Windows.Forms.DateTimePicker dateTimePickerHoraInicio;
         private System.Windows.Forms.DateTimePicker dateTimePickerHoraFinal;
+        private System.Windows.Forms.PictureBox pictureBoxImatgeEsdeveniment;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.RichTextBox richTextBoxDescripcio;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
     }
 }
