@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="chrysallis_grupo3ModelStoreContainer" CdmEntityContainer="chrysallis_grupo3Entities">
-    <EntitySetMapping Name="Assistir">
+  <EntityContainerMapping StorageEntityContainer="chrysallis_grupo3ModelStoreContainer" CdmEntityContainer="chrysallis_grupo3Entities1">
+    <EntitySetMapping Name="Assistirs">
       <EntityTypeMapping TypeName="chrysallis_grupo3Model.Assistir">
         <MappingFragment StoreEntitySet="Assistir">
           <ScalarProperty Name="id_Soci" ColumnName="id_Soci" />
           <ScalarProperty Name="id_Esdeveiment" ColumnName="id_Esdeveiment" />
-          <ScalarProperty Name="quants" ColumnName="quants" />
           <ScalarProperty Name="valoracio" ColumnName="valoracio" />
           <ScalarProperty Name="comentari" ColumnName="comentari" />
+          <ScalarProperty Name="aiste" ColumnName="aiste" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Comunitat">
+    <EntitySetMapping Name="Comunitats">
       <EntityTypeMapping TypeName="chrysallis_grupo3Model.Comunitat">
         <MappingFragment StoreEntitySet="Comunitat">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -20,16 +20,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Documents">
-      <EntityTypeMapping TypeName="chrysallis_grupo3Model.Documents">
-        <MappingFragment StoreEntitySet="Documents">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="link_document" ColumnName="link_document" />
-          <ScalarProperty Name="id_esdeveniment" ColumnName="id_esdeveniment" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Esdeveniment">
+    <EntitySetMapping Name="Esdeveniments">
       <EntityTypeMapping TypeName="chrysallis_grupo3Model.Esdeveniment">
         <MappingFragment StoreEntitySet="Esdeveniment">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -40,19 +31,14 @@
           <ScalarProperty Name="id_Comunitat" ColumnName="id_Comunitat" />
           <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
           <ScalarProperty Name="horaFin" ColumnName="horaFin" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Notificacions">
-      <EntityTypeMapping TypeName="chrysallis_grupo3Model.Notificacions">
-        <MappingFragment StoreEntitySet="Notificacions">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="antelacio" ColumnName="antelacio" />
+          <ScalarProperty Name="cuants" ColumnName="cuants" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Socis">
-      <EntityTypeMapping TypeName="chrysallis_grupo3Model.Socis">
+      <EntityTypeMapping TypeName="chrysallis_grupo3Model.Soci">
         <MappingFragment StoreEntitySet="Socis">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="telefon" ColumnName="telefon" />
@@ -64,24 +50,10 @@
           <ScalarProperty Name="administrador" ColumnName="administrador" />
           <ScalarProperty Name="id_comunitat_admin" ColumnName="id_comunitat_admin" />
           <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="id_comunidad_socio" ColumnName="id_comunidad_socio" />
+          <ScalarProperty Name="contrasena_cambiada" ColumnName="contrasena_cambiada" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="Comunitat_Soci" TypeName="chrysallis_grupo3Model.Comunitat_Soci" StoreEntitySet="Comunitat_Soci">
-      <EndProperty Name="Comunitat">
-        <ScalarProperty Name="id" ColumnName="id_Comunitat" />
-      </EndProperty>
-      <EndProperty Name="Socis">
-        <ScalarProperty Name="id" ColumnName="id_Soci" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="Notificacions_Esdeveiment" TypeName="chrysallis_grupo3Model.Notificacions_Esdeveiment" StoreEntitySet="Notificacions_Esdeveiment">
-      <EndProperty Name="Esdeveniment">
-        <ScalarProperty Name="id" ColumnName="id_esdeveiment" />
-      </EndProperty>
-      <EndProperty Name="Notificacions">
-        <ScalarProperty Name="id" ColumnName="id_notificacio" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

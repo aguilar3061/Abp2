@@ -4,20 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f190061f06494689ba391c2d442365f9" Name="Diagram1">
-        <EntityTypeShape EntityType="chrysallis_grupo3Model.Assistir" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="chrysallis_grupo3Model.Comunitat" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="chrysallis_grupo3Model.Documents" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="chrysallis_grupo3Model.Esdeveniment" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="chrysallis_grupo3Model.Notificacions" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="chrysallis_grupo3Model.Socis" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+      <Diagram DiagramId="aded2212a0054b4d8dd0ad6dde962b67" Name="Diagram1">
+        <EntityTypeShape EntityType="chrysallis_grupo3Model.Assistir" Width="1.5" PointX="9.625" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="chrysallis_grupo3Model.Comunitat" Width="1.5" PointX="0.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="chrysallis_grupo3Model.Esdeveniment" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="chrysallis_grupo3Model.Soci" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
         <AssociationConnector Association="chrysallis_grupo3Model.FK_Assistir_Esdeveniment" ManuallyRouted="false" />
         <AssociationConnector Association="chrysallis_grupo3Model.FK_Assistir_Socis" ManuallyRouted="false" />
         <AssociationConnector Association="chrysallis_grupo3Model.FK_Esdeveniment_Comunitat" ManuallyRouted="false" />
         <AssociationConnector Association="chrysallis_grupo3Model.FK_Socis_Comunitat" ManuallyRouted="false" />
-        <AssociationConnector Association="chrysallis_grupo3Model.FK_Documents_Esdeveniment" ManuallyRouted="false" />
-        <AssociationConnector Association="chrysallis_grupo3Model.Comunitat_Soci" ManuallyRouted="false" />
-        <AssociationConnector Association="chrysallis_grupo3Model.Notificacions_Esdeveiment" ManuallyRouted="false" />
+        <AssociationConnector Association="chrysallis_grupo3Model.FK_Socis_Comunitat1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

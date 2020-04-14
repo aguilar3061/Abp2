@@ -17,19 +17,19 @@ namespace WebAPIchris
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Comunitat()
         {
-            this.Esdeveniment = new HashSet<Esdeveniment>();
-            this.Socis = new HashSet<Socis>();
-            this.Socis1 = new HashSet<Socis>();
+            this.Esdeveniments = new HashSet<Esdeveniment>();
+            this.Socis = new HashSet<Soci>();
+            this.Socis1 = new HashSet<Soci>();
         }
     
         public int id { get; set; }
         public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Esdeveniment> Esdeveniment { get; set; }
+        public virtual ICollection<Esdeveniment> Esdeveniments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Socis> Socis { get; set; }
+        public virtual ICollection<Soci> Socis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Socis> Socis1 { get; set; }
+        public virtual ICollection<Soci> Socis1 { get; set; }
     }
 }

@@ -14,31 +14,28 @@ namespace WebAPIchris.Controllers
 {
     public class AssistirsController : ApiController
     {
-        private chrysallis_grupo3Entities db = new chrysallis_grupo3Entities();
+        private chrysallis_grupo3Entities1 db = new chrysallis_grupo3Entities1();
 
         // GET: api/Assistirs
-        public IQueryable<Assistir> GetAssistir()
+        public IQueryable<Assistir> GetAssistirs()
         {
-            //solo cargargar las cosas cuando se utilizan
+                //solo cargargar las cosas cuando se utilizan
             db.Configuration.LazyLoadingEnabled = false;
-            return db.Assistir;
+       
+            return db.Assistirs;
         }
 
         // GET: api/Assistirs/5
         [ResponseType(typeof(Assistir))]
         public IHttpActionResult GetAssistir(int id)
         {
-            Assistir assistir = db.Assistir.Find(id);
+            Assistir assistir = db.Assistirs.Find(id);
             if (assistir == null)
             {
                 return NotFound();
             }
 
             return Ok(assistir);
-
-
-
-
         }
 
         // PUT: api/Assistirs/5
@@ -85,7 +82,7 @@ namespace WebAPIchris.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Assistir.Add(assistir);
+            db.Assistirs.Add(assistir);
 
             try
             {
@@ -110,13 +107,13 @@ namespace WebAPIchris.Controllers
         [ResponseType(typeof(Assistir))]
         public IHttpActionResult DeleteAssistir(int id)
         {
-            Assistir assistir = db.Assistir.Find(id);
+            Assistir assistir = db.Assistirs.Find(id);
             if (assistir == null)
             {
                 return NotFound();
             }
 
-            db.Assistir.Remove(assistir);
+            db.Assistirs.Remove(assistir);
             db.SaveChanges();
 
             return Ok(assistir);
@@ -133,7 +130,7 @@ namespace WebAPIchris.Controllers
 
         private bool AssistirExists(int id)
         {
-            return db.Assistir.Count(e => e.id_Soci == id) > 0;
+            return db.Assistirs.Count(e => e.id_Soci == id) > 0;
         }
     }
 }

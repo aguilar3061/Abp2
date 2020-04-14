@@ -170,15 +170,8 @@
     </Compile>
     <Compile Include="Controllers\AssistirsController.cs" />
     <Compile Include="Controllers\ComunitatsController.cs" />
-    <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\EsdevenimentsController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NotificacionsController.cs" />
     <Compile Include="Controllers\SocisController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Documents.cs">
-      <DependentUpon>ModelChris.tt</DependentUpon>
-    </Compile>
     <Compile Include="Esdeveniment.cs">
       <DependentUpon>ModelChris.tt</DependentUpon>
     </Compile>
@@ -200,11 +193,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelChris.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Notificacions.cs">
-      <DependentUpon>ModelChris.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Socis.cs">
+    <Compile Include="Soci.cs">
       <DependentUpon>ModelChris.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -219,8 +209,8 @@
     <Content Include="Global.asax" />
     <Content Include="ModelChris.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelChris.Context.cs</LastGenOutput>
       <DependentUpon>ModelChris.edmx</DependentUpon>
+      <LastGenOutput>ModelChris.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModelChris.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

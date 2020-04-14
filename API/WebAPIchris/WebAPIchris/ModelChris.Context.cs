@@ -13,10 +13,10 @@ namespace WebAPIchris
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class chrysallis_grupo3Entities : DbContext
+    public partial class chrysallis_grupo3Entities1 : DbContext
     {
-        public chrysallis_grupo3Entities()
-            : base("name=chrysallis_grupo3Entities")
+        public chrysallis_grupo3Entities1()
+            : base("name=chrysallis_grupo3Entities1")
         {
         }
     
@@ -25,11 +25,9 @@ namespace WebAPIchris
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Assistir> Assistir { get; set; }
-        public virtual DbSet<Comunitat> Comunitat { get; set; }
-        public virtual DbSet<Documents> Documents { get; set; }
-        public virtual DbSet<Esdeveniment> Esdeveniment { get; set; }
-        public virtual DbSet<Notificacions> Notificacions { get; set; }
-        public virtual DbSet<Socis> Socis { get; set; }
+        public virtual DbSet<Assistir> Assistirs { get; set; }
+        public virtual DbSet<Comunitat> Comunitats { get; set; }
+        public virtual DbSet<Esdeveniment> Esdeveniments { get; set; }
+        public virtual DbSet<Soci> Socis { get; set; }
     }
 }

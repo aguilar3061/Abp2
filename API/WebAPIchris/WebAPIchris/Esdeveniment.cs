@@ -17,9 +17,7 @@ namespace WebAPIchris
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Esdeveniment()
         {
-            this.Assistir = new HashSet<Assistir>();
-            this.Documents = new HashSet<Documents>();
-            this.Notificacions = new HashSet<Notificacions>();
+            this.Assistirs = new HashSet<Assistir>();
         }
     
         public int id { get; set; }
@@ -30,13 +28,12 @@ namespace WebAPIchris
         public int id_Comunitat { get; set; }
         public System.DateTime fechaFin { get; set; }
         public Nullable<System.TimeSpan> horaFin { get; set; }
+        public Nullable<int> cuants { get; set; }
+        public byte[] imagen { get; set; }
+        public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Assistir> Assistir { get; set; }
+        public virtual ICollection<Assistir> Assistirs { get; set; }
         public virtual Comunitat Comunitat { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Documents> Documents { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Notificacions> Notificacions { get; set; }
     }
 }

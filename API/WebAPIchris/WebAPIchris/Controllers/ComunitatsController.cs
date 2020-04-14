@@ -14,27 +14,54 @@ namespace WebAPIchris.Controllers
 {
     public class ComunitatsController : ApiController
     {
-        private chrysallis_grupo3Entities db = new chrysallis_grupo3Entities();
+        private chrysallis_grupo3Entities1 db = new chrysallis_grupo3Entities1();
 
         // GET: api/Comunitats
-        public IQueryable<Comunitat> GetComunitat()
+        public IQueryable<Comunitat> GetComunitats()
         {
             //solo cargargar las cosas cuando se utilizan
             db.Configuration.LazyLoadingEnabled = false;
-            return db.Comunitat;
+
+            return db.Comunitats;
         }
 
         // GET: api/Comunitats/5
         [ResponseType(typeof(Comunitat))]
         public IHttpActionResult GetComunitat(int id)
         {
-            Comunitat comunitat = db.Comunitat.Find(id);
-            if (comunitat == null)
+            //Comunitat comunitat = db.Comunitats.Find(id);
+            //if (comunitat == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return Ok(comunitat);
+
+
+            IHttpActionResult resultado;
+
+            db.Configuration.LazyLoadingEnabled = false;
+
+            Comunitat _Comu = (from t in db.Comunitats
+                           where t.id == id
+                           select t).FirstOrDefault();
+
+
+            if (_Comu == null)
             {
-                return NotFound();
+
+                resultado = NotFound();
+
+            }
+            else
+            {
+
+                resultado = Ok(_Comu);
             }
 
-            return Ok(comunitat);
+
+            return resultado;
+
         }
 
         // PUT: api/Comunitats/5
@@ -81,7 +108,7 @@ namespace WebAPIchris.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Comunitat.Add(comunitat);
+            db.Comunitats.Add(comunitat);
 
             try
             {
@@ -106,13 +133,13 @@ namespace WebAPIchris.Controllers
         [ResponseType(typeof(Comunitat))]
         public IHttpActionResult DeleteComunitat(int id)
         {
-            Comunitat comunitat = db.Comunitat.Find(id);
+            Comunitat comunitat = db.Comunitats.Find(id);
             if (comunitat == null)
             {
                 return NotFound();
             }
 
-            db.Comunitat.Remove(comunitat);
+            db.Comunitats.Remove(comunitat);
             db.SaveChanges();
 
             return Ok(comunitat);
@@ -129,7 +156,7 @@ namespace WebAPIchris.Controllers
 
         private bool ComunitatExists(int id)
         {
-            return db.Comunitat.Count(e => e.id == id) > 0;
+            return db.Comunitats.Count(e => e.id == id) > 0;
         }
     }
 }

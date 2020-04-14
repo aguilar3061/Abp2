@@ -12,18 +12,30 @@ namespace WebAPIchris
     using System;
     using System.Collections.Generic;
     
-    public partial class Notificacions
+    public partial class Soci
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Notificacions()
+        public Soci()
         {
-            this.Esdeveniment = new HashSet<Esdeveniment>();
+            this.Assistirs = new HashSet<Assistir>();
         }
     
         public int id { get; set; }
-        public Nullable<System.DateTime> antelacio { get; set; }
+        public string telefon { get; set; }
+        public string mail { get; set; }
+        public string nom { get; set; }
+        public string cognoms { get; set; }
+        public string contrasenya { get; set; }
+        public bool actiu { get; set; }
+        public bool administrador { get; set; }
+        public Nullable<int> id_comunitat_admin { get; set; }
+        public string DNI { get; set; }
+        public Nullable<int> id_comunidad_socio { get; set; }
+        public bool contrasena_cambiada { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Esdeveniment> Esdeveniment { get; set; }
+        public virtual ICollection<Assistir> Assistirs { get; set; }
+        public virtual Comunitat Comunitat { get; set; }
+        public virtual Comunitat Comunitat1 { get; set; }
     }
 }

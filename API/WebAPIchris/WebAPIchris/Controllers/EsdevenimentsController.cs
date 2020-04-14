@@ -14,27 +14,59 @@ namespace WebAPIchris.Controllers
 {
     public class EsdevenimentsController : ApiController
     {
-        private chrysallis_grupo3Entities db = new chrysallis_grupo3Entities();
+        private chrysallis_grupo3Entities1 db = new chrysallis_grupo3Entities1();
 
         // GET: api/Esdeveniments
-        public IQueryable<Esdeveniment> GetEsdeveniment()
+        public IQueryable<Esdeveniment> GetEsdeveniments()
         {
             //solo cargargar las cosas cuando se utilizan
             db.Configuration.LazyLoadingEnabled = false;
-            return db.Esdeveniment;
+
+            return db.Esdeveniments;
         }
 
         // GET: api/Esdeveniments/5
         [ResponseType(typeof(Esdeveniment))]
         public IHttpActionResult GetEsdeveniment(int id)
         {
-            Esdeveniment esdeveniment = db.Esdeveniment.Find(id);
-            if (esdeveniment == null)
+            //Esdeveniment esdeveniment = db.Esdeveniments.Find(id);
+            //if (esdeveniment == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return Ok(esdeveniment);
+
+            IHttpActionResult resultado;
+
+            db.Configuration.LazyLoadingEnabled = false;
+
+            Esdeveniment _Esdeve = (from t in db.Esdeveniments
+                           where t.id == id
+                           select t).FirstOrDefault();
+
+
+            if (_Esdeve == null)
             {
-                return NotFound();
+
+                resultado = NotFound();
+
+            }
+            else
+            {
+
+                resultado = Ok(_Esdeve);
             }
 
-            return Ok(esdeveniment);
+
+            return resultado;
+
+
+
+
+
+
+
 
 
         }
@@ -83,7 +115,7 @@ namespace WebAPIchris.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Esdeveniment.Add(esdeveniment);
+            db.Esdeveniments.Add(esdeveniment);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = esdeveniment.id }, esdeveniment);
@@ -93,13 +125,13 @@ namespace WebAPIchris.Controllers
         [ResponseType(typeof(Esdeveniment))]
         public IHttpActionResult DeleteEsdeveniment(int id)
         {
-            Esdeveniment esdeveniment = db.Esdeveniment.Find(id);
+            Esdeveniment esdeveniment = db.Esdeveniments.Find(id);
             if (esdeveniment == null)
             {
                 return NotFound();
             }
 
-            db.Esdeveniment.Remove(esdeveniment);
+            db.Esdeveniments.Remove(esdeveniment);
             db.SaveChanges();
 
             return Ok(esdeveniment);
@@ -116,7 +148,7 @@ namespace WebAPIchris.Controllers
 
         private bool EsdevenimentExists(int id)
         {
-            return db.Esdeveniment.Count(e => e.id == id) > 0;
+            return db.Esdeveniments.Count(e => e.id == id) > 0;
         }
     }
 }

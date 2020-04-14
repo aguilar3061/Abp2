@@ -14,44 +14,69 @@ namespace WebAPIchris.Controllers
 {
     public class SocisController : ApiController
     {
-        private chrysallis_grupo3Entities db = new chrysallis_grupo3Entities();
+        private chrysallis_grupo3Entities1 db = new chrysallis_grupo3Entities1();
 
         // GET: api/Socis
-        public IQueryable<Socis> GetSocis()
+        public IQueryable<Soci> GetSocis()
         {
             //solo cargargar las cosas cuando se utilizan
             db.Configuration.LazyLoadingEnabled = false;
+
             return db.Socis;
         }
 
         // GET: api/Socis/5
-        [ResponseType(typeof(Socis))]
-        public IHttpActionResult GetSocis(int id)
+        [ResponseType(typeof(Soci))]
+        public IHttpActionResult GetSoci(int id)
         {
-            Socis socis = db.Socis.Find(id);
-            if (socis == null)
+            //Soci soci = db.Socis.Find(id);
+            //if (soci == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return Ok(soci);
+
+            IHttpActionResult resultado;
+
+            db.Configuration.LazyLoadingEnabled = false;
+
+            Soci _soci = (from t in db.Socis
+                           where t.id == id
+                           select t).FirstOrDefault();
+
+
+            if (_soci == null)
             {
-                return NotFound();
+
+                resultado = NotFound();
+
+            }
+            else
+            {
+
+                resultado = Ok(_soci);
             }
 
-            return Ok(socis);
+            return resultado;
+
         }
 
         // PUT: api/Socis/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutSocis(int id, Socis socis)
+        public IHttpActionResult PutSoci(int id, Soci soci)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != socis.id)
+            if (id != soci.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(socis).State = EntityState.Modified;
+            db.Entry(soci).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +84,7 @@ namespace WebAPIchris.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SocisExists(id))
+                if (!SociExists(id))
                 {
                     return NotFound();
                 }
@@ -73,34 +98,34 @@ namespace WebAPIchris.Controllers
         }
 
         // POST: api/Socis
-        [ResponseType(typeof(Socis))]
-        public IHttpActionResult PostSocis(Socis socis)
+        [ResponseType(typeof(Soci))]
+        public IHttpActionResult PostSoci(Soci soci)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Socis.Add(socis);
+            db.Socis.Add(soci);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = socis.id }, socis);
+            return CreatedAtRoute("DefaultApi", new { id = soci.id }, soci);
         }
 
         // DELETE: api/Socis/5
-        [ResponseType(typeof(Socis))]
-        public IHttpActionResult DeleteSocis(int id)
+        [ResponseType(typeof(Soci))]
+        public IHttpActionResult DeleteSoci(int id)
         {
-            Socis socis = db.Socis.Find(id);
-            if (socis == null)
+            Soci soci = db.Socis.Find(id);
+            if (soci == null)
             {
                 return NotFound();
             }
 
-            db.Socis.Remove(socis);
+            db.Socis.Remove(soci);
             db.SaveChanges();
 
-            return Ok(socis);
+            return Ok(soci);
         }
 
         protected override void Dispose(bool disposing)
@@ -112,7 +137,7 @@ namespace WebAPIchris.Controllers
             base.Dispose(disposing);
         }
 
-        private bool SocisExists(int id)
+        private bool SociExists(int id)
         {
             return db.Socis.Count(e => e.id == id) > 0;
         }
