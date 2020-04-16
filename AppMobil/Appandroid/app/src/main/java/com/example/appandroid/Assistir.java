@@ -7,12 +7,12 @@ public class Assistir {
     private int valoracio;
     private String comentari;
 
-    public Assistir(int idSoci, int idEsdeveniment, int numAssistents, int valoracio, String comentari) {
+    public Assistir(int idSoci, int idEsdeveniment, int valoracio, String comentari, int numAssistents) {
         this.idSoci = idSoci;
         this.idEsdeveniment = idEsdeveniment;
-        this.numAssistents = numAssistents;
         this.valoracio = valoracio;
         this.comentari = comentari;
+        this.numAssistents = numAssistents;
     }
 
     public int getIdSoci() {

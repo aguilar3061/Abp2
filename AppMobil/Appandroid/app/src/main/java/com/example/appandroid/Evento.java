@@ -4,90 +4,123 @@ public class Evento {
 
     private int id;
     private String fechaInicio;
-    private String fechaFin;
     private String horaInicio;
-    private String horaFin;
     private String NombreEvento;
     private String Direccion;
     private int idComunitat;
+    private String fechaFin;
+    private String horaFin;
+    private int quants;
+    private String imgByte;
+    private String descripcio;
+
+
 
 
     public Evento(String nombreEvento) {
         NombreEvento = nombreEvento;
     }
 
-    public Evento(int id, String fechaInicio, String fechaFin, String horaInicio, String horaFin, String nombreEvento, String direccion, int idComunitat) {
+
+    public Evento(int id, String fechaInicio, String horaInicio, String nombreEvento, String direccion, int idComunitat, String fechaFin, String horaFin, int quants, String imgByte, String descripcio) {
         this.id = id;
         this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
         this.horaInicio = horaInicio;
-        this.horaFin = horaFin;
         NombreEvento = nombreEvento;
         Direccion = direccion;
         this.idComunitat = idComunitat;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
-
-    public void setFechaFin(String fechaFin) {
         this.fechaFin = fechaFin;
-    }
-
-    public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-
-    public void setHoraFin(String horaFin) {
         this.horaFin = horaFin;
-    }
-
-    public void setNombreEvento(String nombreEvento) {
-        NombreEvento = nombreEvento;
-    }
-
-    public void setDireccion(String direccion) {
-        Direccion = direccion;
-    }
-
-    public void setIdComunitat(int idComunitat) {
-        this.idComunitat = idComunitat;
+        this.quants = quants;
+        this.imgByte = imgByte;
+        this.descripcio = descripcio;
     }
 
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public String getFechaFin() {
-        return fechaFin;
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     public String getHoraInicio() {
         return horaInicio;
     }
 
-    public String getHoraFin() {
-        return horaFin;
+    public void setHoraInicio(String horaInicio) {
+        this.horaInicio = horaInicio;
     }
 
     public String getNombreEvento() {
         return NombreEvento;
     }
 
+    public void setNombreEvento(String nombreEvento) {
+        NombreEvento = nombreEvento;
+    }
+
     public String getDireccion() {
         return Direccion;
     }
 
+    public void setDireccion(String direccion) {
+        Direccion = direccion;
+    }
+
     public int getIdComunitat() {
         return idComunitat;
+    }
+
+    public void setIdComunitat(int idComunitat) {
+        this.idComunitat = idComunitat;
+    }
+
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public String getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(String horaFin) {
+        this.horaFin = horaFin;
+    }
+
+    public int getQuants() {
+        return quants;
+    }
+
+    public void setQuants(int quants) {
+        this.quants = quants;
+    }
+
+    public String getImgByte() {
+        return imgByte;
+    }
+
+    public void setImgByte(String imgByte) {
+        this.imgByte = imgByte;
+    }
+
+    public String getDescripcio() {
+        return descripcio;
+    }
+
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
     }
 }

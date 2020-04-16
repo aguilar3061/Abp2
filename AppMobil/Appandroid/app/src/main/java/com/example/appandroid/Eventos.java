@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,8 +35,8 @@ public class Eventos extends Fragment {
         super.onActivityCreated(state);
 
         ArrayList<Evento> listaEventos = new ArrayList<>();
-
-
+        Spinner comboBoxComunidades = (Spinner) getView().findViewById(R.id.idSpinerComunidad);
+        //comboBoxComunidades.
 
         recView = (RecyclerView) getView().findViewById(R.id.RecViewEventos);
 

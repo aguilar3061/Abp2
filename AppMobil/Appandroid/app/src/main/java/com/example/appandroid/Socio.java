@@ -10,10 +10,12 @@ public class Socio {
     private String contrasenya;
     private boolean actiu;
     private boolean administrador;
-    private int idComunitat;
+    private int idComunitat_admin;
     private String DNI;
+    private int id_comunitat_soci;
+    private boolean contrasenya_cambiada;
 
-    public Socio(int id, String telefono, String mail, String nombre, String apellido, String contrasenya, boolean actiu, boolean administrador, int idComunitat, String DNI) {
+    public Socio(int id, String telefono, String mail, String nombre, String apellido, String contrasenya, boolean actiu, boolean administrador, int idComunitat_admin, String DNI, int id_comunitat_soci, boolean contrasenya_cambiada) {
         this.id = id;
         this.telefono = telefono;
         this.mail = mail;
@@ -22,8 +24,10 @@ public class Socio {
         this.contrasenya = contrasenya;
         this.actiu = actiu;
         this.administrador = administrador;
-        this.idComunitat = idComunitat;
+        this.idComunitat_admin = idComunitat_admin;
         this.DNI = DNI;
+        this.id_comunitat_soci = id_comunitat_soci;
+        this.contrasenya_cambiada = contrasenya_cambiada;
     }
 
     public int getId() {
@@ -90,12 +94,12 @@ public class Socio {
         this.administrador = administrador;
     }
 
-    public int getIdComunitat() {
-        return idComunitat;
+    public int getIdComunitat_admin() {
+        return idComunitat_admin;
     }
 
-    public void setIdComunitat(int idComunitat) {
-        this.idComunitat = idComunitat;
+    public void setIdComunitat_admin(int idComunitat_admin) {
+        this.idComunitat_admin = idComunitat_admin;
     }
 
     public String getDNI() {
@@ -104,5 +108,21 @@ public class Socio {
 
     public void setDNI(String DNI) {
         this.DNI = DNI;
+    }
+
+    public int getId_comunitat_soci() {
+        return id_comunitat_soci;
+    }
+
+    public void setId_comunitat_soci(int id_comunitat_soci) {
+        this.id_comunitat_soci = id_comunitat_soci;
+    }
+
+    public boolean isContrasenya_cambiada() {
+        return contrasenya_cambiada;
+    }
+
+    public void setContrasenya_cambiada(boolean contrasenya_cambiada) {
+        this.contrasenya_cambiada = contrasenya_cambiada;
     }
 }
