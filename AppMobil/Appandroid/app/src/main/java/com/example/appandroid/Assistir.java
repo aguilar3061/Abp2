@@ -1,42 +1,42 @@
 package com.example.appandroid;
 
 public class Assistir {
-    private int idSoci;
-    private int idEsdeveniment;
-    private int numAssistents;
+    private int id_Soci;
+    private int id_Esdeveniment;
+    private int aiste;
     private int valoracio;
     private String comentari;
 
-    public Assistir(int idSoci, int idEsdeveniment, int valoracio, String comentari, int numAssistents) {
-        this.idSoci = idSoci;
-        this.idEsdeveniment = idEsdeveniment;
+    public Assistir(int id_Soci, int id_Esdeveniment, int aiste, int valoracio, String comentari) {
+        this.id_Soci = id_Soci;
+        this.id_Esdeveniment = id_Esdeveniment;
+        this.aiste = aiste;
         this.valoracio = valoracio;
         this.comentari = comentari;
-        this.numAssistents = numAssistents;
     }
 
-    public int getIdSoci() {
-        return idSoci;
+    public int getId_Soci() {
+        return id_Soci;
     }
 
-    public void setIdSoci(int idSoci) {
-        this.idSoci = idSoci;
+    public void setId_Soci(int id_Soci) {
+        this.id_Soci = id_Soci;
     }
 
-    public int getIdEsdeveniment() {
-        return idEsdeveniment;
+    public int getId_Esdeveniment() {
+        return id_Esdeveniment;
     }
 
-    public void setIdEsdeveniment(int idEsdeveniment) {
-        this.idEsdeveniment = idEsdeveniment;
+    public void setId_Esdeveniment(int id_Esdeveniment) {
+        this.id_Esdeveniment = id_Esdeveniment;
     }
 
-    public int getNumAssistents() {
-        return numAssistents;
+    public int getAiste() {
+        return aiste;
     }
 
-    public void setNumAssistents(int numAssistents) {
-        this.numAssistents = numAssistents;
+    public void setAiste(int aiste) {
+        this.aiste = aiste;
     }
 
     public int getValoracio() {

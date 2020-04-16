@@ -2,11 +2,11 @@ package com.example.appandroid;
 
 public class Comunitat {
     private int id;
-    private String nom;
+    private String nombre;
 
     public Comunitat(int id, String nom) {
         this.id = id;
-        this.nom = nom;
+        this.nombre = nom;
     }
 
     public int getId() {
@@ -18,10 +18,10 @@ public class Comunitat {
     }
 
     public String getNom() {
-        return nom;
+        return nombre;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nombre = nom;
     }
 }

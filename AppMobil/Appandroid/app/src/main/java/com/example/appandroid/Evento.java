@@ -6,13 +6,13 @@ public class Evento {
     private String fechaInicio;
     private String horaInicio;
     private String NombreEvento;
-    private String Direccion;
-    private int idComunitat;
+    private String Direccio;
+    private int id_Comunitat;
     private String fechaFin;
     private String horaFin;
-    private int quants;
-    private String imgByte;
-    private String descripcio;
+    private int cuants;
+    private String imagen;
+    private String descripcion;
 
 
 
@@ -21,19 +21,18 @@ public class Evento {
         NombreEvento = nombreEvento;
     }
 
-
-    public Evento(int id, String fechaInicio, String horaInicio, String nombreEvento, String direccion, int idComunitat, String fechaFin, String horaFin, int quants, String imgByte, String descripcio) {
+    public Evento(int id, String fechaInicio, String horaInicio, String nombreEvento, String direccio, int id_Comunitat, String fechaFin, String horaFin, int cuants, String imagen, String descripcion) {
         this.id = id;
         this.fechaInicio = fechaInicio;
         this.horaInicio = horaInicio;
         NombreEvento = nombreEvento;
-        Direccion = direccion;
-        this.idComunitat = idComunitat;
+        Direccio = direccio;
+        this.id_Comunitat = id_Comunitat;
         this.fechaFin = fechaFin;
         this.horaFin = horaFin;
-        this.quants = quants;
-        this.imgByte = imgByte;
-        this.descripcio = descripcio;
+        this.cuants = cuants;
+        this.imagen = imagen;
+        this.descripcion = descripcion;
     }
 
     public int getId() {
@@ -68,20 +67,20 @@ public class Evento {
         NombreEvento = nombreEvento;
     }
 
-    public String getDireccion() {
-        return Direccion;
+    public String getDireccio() {
+        return Direccio;
     }
 
-    public void setDireccion(String direccion) {
-        Direccion = direccion;
+    public void setDireccio(String direccio) {
+        Direccio = direccio;
     }
 
-    public int getIdComunitat() {
-        return idComunitat;
+    public int getId_Comunitat() {
+        return id_Comunitat;
     }
 
-    public void setIdComunitat(int idComunitat) {
-        this.idComunitat = idComunitat;
+    public void setId_Comunitat(int id_Comunitat) {
+        this.id_Comunitat = id_Comunitat;
     }
 
     public String getFechaFin() {
@@ -100,27 +99,27 @@ public class Evento {
         this.horaFin = horaFin;
     }
 
-    public int getQuants() {
-        return quants;
+    public int getCuants() {
+        return cuants;
     }
 
-    public void setQuants(int quants) {
-        this.quants = quants;
+    public void setCuants(int cuants) {
+        this.cuants = cuants;
     }
 
-    public String getImgByte() {
-        return imgByte;
+    public String getImagen() {
+        return imagen;
     }
 
-    public void setImgByte(String imgByte) {
-        this.imgByte = imgByte;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
-    public String getDescripcio() {
-        return descripcio;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripcio(String descripcio) {
-        this.descripcio = descripcio;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

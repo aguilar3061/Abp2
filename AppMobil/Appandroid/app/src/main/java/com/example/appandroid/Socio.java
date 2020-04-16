@@ -3,31 +3,31 @@ package com.example.appandroid;
 public class Socio {
 
     private int id;
-    private String telefono;
+    private String telefon;
     private String mail;
-    private String nombre;
-    private String apellido;
+    private String nom;
+    private String cognoms;
     private String contrasenya;
     private boolean actiu;
     private boolean administrador;
-    private int idComunitat_admin;
+    private int id_comunitat_admin;
     private String DNI;
-    private int id_comunitat_soci;
-    private boolean contrasenya_cambiada;
+    private int id_comunidad_socio;
+    private boolean contrasena_cambiada;
 
-    public Socio(int id, String telefono, String mail, String nombre, String apellido, String contrasenya, boolean actiu, boolean administrador, int idComunitat_admin, String DNI, int id_comunitat_soci, boolean contrasenya_cambiada) {
+    public Socio(int id, String telefon, String mail, String nom, String cognoms, String contrasenya, boolean actiu, boolean administrador, int id_comunitat_admin, String DNI, int id_comunidad_socio, boolean contrasena_cambiada) {
         this.id = id;
-        this.telefono = telefono;
+        this.telefon = telefon;
         this.mail = mail;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.nom = nom;
+        this.cognoms = cognoms;
         this.contrasenya = contrasenya;
         this.actiu = actiu;
         this.administrador = administrador;
-        this.idComunitat_admin = idComunitat_admin;
+        this.id_comunitat_admin = id_comunitat_admin;
         this.DNI = DNI;
-        this.id_comunitat_soci = id_comunitat_soci;
-        this.contrasenya_cambiada = contrasenya_cambiada;
+        this.id_comunidad_socio = id_comunidad_socio;
+        this.contrasena_cambiada = contrasena_cambiada;
     }
 
     public int getId() {
@@ -38,12 +38,12 @@ public class Socio {
         this.id = id;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getTelefon() {
+        return telefon;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
     }
 
     public String getMail() {
@@ -54,20 +54,20 @@ public class Socio {
         this.mail = mail;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNom() {
+        return nom;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getCognoms() {
+        return cognoms;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setCognoms(String cognoms) {
+        this.cognoms = cognoms;
     }
 
     public String getContrasenya() {
@@ -94,12 +94,12 @@ public class Socio {
         this.administrador = administrador;
     }
 
-    public int getIdComunitat_admin() {
-        return idComunitat_admin;
+    public int getId_comunitat_admin() {
+        return id_comunitat_admin;
     }
 
-    public void setIdComunitat_admin(int idComunitat_admin) {
-        this.idComunitat_admin = idComunitat_admin;
+    public void setId_comunitat_admin(int id_comunitat_admin) {
+        this.id_comunitat_admin = id_comunitat_admin;
     }
 
     public String getDNI() {
@@ -110,19 +110,19 @@ public class Socio {
         this.DNI = DNI;
     }
 
-    public int getId_comunitat_soci() {
-        return id_comunitat_soci;
+    public int getId_comunidad_socio() {
+        return id_comunidad_socio;
     }
 
-    public void setId_comunitat_soci(int id_comunitat_soci) {
-        this.id_comunitat_soci = id_comunitat_soci;
+    public void setId_comunidad_socio(int id_comunidad_socio) {
+        this.id_comunidad_socio = id_comunidad_socio;
     }
 
-    public boolean isContrasenya_cambiada() {
-        return contrasenya_cambiada;
+    public boolean isContrasena_cambiada() {
+        return contrasena_cambiada;
     }
 
-    public void setContrasenya_cambiada(boolean contrasenya_cambiada) {
-        this.contrasenya_cambiada = contrasenya_cambiada;
+    public void setContrasena_cambiada(boolean contrasena_cambiada) {
+        this.contrasena_cambiada = contrasena_cambiada;
     }
 }
