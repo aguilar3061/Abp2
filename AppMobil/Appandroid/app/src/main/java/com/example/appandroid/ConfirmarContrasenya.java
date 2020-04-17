@@ -27,11 +27,11 @@ public class ConfirmarContrasenya extends AppCompatActivity implements Serializa
             @Override
             public void onClick(View view) {
 
-                if (nuevacontrasenya.getText().equals("") || confirmarContrasenya.getText().equals(""))
+                if (nuevacontrasenya.getText().toString().equals("") || confirmarContrasenya.getText().toString().equals(""))
                 {
                     Toast.makeText(getApplicationContext(), "Uno de los campos esta vacio.",Toast.LENGTH_LONG).show();
                 }
-                else if (!nuevacontrasenya.getText().equals(confirmarContrasenya.getText()))
+                else if (!nuevacontrasenya.getText().toString().equals(confirmarContrasenya.getText().toString()))
                 {
                     Toast.makeText(getApplicationContext(), "Las contraseñas no coinciden.",Toast.LENGTH_LONG).show();
                 }
@@ -40,6 +40,10 @@ public class ConfirmarContrasenya extends AppCompatActivity implements Serializa
                     Intent acceder = new Intent(ConfirmarContrasenya.this, MainActivity.class);
                     acceder.putExtra("socio",soci);
                     startActivity(acceder);
+
+
+                    soci.setContrasena_cambiada(true);
+                    /////////////
                 }
 
             }

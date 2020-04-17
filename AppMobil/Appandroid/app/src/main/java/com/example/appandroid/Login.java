@@ -66,7 +66,9 @@ public class Login extends AppCompatActivity implements Serializable {
                  Socio soci = new Socio();
                 for(int i=0; i < socis.size(); i++)
                 {
-                    if (textDNI.getText().equals(socis.get(i).getDNI()) && textPassword.getText().equals(socis.get(i).getContrasenya()))
+
+
+                    if (textDNI.getText().toString().equals(socis.get(i).getDNI()) && textPassword.getText().toString().equals(socis.get(i).getContrasenya()))
                     {
                         loginCorrecte = true;
                         soci = socis.get(i);
