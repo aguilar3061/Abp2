@@ -15,8 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="44dp"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
         android:ems="15"
-        android:hint="DNI"/>
+        android:hint="DNI" />
 
     <EditText
         android:id="@+id/contrasenya"
@@ -24,8 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="44dp"
+        android:drawableLeft="@android:drawable/ic_lock_lock"
         android:ems="15"
-        android:hint="Contraseña"/>
+        android:hint="Contraseña"
+        android:password="true" />
 
 
 
