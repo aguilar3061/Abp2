@@ -1,6 +1,8 @@
 package com.example.appandroid;
 
-public class Socio {
+import java.io.Serializable;
+
+public class Socio implements Serializable {
 
     private int id;
     private String telefon;
@@ -14,6 +16,9 @@ public class Socio {
     private String DNI;
     private int id_comunidad_socio;
     private boolean contrasena_cambiada;
+
+    public Socio() {
+    }
 
     public Socio(int id, String telefon, String mail, String nom, String cognoms, String contrasenya, boolean actiu, boolean administrador, int id_comunitat_admin, String DNI, int id_comunidad_socio, boolean contrasena_cambiada) {
         this.id = id;

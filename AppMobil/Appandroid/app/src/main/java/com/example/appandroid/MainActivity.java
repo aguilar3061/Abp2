@@ -24,7 +24,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Socio> socis;
+
     private List<Evento> eventos;
     private List<Comunitat> comunitats;
     private List<Assistir> assistents;
@@ -34,32 +34,7 @@ public class MainActivity extends AppCompatActivity {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //SOCIOS!!!!!!!!!!!!!!!!!!!!
 
-        SocioService socioService = Api.getApi().create(SocioService.class);
-        Call<List<Socio>> listCall = socioService.getSocis();
-
-        listCall.enqueue(new Callback<List<Socio>>() {
-            @Override
-            public void onResponse(Call<List<Socio>> call, Response<List<Socio>> response) {
-                switch (response.code()){
-                    case 200:
-                        socis = response.body();
-                        break;
-                    default:
-                        break;
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Socio>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
-            }
-        });
-
-
-        //SOCIOS!!!!!!!!!!!!!!!!!!!!
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
