@@ -9,7 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.appandroid.API.Api;
+import com.example.appandroid.API.ApiServive.SocioService;
+
 import java.io.Serializable;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ConfirmarContrasenya extends AppCompatActivity implements Serializable {
 
@@ -37,12 +45,32 @@ public class ConfirmarContrasenya extends AppCompatActivity implements Serializa
                 }
                 else
                 {
+                    soci.setContrasena_cambiada(true);
+                    soci.setContrasenya(nuevacontrasenya.getText().toString());
+                    SocioService socioService = Api.getApi().create(SocioService.class);
+                    Call<Socio> UpdateSocio = socioService.updateSocio(soci.getId(),soci);
+
+                    UpdateSocio.enqueue(new Callback<Socio>() {
+                        @Override
+                        public void onResponse(Call<Socio> call, Response<Socio> response) {
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<Socio> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
+
+
                     Intent acceder = new Intent(ConfirmarContrasenya.this, MainActivity.class);
                     acceder.putExtra("socio",soci);
                     startActivity(acceder);
 
 
-                    soci.setContrasena_cambiada(true);
+
                     /////////////
                 }
 
