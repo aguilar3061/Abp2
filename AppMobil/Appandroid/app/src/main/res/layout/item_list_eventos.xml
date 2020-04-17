@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+
     android:layout_height="wrap_content"
+
     android:orientation="horizontal"
     android:background="@color/colorAzul"
     android:layout_margin="20dp"
     android:padding="5dp"
     >
 
-
-    <ImageView
-        android:id="@+id/idImg"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="match_parent"
         android:layout_weight="5"
-        android:src="@drawable/foto"
-        android:scaleType="fitCenter"
-        />
+        android:orientation="vertical"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/idImg"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+
+            android:src="@drawable/foto"
+            android:scaleType="centerCrop"
+
+            />
+
+
+
+        <TextView
+            android:id="@+id/idFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:text="sgsgfdgfd"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
 
 
     <LinearLayout
@@ -24,7 +51,7 @@
         android:layout_height="match_parent"
         android:layout_weight="7"
         android:orientation="vertical"
-
+        android:padding="5dp"
         >
 
         <TextView
@@ -32,8 +59,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:gravity="center_horizontal"
-            android:padding="5dp"
+            android:gravity="center"
+            android:padding="1dp"
+            android:textStyle="bold"
             />
 
         <TextView
@@ -42,12 +70,9 @@
             android:layout_height="0dp"
             android:layout_weight="8"
             android:gravity="center_horizontal"
-            android:text="DESCRIPCION"
-            android:padding="10dp"
-            />
+            android:text="DESCRIPCION" />
 
     </LinearLayout>
-
 
 
 

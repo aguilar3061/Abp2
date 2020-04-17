@@ -1,5 +1,9 @@
 package com.example.appandroid;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +69,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         private TextView txtViewNombre;
         private TextView txtViewDescripcion;
         private ImageView img;
+        private TextView txtViewFecha;
 
         public EventoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,7 +78,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             txtViewNombre = (TextView)itemView.findViewById(R.id.idNombre);
             txtViewDescripcion = (TextView)itemView.findViewById(R.id.idDescripcion);
             img = (ImageView)itemView.findViewById(R.id.idImg);
-
+            txtViewFecha = (TextView) itemView.findViewById(R.id.idFecha);
         }
 
 
@@ -82,8 +87,32 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
 
             txtViewNombre.setText(t.getNombreEvento());
-            //txtViewDescripcion.setText(t.getDescripcion());
-            //img.setImageURI();
+            txtViewDescripcion.setText(t.getDescripcion());
+
+            //PASAR LA IMAGEN DE EL SQL AL IMAGEVIEW
+            String imgByte = t.getImagen();
+            try{
+                byte [] encodeByte= Base64.decode(imgByte,Base64.DEFAULT);
+                Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+                img.setImageBitmap(bitmap);
+            }catch(Exception e){
+                e.getMessage();
+            }
+
+
+            String separarFechaH = t.getFechaInicio() ;
+            String str[] = separarFechaH.split("T");
+            String fechaInicio = str[0];
+
+
+            String separarMinutos = t.getHoraInicio() ;
+            String str1[] = separarMinutos.split(":");
+            String h = str1[0];
+            String m = str1[1];
+
+
+            txtViewFecha.setText(fechaInicio + " h." + h + ":" + m);
+
 
 
         }
