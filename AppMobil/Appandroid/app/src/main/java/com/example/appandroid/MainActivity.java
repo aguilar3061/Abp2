@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //ESDEVENIMENTS!!!!!!!!!!!!!!!!!
+/*
 
         EsdevenimentsService esdevenimentsService = Api.getApi().create(EsdevenimentsService.class);
         Call<List<Evento>> listCal1Eventos = esdevenimentsService.getEventos();
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
             }
         });
+*/
 
         //ESDEVENIMENTS!!!!!!!!!!!!!!!!!
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,13 +76,15 @@ public class MainActivity extends AppCompatActivity {
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //COMUNITATS!!!!!!!!!!!!!!!!!!!
 
-        ComunitatService comunitatService = Api.getApi().create(ComunitatService.class);
+     /*
+
+      ComunitatService comunitatService = Api.getApi().create(ComunitatService.class);
         Call<List<Comunitat>> listCallComunitats = comunitatService.getComunidades();
 
         listCallComunitats.enqueue(new Callback<List<Comunitat>>() {
             @Override
             public void onResponse(Call<List<Comunitat>> call, Response<List<Comunitat>> response) {
-                switch (response.code()){
+                switch (response.code()) {
                     case 200:
                         comunitats = response.body();
                         break;
@@ -92,15 +96,19 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Comunitat>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), t.getCause() + " - " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+
+        */
         //COMUNITATS!!!!!!!!!!!!!!!!!!!
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //ASSISTENTS!!!!!!!!!!!!!!!!!!
-        AssistirService assistirService = Api.getApi().create(AssistirService.class);
+
+     /*
+     AssistirService assistirService = Api.getApi().create(AssistirService.class);
         Call<List<Assistir>> listCallAssistir = assistirService.getAssistents();
 
         listCallAssistir.enqueue(new Callback<List<Assistir>>() {
@@ -121,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
             }
         });
+
+        */
         //ASSISTENTS!!!!!!!!!!!!!!!!!!
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -154,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.nav_eventOff:
-                    fragment = new EventosFinalizados();
+                    fragment = new EventosFinalizados(socio);
                     break;
 
                 case R.id.nav_profile:

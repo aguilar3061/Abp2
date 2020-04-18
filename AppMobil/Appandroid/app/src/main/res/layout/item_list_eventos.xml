@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/idLinerLayautITEM"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
 
     android:layout_height="wrap_content"
 
-    android:orientation="horizontal"
-    android:background="@color/colorAzul"
     android:layout_margin="20dp"
-    android:padding="5dp"
-    >
+    android:background="@color/colorAzul"
+    android:padding="5dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -19,30 +16,36 @@
         android:orientation="vertical"
 
         >
-
+        <TextView
+            android:id="@+id/idFechaInicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="sgsgfdgfd"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/idImg"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
 
-            android:src="@drawable/foto"
             android:scaleType="centerCrop"
+            android:src="@drawable/foto"
 
             />
-
 
 
         <TextView
-            android:id="@+id/idFecha"
+            android:id="@+id/idFechafin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center_horizontal"
             android:padding="5dp"
-            android:textStyle="bold"
             android:text="sgsgfdgfd"
-            android:layout_gravity="center"
-            />
+            android:textStyle="bold" />
 
 
     </LinearLayout>
@@ -53,8 +56,7 @@
         android:layout_height="match_parent"
         android:layout_weight="7"
         android:orientation="vertical"
-        android:padding="5dp"
-        >
+        android:padding="5dp">
 
         <TextView
             android:id="@+id/idNombre"
@@ -63,8 +65,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:padding="1dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/idDescripcion"
@@ -75,7 +76,6 @@
             android:text="DESCRIPCION" />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

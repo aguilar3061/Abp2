@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/colorFondo"
-    tools:context=".VerEvento"
     >
 
 
@@ -31,7 +29,7 @@
 
 
         <ImageView
-            android:id="@+id/idImgE"
+            android:id="@+id/idImgEventoo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/foto"
@@ -71,12 +69,14 @@
     </LinearLayout>
 
 
-    <FrameLayout
+ <!--   <FrameLayout
         android:layout_margin="10dp"
         android:id="@+id/RecViewEventosF"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5"
 
-        />
+        />-->
+
+
 </LinearLayout>

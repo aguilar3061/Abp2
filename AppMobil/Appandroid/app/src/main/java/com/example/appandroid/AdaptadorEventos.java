@@ -15,12 +15,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.EventoViewHolder> implements View.OnClickListener {
 
 
-
+    Date fecha2 = null;
     private ArrayList<Evento> datos;
     private View.OnClickListener listener;
 
@@ -71,8 +75,10 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         private TextView txtViewNombre;
         private TextView txtViewDescripcion;
         private ImageView img;
-        private TextView txtViewFecha;
+        private TextView txtViewFechaINICIO;
         private LinearLayout linear;
+        private TextView txtViewFechaFIN;
+        private Date fecha2;
 
 
         public EventoViewHolder(@NonNull View itemView) {
@@ -82,8 +88,10 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             txtViewNombre = (TextView)itemView.findViewById(R.id.idNombre);
             txtViewDescripcion = (TextView)itemView.findViewById(R.id.idDescripcion);
             img = (ImageView)itemView.findViewById(R.id.idImg);
-            txtViewFecha = (TextView) itemView.findViewById(R.id.idFecha);
+            txtViewFechaINICIO = (TextView) itemView.findViewById(R.id.idFechaInicio);
             linear = (LinearLayout) itemView.findViewById(R.id.idLinerLayautITEM);
+            txtViewFechaFIN = (TextView) itemView.findViewById(R.id.idFechafin);
+
         }
 
 
@@ -118,16 +126,65 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             String m = str1[1];
 
 
-            txtViewFecha.setText(fechaInicio + " h." + h + ":" + m);
+            txtViewFechaINICIO.setText(fechaInicio + " h." + h + ":" + m);
 
 
-            if ( t.isApuntado() ){
+            String separarFechaH1= t.getFechaFin() ;
+            String str11[] = separarFechaH1.split("T");
+            String fechafinal11 = str11[0];
 
-                linear.setBackgroundColor(Color.parseColor("#6BE98A"));
+
+            String separarMinutos2 = t.getHoraFin() ;
+            String str2[] = separarMinutos2.split(":");
+            String h2 = str2[0];
+            String m2 = str2[1];
+
+            txtViewFechaFIN.setText(fechafinal11 + " h." + h2 + ":" + m2);
+
+
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            Date date = new Date();
+
+
+
+
+            try {
+                fecha2 = (Date) formatter.parse(fechafinal11);
+            } catch (ParseException ex) {
+                ex.printStackTrace();
             }
-            else{
 
-                linear.setBackgroundColor(Color.parseColor("#9B9C9E"));
+
+
+            if ( date.after(fecha2) ){
+                // EVENTOS FINALIADOS
+
+                if ( t.isApuntado() ){
+
+                    //EVENTO APUNTADO
+                    linear.setBackgroundColor(Color.parseColor("#65D49D"));
+
+                }
+                else{
+                    //EVENTO NO APUNTADO
+                    linear.setBackgroundColor(Color.parseColor("#EF5C5C"));
+
+                }
+
+
+            }else{
+                // EVENTOS NO  FINALIADOS
+
+                if ( t.isApuntado() ){
+                    //EVENTO APUNTADO
+                    linear.setBackgroundColor(Color.parseColor("#6BE98A"));
+                }
+                else{
+                    //EVENTO NO APUNTADO
+                    linear.setBackgroundColor(Color.parseColor("#9B9C9E"));
+
+                }
 
             }
 
@@ -140,10 +197,13 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         this.listener = listener;
     }
 
+
     @Override
     public void onClick(View view) {
         if(listener != null) {
+
             listener.onClick(view);
+
         }
 
     }

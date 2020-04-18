@@ -1,10 +1,12 @@
 package com.example.appandroid;
 
+
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Evento implements Comparable<Evento>{
+public class Evento implements Comparable<Evento>, Serializable {
 
     private int id;
     private String fechaInicio;
@@ -39,6 +41,9 @@ public class Evento implements Comparable<Evento>{
         this.imagen = imagen;
         this.descripcion = descripcion;
     }
+
+
+
 
     public int getId() {
         return id;

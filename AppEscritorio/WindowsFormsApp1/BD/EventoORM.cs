@@ -107,8 +107,8 @@ namespace WindowsFormsApp1.BD
             esdeveniment.id_Comunitat = idComunitat;
             esdeveniment.fechaFin = fechaFin;
             esdeveniment.horaFin = horaFinal.TimeOfDay;
-            esdeveniment.NombreEvento = Direccion;
-            esdeveniment.Direccio = NombreEvento;
+            esdeveniment.NombreEvento = NombreEvento;
+            esdeveniment.Direccio = Direccion;
             esdeveniment.imagen = imagen;
             esdeveniment.descripcion = descripcio;
             esdeveniment.cuants = 0;
