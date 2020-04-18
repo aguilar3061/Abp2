@@ -23,6 +23,8 @@ import com.example.appandroid.API.ApiServive.EsdevenimentsService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -44,8 +46,8 @@ public class Eventos extends Fragment {
     ArrayList<Evento> eventos = new ArrayList<>();
     ArrayList<Evento> eventosFiltrados = new ArrayList<>();
 
-    ArrayList<Evento> eventosApuntados = new ArrayList<>();
-    ArrayList<Evento> eventosNOapuntos = new ArrayList<>();
+    ArrayList<Evento> eventosOrdenados = new ArrayList<>();
+
 
     Socio socio = null;
 
@@ -179,6 +181,10 @@ public class Eventos extends Fragment {
 */
 
 
+
+
+        //SEPARAR A LOS QUE SE ASISTE Y A LOS QUE NO
+
         for ( Assistir as1 : assistents) {
             if( as1.getId_Soci() == socio.getId() ){
 
@@ -186,13 +192,8 @@ public class Eventos extends Fragment {
 
             }
         }
-
-
         boolean ok = false;
-
-
         for ( Evento ev1 : eventos) {
-
             if( assistentsFiltrados.size() > 0 ){
                 for ( Assistir as2 : assistentsFiltrados) {
 
@@ -220,6 +221,76 @@ public class Eventos extends Fragment {
             }
             ok = false;
         }
+
+
+
+
+        //ORDENAR POR FECHAAAS
+/*
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date fecha1 = null;
+        Date fecha2 = null;
+        Evento aux = null;
+        Evento aux2 = null;
+
+        for ( Evento q: eventosFiltrados) {
+
+            boolean añadido = false;
+
+            try {
+                String separarMinutos1 = q.getFechaInicio() ;
+                String str1[] = separarMinutos1.split("T");
+                String fecha11 = str1[0];
+                fecha1 = (Date) formatter.parse(fecha11);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            for ( Evento o: eventosFiltrados) {
+
+                try {
+                    String separarMinutos2 = o.getFechaInicio() ;
+                    String str2[] = separarMinutos2.split("T");
+                    String fecha22 = str2[0];
+                    fecha2 = (Date) formatter.parse(fecha22);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+                if (fecha1.after(fecha2)) {
+
+                    aux2 = q;
+                    añadido = true;
+
+                }else {
+
+                    aux = o;
+
+                }
+
+
+            }
+            if (añadido) {
+
+                eventosOrdenados.add(aux2);
+
+            }else{
+
+                eventosOrdenados.add(aux);
+            }
+
+
+        }
+*/
+
+
+        Collections.sort(eventosFiltrados);
+
+
+
+
 
 
 

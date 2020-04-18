@@ -1,6 +1,10 @@
 package com.example.appandroid;
 
-public class Evento {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Evento implements Comparable<Evento>{
 
     private int id;
     private String fechaInicio;
@@ -134,6 +138,61 @@ public class Evento {
     public boolean isApuntado() {
         return apuntado;
     }
+
+
+
+
+    @Override
+    public int compareTo(Evento e){
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date fecha1 = null;
+        Date fecha2 = null;
+
+
+        try {
+            String separarMinutos1 = e.getFechaInicio() ;
+            String str1[] = separarMinutos1.split("T");
+            String fecha11 = str1[0];
+            fecha1 = (Date) formatter.parse(fecha11);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+
+
+
+        try {
+            String separarMinutos2 = fechaInicio;
+            String str2[] = separarMinutos2.split("T");
+            String fecha22 = str2[0];
+            fecha2 = (Date) formatter.parse(fecha22);
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+
+
+
+
+        if(fecha1.after(fecha2)){
+
+
+            return -1;
+
+
+        }else if(fecha1.after(fecha2)){
+
+            return 0;
+
+
+        }else{
+
+            return 1;
+
+        }
+
+
+    }
+
 
 
 }
