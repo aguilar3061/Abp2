@@ -2,12 +2,14 @@ package com.example.appandroid;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -70,6 +72,8 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         private TextView txtViewDescripcion;
         private ImageView img;
         private TextView txtViewFecha;
+        private LinearLayout linear;
+
 
         public EventoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +83,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             txtViewDescripcion = (TextView)itemView.findViewById(R.id.idDescripcion);
             img = (ImageView)itemView.findViewById(R.id.idImg);
             txtViewFecha = (TextView) itemView.findViewById(R.id.idFecha);
+            linear = (LinearLayout) itemView.findViewById(R.id.idLinerLayautITEM);
         }
 
 
@@ -96,7 +101,9 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
                 Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                 img.setImageBitmap(bitmap);
             }catch(Exception e){
+
                 e.getMessage();
+
             }
 
 
@@ -112,6 +119,17 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
 
             txtViewFecha.setText(fechaInicio + " h." + h + ":" + m);
+
+
+            if ( t.isApuntado() ){
+
+                linear.setBackgroundColor(Color.parseColor("#6BE98A"));
+            }
+            else{
+
+                linear.setBackgroundColor(Color.parseColor("#9B9C9E"));
+
+            }
 
 
 

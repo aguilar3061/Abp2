@@ -14,6 +14,7 @@ public class Evento {
     private String imagen;
     private String descripcion;
 
+    private boolean apuntado;
 
 
 
@@ -122,4 +123,17 @@ public class Evento {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+
+
+
+    public void setApuntado(boolean apuntado) {
+        this.apuntado = apuntado;
+    }
+
+    public boolean isApuntado() {
+        return apuntado;
+    }
+
+
 }

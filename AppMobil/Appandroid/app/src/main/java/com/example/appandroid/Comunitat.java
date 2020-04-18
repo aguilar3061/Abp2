@@ -21,6 +21,13 @@ public class Comunitat {
         return nombre;
     }
 
+    @Override
+    public String toString() {
+
+        return  nombre ;
+
+    }
+
     public void setNom(String nom) {
         this.nombre = nom;
     }

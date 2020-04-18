@@ -11,4 +11,5 @@ public interface AssistirService {
 
     @GET("api/Assistirs")
     Call<List<Assistir>> getAssistents();
+
 }

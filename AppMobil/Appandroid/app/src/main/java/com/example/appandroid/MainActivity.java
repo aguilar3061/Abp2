@@ -24,13 +24,18 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    Socio socio;
     private List<Evento> eventos;
     private List<Comunitat> comunitats;
     private List<Assistir> assistents;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        socio = (Socio) getIntent().getExtras().getSerializable("socio");
+
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -124,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Eventos()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new Eventos(socio)).commit();
         }
 
 
@@ -145,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.nav_eventOn:
-                    fragment = new Eventos();
+                    fragment = new Eventos(socio);
                     break;
 
                 case R.id.nav_eventOff:

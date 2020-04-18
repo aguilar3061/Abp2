@@ -2,14 +2,14 @@ package com.example.appandroid;
 
 public class Assistir {
     private int id_Soci;
-    private int id_Esdeveniment;
-    private int aiste;
+    private int id_Esdeveiment;
+    private boolean aiste;
     private int valoracio;
     private String comentari;
 
-    public Assistir(int id_Soci, int id_Esdeveniment, int aiste, int valoracio, String comentari) {
+    public Assistir(int id_Soci, int id_Esdeveiment, boolean aiste, int valoracio, String comentari) {
         this.id_Soci = id_Soci;
-        this.id_Esdeveniment = id_Esdeveniment;
+        this.id_Esdeveiment = id_Esdeveiment;
         this.aiste = aiste;
         this.valoracio = valoracio;
         this.comentari = comentari;
@@ -24,18 +24,18 @@ public class Assistir {
     }
 
     public int getId_Esdeveniment() {
-        return id_Esdeveniment;
+        return id_Esdeveiment;
     }
 
-    public void setId_Esdeveniment(int id_Esdeveniment) {
-        this.id_Esdeveniment = id_Esdeveniment;
+    public void setId_Esdeveniment(int id_Esdeveiment) {
+        this.id_Esdeveiment = id_Esdeveiment;
     }
 
-    public int getAiste() {
+    public boolean getAiste() {
         return aiste;
     }
 
-    public void setAiste(int aiste) {
+    public void setAiste(boolean aiste) {
         this.aiste = aiste;
     }
 

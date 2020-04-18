@@ -34,14 +34,10 @@ public class EventosFinalizados extends Fragment {
 
         ArrayList<Evento> listaEventos = new ArrayList<>();
 
-
         recView = (RecyclerView) getView().findViewById(R.id.RecViewEventosF);
 
 
 
-
-        listaEventos.add(new Evento("HOLAA1"));
-        listaEventos.add(new Evento("ADIIIOS1"));
 
 
 
@@ -50,6 +46,9 @@ public class EventosFinalizados extends Fragment {
         recView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(), RecyclerView.VERTICAL, false));
         recView.setHasFixedSize(true);
         recView.setAdapter(adapter);
+
+
+
 
 
         recView.setHasFixedSize(true);

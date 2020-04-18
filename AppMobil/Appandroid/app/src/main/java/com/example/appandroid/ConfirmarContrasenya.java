@@ -47,13 +47,16 @@ public class ConfirmarContrasenya extends AppCompatActivity implements Serializa
                 {
                     soci.setContrasena_cambiada(true);
                     soci.setContrasenya(nuevacontrasenya.getText().toString());
+
+                    Socio socioEdit = soci;
+
                     SocioService socioService = Api.getApi().create(SocioService.class);
-                    Call<Socio> UpdateSocio = socioService.updateSocio(soci.getId(),soci);
+                    Call<Socio> UpdateSocio = socioService.updateSocio(socioEdit.getId(),socioEdit);
 
                     UpdateSocio.enqueue(new Callback<Socio>() {
                         @Override
                         public void onResponse(Call<Socio> call, Response<Socio> response) {
-
+                            Toast.makeText(getApplicationContext(),"Contraseña cambiada correctamentee" , Toast.LENGTH_LONG).show();
                         }
 
                         @Override

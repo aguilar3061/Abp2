@@ -11,4 +11,5 @@ public interface ComunitatService {
 
     @GET("api/Comunitats")
     Call<List<Comunitat>> getComunidades();
+
 }
