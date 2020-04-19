@@ -71,10 +71,6 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
 
 
-
-
-
-
                 }
             }
         });*/

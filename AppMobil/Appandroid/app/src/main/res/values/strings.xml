@@ -9,4 +9,7 @@
     <string name="stringGrisAYUDA">Este color en la pantalla de Eventos nos indica que el evento NO ha acabado y NO se ha apuntado.</string>
     <string name="stringVerdeClaroAYUDA">Este color en la pantalla de Eventos nos indica que el evento NO ha acabado y SI se ha apuntado.</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
