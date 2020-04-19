@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class VerEvento extends AppCompatActivity  {
 
@@ -43,12 +45,14 @@ public class VerEvento extends AppCompatActivity  {
 
         final Button btnInfo = (Button) findViewById(R.id.button_informacion);
         final Button btnUbi= (Button) findViewById(R.id.button_ubicacion);
+        final Button btnParticipar = (Button) findViewById(R.id.buttonApuntarse);
+        final EditText editTextCuants = (EditText) findViewById(R.id.idCuants);
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                FragmentInformacion fragment = new FragmentInformacion();
+                FragmentInformacion fragment = new FragmentInformacion(obj);
                 getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
             }
@@ -58,12 +62,29 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                FragmentUbicacion fragment = new FragmentUbicacion();
+                FragmentUbicacion fragment = new FragmentUbicacion(obj);
                 getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
 
             }
         });
+
+
+
+        btnParticipar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext() , "Apuntado al evento: " + obj.getNombreEvento() , Toast.LENGTH_SHORT).show();
+
+
+
+                obj.setCuants(Integer.parseInt( editTextCuants.getText().toString() ) );
+                finish();
+
+            }
+        });
+
 
 
 

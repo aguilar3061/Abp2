@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".FragmentInformacion"
     android:background="@color/colorAzul"
+    android:layout_marginHorizontal="30dp"
     >
 
 
@@ -14,7 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="informacionn"
+        android:paddingHorizontal="20dp"
+        android:textSize="20dp"
+        android:text="ubicacion"
         />
 
 
