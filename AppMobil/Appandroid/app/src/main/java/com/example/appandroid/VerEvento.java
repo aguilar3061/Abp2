@@ -59,44 +59,18 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of f481c09... Bordes redondeados
-                FragmentUbicacion fragment = new FragmentUbicacion();
-                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
-
-
-            }
-        });
->>>>>>> parent of f481c09... Bordes redondeados
-
-                //FragmentUbicacion fragment = new FragmentUbicacion();
-              //  getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
-
-                FragmentUbicacion fragment = new FragmentUbicacion();
-                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-
                 //FragmentUbicacion fragment = new FragmentUbicacion();
               //  getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
                 Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
                 startActivity(intent);
 
+
             }
         });
 
 
 
-
-=======
->>>>>>> parent of f481c09... Bordes redondeados
-=======
->>>>>>> parent of f481c09... Bordes redondeados
     }
 
 }
