@@ -59,6 +59,28 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of f481c09... Bordes redondeados
+                FragmentUbicacion fragment = new FragmentUbicacion();
+                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+
+
+            }
+        });
+>>>>>>> parent of f481c09... Bordes redondeados
+
+                //FragmentUbicacion fragment = new FragmentUbicacion();
+              //  getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+
+                FragmentUbicacion fragment = new FragmentUbicacion();
+                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+
                 //FragmentUbicacion fragment = new FragmentUbicacion();
               //  getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
@@ -70,6 +92,11 @@ public class VerEvento extends AppCompatActivity  {
 
 
 
+
+=======
+>>>>>>> parent of f481c09... Bordes redondeados
+=======
+>>>>>>> parent of f481c09... Bordes redondeados
     }
 
 }
