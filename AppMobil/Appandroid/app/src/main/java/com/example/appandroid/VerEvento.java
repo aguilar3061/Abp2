@@ -65,7 +65,6 @@ public class VerEvento extends AppCompatActivity  {
                 Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
                 startActivity(intent);
 
-
             }
         });
 
