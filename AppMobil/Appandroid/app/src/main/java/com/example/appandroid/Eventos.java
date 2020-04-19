@@ -120,6 +120,7 @@ public class Eventos extends Fragment {
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
+
     }
 
 
@@ -252,18 +253,24 @@ public class Eventos extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity().getApplicationContext(),"Pulsado el elemento: " + eventosFiltrados.get(recView.getChildPosition(v)).getNombreEvento() , Toast.LENGTH_SHORT).show();
-/*
+                Toast.makeText(getContext() ,"Pulsado el elemento: " + eventosNoFinalizados.get(recView.getChildPosition(v)).getNombreEvento() , Toast.LENGTH_SHORT).show();
+
+
+
                 Intent inteeentt = new Intent(getContext(), VerEvento.class);
-                Evento ev1 = eventosFiltrados.get( recView.getChildPosition(v) );
 
-                inteeentt.putExtra("evento1", (Serializable) ev1) ;
+                Evento ev1 = eventosNoFinalizados.get( recView.getChildPosition(v) );
 
-                startActivity(inteeentt);*/
+                inteeentt.putExtra("evento1" , (Serializable) ev1);
+
+                // AQUI PETA CUANDO SE HACE EL PUTEXTA
+                getActivity().startActivity(inteeentt);
 
 
             }
         });
+
+
 
     }
 

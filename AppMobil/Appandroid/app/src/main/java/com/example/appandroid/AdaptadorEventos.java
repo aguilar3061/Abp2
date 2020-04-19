@@ -12,15 +12,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.EventoViewHolder> implements View.OnClickListener {
 
@@ -29,6 +33,7 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
     private ArrayList<Evento> datos;
     private View.OnClickListener listener;
 
+
     public AdaptadorEventos(ArrayList<Evento> datos) {
 
         this.datos = datos;
@@ -36,13 +41,11 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
     }
 
 
-
     @NonNull
     @Override
     public EventoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_eventos, parent, false);
-
         itemView.setOnClickListener(this);
         EventoViewHolder tvh = new EventoViewHolder(itemView);
 
@@ -52,25 +55,29 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventoViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull EventoViewHolder holder, int position) {
+
 
         Evento item = datos.get(position);
-
         holder.bindPersona(item);
 
 
-        /*
-        //TEST DAVID
+
+     /* //TEST DAVID
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (position==1){
-                    Intent intent = new Intent(v.getContext(), VerEvento.class);
-                    v.getContext().startActivity(intent);
+                if (pos == 1){
+
+
+
+
+
+
+
                 }
             }
-        });
-        */
+        });*/
 
     }
 
@@ -80,8 +87,6 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
         return datos.size();
 
     }
-
-
 
 
     public static class EventoViewHolder extends RecyclerView.ViewHolder {
@@ -99,15 +104,14 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             super(itemView);
 
 
-            txtViewNombre = (TextView)itemView.findViewById(R.id.idNombre);
-            txtViewDescripcion = (TextView)itemView.findViewById(R.id.idDescripcion);
-            img = (ImageView)itemView.findViewById(R.id.idImg);
+            txtViewNombre = (TextView) itemView.findViewById(R.id.idNombre);
+            txtViewDescripcion = (TextView) itemView.findViewById(R.id.idDescripcion);
+            img = (ImageView) itemView.findViewById(R.id.idImg);
             txtViewFechaINICIO = (TextView) itemView.findViewById(R.id.idFechaInicio);
             linear = (LinearLayout) itemView.findViewById(R.id.idLinerLayautITEM);
             txtViewFechaFIN = (TextView) itemView.findViewById(R.id.idFechafin);
 
         }
-
 
 
         public void bindPersona(Evento t) {
@@ -118,23 +122,23 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
             //PASAR LA IMAGEN DE EL SQL AL IMAGEVIEW
             String imgByte = t.getImagen();
-            try{
-                byte [] encodeByte= Base64.decode(imgByte,Base64.DEFAULT);
-                Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            try {
+                byte[] encodeByte = Base64.decode(imgByte, Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
                 img.setImageBitmap(bitmap);
-            }catch(Exception e){
+            } catch (Exception e) {
 
                 e.getMessage();
 
             }
 
 
-            String separarFechaH = t.getFechaInicio() ;
+            String separarFechaH = t.getFechaInicio();
             String str[] = separarFechaH.split("T");
             String fechaInicio = str[0];
 
 
-            String separarMinutos = t.getHoraInicio() ;
+            String separarMinutos = t.getHoraInicio();
             String str1[] = separarMinutos.split(":");
             String h = str1[0];
             String m = str1[1];
@@ -143,12 +147,12 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             txtViewFechaINICIO.setText(fechaInicio + " h." + h + ":" + m);
 
 
-            String separarFechaH1= t.getFechaFin() ;
+            String separarFechaH1 = t.getFechaFin();
             String str11[] = separarFechaH1.split("T");
             String fechafinal11 = str11[0];
 
 
-            String separarMinutos2 = t.getHoraFin() ;
+            String separarMinutos2 = t.getHoraFin();
             String str2[] = separarMinutos2.split(":");
             String h2 = str2[0];
             String m2 = str2[1];
@@ -161,8 +165,6 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             Date date = new Date();
 
 
-
-
             try {
                 fecha2 = (Date) formatter.parse(fechafinal11);
             } catch (ParseException ex) {
@@ -170,31 +172,28 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             }
 
 
-
-            if ( date.after(fecha2) ){
+            if (date.after(fecha2)) {
                 // EVENTOS FINALIADOS
 
-                if ( t.isApuntado() ){
+                if (t.isApuntado()) {
 
                     //EVENTO APUNTADO
                     linear.setBackgroundColor(Color.parseColor("#65D49D"));
 
-                }
-                else{
+                } else {
                     //EVENTO NO APUNTADO
                     linear.setBackgroundColor(Color.parseColor("#EF5C5C"));
 
                 }
 
 
-            }else{
+            } else {
                 // EVENTOS NO  FINALIADOS
 
-                if ( t.isApuntado() ){
+                if (t.isApuntado()) {
                     //EVENTO APUNTADO
                     linear.setBackgroundColor(Color.parseColor("#6BE98A"));
-                }
-                else{
+                } else {
                     //EVENTO NO APUNTADO
                     linear.setBackgroundColor(Color.parseColor("#9B9C9E"));
 
@@ -203,39 +202,46 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
             }
 
 
-
         }
     }
 
     public void setOnClickListener(View.OnClickListener listener) {
+
+
         this.listener = listener;
+
+
     }
 
 
+
+
     @Override
-    public void onClick(View view) {
-        if(listener != null) {
+    public void onClick(final View view) {
+        if (listener != null) {
 
             listener.onClick(view);
+
 
         }
 
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

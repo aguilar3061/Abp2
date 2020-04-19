@@ -1,15 +1,11 @@
 package com.example.appandroid;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Base64;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-public class VerEvento extends AppCompatActivity {
+public class VerEvento extends AppCompatActivity  {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +13,14 @@ public class VerEvento extends AppCompatActivity {
         setContentView(R.layout.activity_ver_evento);
 
 
-        final Evento obj = (Evento) getIntent().getExtras().getSerializable("evento1");
+
+     //   final Evento obj = (Evento) getIntent().getExtras().getSerializable("evento1");
+
+
+
+        //final Socio soci = (Socio) getIntent().getSerializableExtra("socio");
+
+
 
      /*   TextView txtViewNombre = (TextView)findViewById(R.id.idNombre);
         ImageView img = (ImageView) findViewById(R.id.idImgEventoo);
@@ -39,10 +42,5 @@ public class VerEvento extends AppCompatActivity {
 
 
     }
-
-
-
-
-
 
 }

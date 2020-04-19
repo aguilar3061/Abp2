@@ -1,5 +1,6 @@
 package com.example.appandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.example.appandroid.API.ApiServive.AssistirService;
 import com.example.appandroid.API.ApiServive.ComunitatService;
 import com.example.appandroid.API.ApiServive.EsdevenimentsService;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,10 +47,11 @@ public class EventosFinalizados extends Fragment {
     ArrayList<Evento> eventos = new ArrayList<>();
     ArrayList<Evento> eventosFiltrados = new ArrayList<>();
     ArrayList<Evento> eventosFinalizados = new ArrayList<>();
+
     Socio socio = null;
 
 
-    EventosFinalizados (Socio socio){
+    public EventosFinalizados(Socio socio){
 
         this.socio = socio;
 
@@ -59,19 +62,19 @@ public class EventosFinalizados extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_eventos_finalizados,container,false);
+
+        return inflater.inflate(R.layout.activity_eventos,container,false);
+
     }
-
-
 
     @Override
     public void onActivityCreated(Bundle state) {
         super.onActivityCreated(state);
 
-
         //ArrayList<Evento> listaEventos = new ArrayList<>();
 
-        recView = (RecyclerView) getView().findViewById(R.id.RecViewEventosF);
+
+        recView = (RecyclerView) getView().findViewById(R.id.RecViewEventos);
 
         EsdevenimentsService esdevenimentsService = Api.getApi().create(EsdevenimentsService.class);
         Call<List<Evento>> listCal1Eventos = esdevenimentsService.getEventos();
@@ -110,6 +113,7 @@ public class EventosFinalizados extends Fragment {
 
         recView.setHasFixedSize(true);
         recView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+
 
     }
 
@@ -161,7 +165,6 @@ public class EventosFinalizados extends Fragment {
         }
 
 
-
         Evento aux = null;
         for ( Evento ev1 : eventos) {
             aux = null;
@@ -183,6 +186,7 @@ public class EventosFinalizados extends Fragment {
             }
 
         }
+
 
 
         for ( Evento ev : eventosFiltrados) {
@@ -225,9 +229,11 @@ public class EventosFinalizados extends Fragment {
         }
 
 
+
+
+
         //ORDENAR POR FECHAAAS
         Collections.sort(eventosFinalizados);
-
 
 
         adapter = new AdaptadorEventos(eventosFinalizados);
@@ -241,25 +247,27 @@ public class EventosFinalizados extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity().getApplicationContext(),"Pulsado el elemento: " + eventosFiltrados.get(recView.getChildPosition(v)).getNombreEvento() , Toast.LENGTH_SHORT).show();
-/*
+                Toast.makeText(getContext() ,"Pulsado el elemento: " + eventosFinalizados.get(recView.getChildPosition(v)).getNombreEvento() , Toast.LENGTH_SHORT).show();
+
+
+
                 Intent inteeentt = new Intent(getContext(), VerEvento.class);
-                Evento ev1 = eventosFiltrados.get( recView.getChildPosition(v) );
-
-                inteeentt.putExtra("evento1", (Serializable) ev1) ;
-
-                startActivity(inteeentt);*/
+                Evento ev1 = eventosFinalizados.get( recView.getChildPosition(v) );
+                inteeentt.putExtra("evento1" , (Serializable) ev1);
+                // AQUI PETA CUANDO SE HACE EL PUTEXTA
+                getActivity().startActivity(inteeentt);
 
 
             }
         });
 
+
+
+
+
+
+
     }
-
-
-
-
-
 
 
 }

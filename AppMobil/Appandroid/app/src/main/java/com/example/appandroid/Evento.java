@@ -6,7 +6,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Evento implements Comparable<Evento>, Serializable {
+
+@SuppressWarnings("serial")
+public class Evento implements Comparable<Evento> ,Serializable {
 
     private int id;
     private String fechaInicio;
@@ -40,6 +42,26 @@ public class Evento implements Comparable<Evento>, Serializable {
         this.cuants = cuants;
         this.imagen = imagen;
         this.descripcion = descripcion;
+    }
+
+
+    public Evento(int id, String fechaInicio, String horaInicio, String nombreEvento, String direccio, int id_Comunitat, String fechaFin, String horaFin, int cuants, String imagen, String descripcion, boolean apuntado) {
+        this.id = id;
+        this.fechaInicio = fechaInicio;
+        this.horaInicio = horaInicio;
+        NombreEvento = nombreEvento;
+        Direccio = direccio;
+        this.id_Comunitat = id_Comunitat;
+        this.fechaFin = fechaFin;
+        this.horaFin = horaFin;
+        this.cuants = cuants;
+        this.imagen = imagen;
+        this.descripcion = descripcion;
+        this.apuntado = apuntado;
+    }
+
+    public Evento() {
+
     }
 
 
@@ -197,6 +219,9 @@ public class Evento implements Comparable<Evento>, Serializable {
 
 
     }
+
+
+
 
 
 
