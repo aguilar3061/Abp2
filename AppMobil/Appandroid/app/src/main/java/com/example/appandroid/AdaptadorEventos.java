@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -174,12 +175,14 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
                 if (t.isApuntado()) {
 
                     //EVENTO APUNTADO
-                    linear.setBackgroundColor(Color.parseColor("#65D49D"));
+                    //linear.setBackgroundColor(Color.parseColor("#65D49D"));
+                    linear.setBackgroundResource(R.drawable.text_vew_circular_berde);
+
 
                 } else {
                     //EVENTO NO APUNTADO
-                    linear.setBackgroundColor(Color.parseColor("#EF5C5C"));
-
+                    //linear.setBackgroundColor(Color.parseColor("#EF5C5C"));
+                    linear.setBackgroundResource(R.drawable.text_vew_circular);
                 }
 
 
@@ -188,10 +191,16 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
                 if (t.isApuntado()) {
                     //EVENTO APUNTADO
-                    linear.setBackgroundColor(Color.parseColor("#6BE98A"));
+                    //linear.setBackgroundColor(Color.parseColor("#6BE98A"));
+                    linear.setBackgroundResource(R.drawable.redondo_gris);
+
                 } else {
+
+
                     //EVENTO NO APUNTADO
-                    linear.setBackgroundColor(Color.parseColor("#9B9C9E"));
+                    //linear.setBackgroundColor(Color.parseColor("#9B9C9E"));
+
+                    linear.setBackgroundResource(R.drawable.redondo_verde_bien);
 
                 }
 
