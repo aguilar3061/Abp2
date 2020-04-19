@@ -262,6 +262,7 @@ public class Eventos extends Fragment {
                 Evento ev1 = eventosNoFinalizados.get( recView.getChildPosition(v) );
 
                 inteeentt.putExtra("evento1" , (Serializable) ev1);
+                inteeentt.putExtra("socio1" , (Serializable) socio);
 
                 // AQUI PETA CUANDO SE HACE EL PUTEXTA
                 startActivity(inteeentt);

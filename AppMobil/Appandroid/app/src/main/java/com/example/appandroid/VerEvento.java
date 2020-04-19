@@ -14,6 +14,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appandroid.API.Api;
+import com.example.appandroid.API.ApiServive.AssistirService;
+import com.example.appandroid.API.ApiServive.EsdevenimentsService;
+import com.example.appandroid.API.ApiServive.SocioService;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class VerEvento extends AppCompatActivity  {
 
 
@@ -23,16 +34,22 @@ public class VerEvento extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_evento);
 
-        final Evento obj = (Evento) getIntent().getExtras().getSerializable("evento1");
+        final Evento evento = (Evento) getIntent().getExtras().getSerializable("evento1");
+        final Socio socio = (Socio) getIntent().getExtras().getSerializable("socio1");
+
+
+
+
+
         final TextView txtViewNombre = (TextView)findViewById(R.id.idNombreE);
         final ImageView img = (ImageView) findViewById(R.id.idImgEventoo);
 
         final Button btnParticipar = (Button) findViewById(R.id.buttonApuntarse);
         final EditText editTextCuants = (EditText) findViewById(R.id.idCuants);
 
-        txtViewNombre.setText( obj.getNombreEvento().toString() );
+        txtViewNombre.setText( evento.getNombreEvento().toString() );
 
-        String imgByte = obj.getImagen();
+        String imgByte = evento.getImagen();
         try{
 
             byte [] encodeByte= Base64.decode(imgByte,Base64.DEFAULT);
@@ -52,7 +69,7 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                FragmentInformacion fragment = new FragmentInformacion(obj);
+                FragmentInformacion fragment = new FragmentInformacion(evento);
                 getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
             }
@@ -62,7 +79,7 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                FragmentUbicacion fragment = new FragmentUbicacion(obj);
+                FragmentUbicacion fragment = new FragmentUbicacion(evento);
                 getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
                 Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
@@ -76,11 +93,60 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext() , "Apuntado al evento: " + obj.getNombreEvento() , Toast.LENGTH_SHORT).show();
+
+                evento.setCuants(Integer.parseInt( editTextCuants.getText().toString() ) + evento.getCuants() );
 
 
 
-                obj.setCuants(Integer.parseInt( editTextCuants.getText().toString() ) );
+                Assistir asistencia = new Assistir(socio.getId(), evento.getId() , true, 0 , "");
+
+                AssistirService asistirService = Api.getApi().create(AssistirService.class);
+                Call<Assistir> insertAsistencia = asistirService.insertAsistencia(asistencia);
+
+                insertAsistencia.enqueue(new Callback<Assistir>() {
+                    @Override
+                    public void onResponse(Call<Assistir> call, Response<Assistir> response) {
+                        Toast.makeText(getApplicationContext(),"Asistencia añadidaa" , Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Assistir> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
+
+
+                EsdevenimentsService eventoService = Api.getApi().create(EsdevenimentsService.class);
+                Call<Evento> UpdateEvento = eventoService.updateEsdeveniments(evento.getId(),evento);
+
+                UpdateEvento.enqueue(new Callback<Evento>() {
+                    @Override
+                    public void onResponse(Call<Evento> call, Response<Evento> response) {
+
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Evento> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 finish();
 
             }

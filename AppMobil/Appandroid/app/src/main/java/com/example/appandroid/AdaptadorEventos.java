@@ -189,13 +189,12 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
 
                 if (t.isApuntado()) {
                     //linear.setBackgroundColor(Color.parseColor("#6BE98A"));
-                    linear.setBackgroundResource(R.drawable.redondo_gris);
+                    linear.setBackgroundResource(R.drawable.redondo_verde_bien);
+
                 } else {
                     //EVENTO NO APUNTADO
                     //linear.setBackgroundColor(Color.parseColor("#9B9C9E"));
-
-                    linear.setBackgroundResource(R.drawable.redondo_verde_bien);
-
+                    linear.setBackgroundResource(R.drawable.redondo_gris);
                 }
 
             }

@@ -43,7 +43,7 @@ public class Perfil extends Fragment {
         btnModPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Login.class);
+                Intent intent = new Intent(getActivity(), ConfirmarContrasenya.class);
                 intent.putExtra("socio", socio);
                 startActivity(intent);
             }
