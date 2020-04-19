@@ -36,8 +36,6 @@ import retrofit2.Response;
 public class EventosFinalizados extends Fragment {
 
 
-
-
     ArrayList<Assistir> assistents = new ArrayList<>();
     ArrayList<Assistir> assistentsFiltrados= new ArrayList<>();
     Spinner comboBoxComunidades;
@@ -63,7 +61,8 @@ public class EventosFinalizados extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.activity_eventos,container,false);
+        return inflater.inflate(R.layout.activity_eventos_finalizados,container,false);
+
 
     }
 
@@ -74,7 +73,7 @@ public class EventosFinalizados extends Fragment {
         //ArrayList<Evento> listaEventos = new ArrayList<>();
 
 
-        recView = (RecyclerView) getView().findViewById(R.id.RecViewEventos);
+        recView = (RecyclerView) getView().findViewById(R.id.RecViewEventosF);
 
         EsdevenimentsService esdevenimentsService = Api.getApi().create(EsdevenimentsService.class);
         Call<List<Evento>> listCal1Eventos = esdevenimentsService.getEventos();
