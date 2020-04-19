@@ -15,8 +15,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="44dp"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
         android:ems="15"
-        android:hint="Nueva contraseña"/>
+        android:hint="Nueva contraseña"
+        android:password="true" />
 
     <EditText
         android:id="@+id/confirmarcontrasenya"
@@ -24,8 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="44dp"
+        android:drawableLeft="@android:drawable/ic_lock_lock"
         android:ems="15"
-        android:hint="Confirmar contraseña"/>
+        android:hint="Confirmar contraseña"
+        android:password="true" />
 
 
 

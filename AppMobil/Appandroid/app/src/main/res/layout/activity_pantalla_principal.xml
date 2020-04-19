@@ -32,21 +32,24 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="center">
+
             <Button
                 android:id="@+id/imgButtonCAT"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:scaleType="centerCrop"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/catalanicon" />
+                android:background="@drawable/catalanicon"
+                android:scaleType="centerCrop"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/imgButtonES"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:scaleType="centerCrop"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/spainicon" />
+                android:background="@drawable/spainicon"
+                android:scaleType="centerCrop"
+                android:visibility="invisible" />
 
         </LinearLayout>
 

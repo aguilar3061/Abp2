@@ -3,4 +3,10 @@
     <string name="acceder">ACCEDER</string>
     <string name="ubicacion">UBICACIÓN</string>
     <string name="informacion">INFORMACIÓN</string>
+
+    <string name="stringRojoAYUDA">Este color en la pantalla de Eventos Finalizados nos indica que el evento ha acabado y NO ha asistido.</string>
+    <string name="stringVerdeOscuroAYUDA">Este color en la pantalla de Eventos Finalizados nos indica que el evento ha acabado y SI ha asistido.</string>
+    <string name="stringGrisAYUDA">Este color en la pantalla de Eventos nos indica que el evento NO ha acabado y NO se ha apuntado.</string>
+    <string name="stringVerdeClaroAYUDA">Este color en la pantalla de Eventos nos indica que el evento NO ha acabado y SI se ha apuntado.</string>
+
 </resources>

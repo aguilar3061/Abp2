@@ -30,22 +30,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/text_vew_circular"
-        android:paddingBottom="15dp"
-        android:text="Este Color Rojo en la pantalla de Eventos Finalizados significa que el evento ha acabado i no he asistido."
-        android:textColor="#000000"
-        android:padding="15dp"
-        android:textSize="11dp"/>
+        android:text="@string/stringRojoAYUDA"
+        style="@style/ayudaStyle"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/text_vew_circular_berde"
-        android:paddingBottom="15dp"
-        android:text="Este Color Verde en la pantalla de Eventos Finalizados significa que el evento ha acabado y se ha asistido."
-        android:textColor="#000000"
-        android:padding="15dp"
+        android:text="@string/stringVerdeOscuroAYUDA"
         android:layout_marginTop="8dp"
-        android:textSize="11dp" />
+        style="@style/ayudaStyle"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,19 +51,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/redondo_gris"
-        android:paddingBottom="15dp"
-        android:text="Este Color Gris en la pantalla de Eventos significa que el evento no ha acabado pero no se esa apuntado."
-        android:textColor="#000000"
-        android:padding="15dp"
-        android:textSize="11dp"/>
+        android:text="@string/stringGrisAYUDA"
+        style="@style/ayudaStyle"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/redondo_verde_bien"
-        android:paddingBottom="15dp"
-        android:text="Este Color Verde en la pantalla de Eventos significa que el evento no ha acabado y al cual se esta apuntando."
-        android:textColor="#000000"
-        android:padding="15dp"
+        android:text="@string/stringVerdeClaroAYUDA"
         android:layout_marginTop="8dp"
-        android:textSize="11dp" />
+        style="@style/ayudaStyle" />
 </LinearLayout>

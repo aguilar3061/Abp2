@@ -1,5 +1,6 @@
 package com.example.appandroid;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -51,12 +52,25 @@ public class AdaptadorEventos extends RecyclerView.Adapter<AdaptadorEventos.Even
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventoViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull EventoViewHolder holder, final int position) {
 
         Evento item = datos.get(position);
 
         holder.bindPersona(item);
 
+
+        /*
+        //TEST DAVID
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (position==1){
+                    Intent intent = new Intent(v.getContext(), VerEvento.class);
+                    v.getContext().startActivity(intent);
+                }
+            }
+        });
+        */
 
     }
 
