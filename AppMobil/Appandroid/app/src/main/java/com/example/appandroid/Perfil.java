@@ -39,11 +39,7 @@ public class Perfil extends Fragment {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                getActivity().finish();
-
                 startActivity(new Intent(getActivity(), Login.class));
-
             }
         });
 

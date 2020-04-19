@@ -10,7 +10,7 @@
 
     <style name="ayudaStyle">
         <item name="android:textColor">@color/colorLetra</item>
-        <item name="android:textSize">18dp</item>
+        <item name="android:textSize">11dp</item>
         <item name="android:padding">15dp</item>
         <item name="android:paddingBottom">15dp</item>
     </style>

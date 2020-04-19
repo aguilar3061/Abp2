@@ -6,18 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".FragmentUbicacion"
     android:background="@color/colorAzul"
-    android:layout_marginHorizontal="30dp"
     >
 
 
 <TextView
-
     android:id="@+id/idUbicacion"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:paddingHorizontal="20dp"
-    android:textSize="20dp"
+
     android:text="ubicacion"
     />
 

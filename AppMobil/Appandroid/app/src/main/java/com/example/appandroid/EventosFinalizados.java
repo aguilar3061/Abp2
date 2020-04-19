@@ -73,6 +73,7 @@ public class EventosFinalizados extends Fragment {
 
         //ArrayList<Evento> listaEventos = new ArrayList<>();
 
+
         recView = (RecyclerView) getView().findViewById(R.id.RecViewEventos);
 
         EsdevenimentsService esdevenimentsService = Api.getApi().create(EsdevenimentsService.class);

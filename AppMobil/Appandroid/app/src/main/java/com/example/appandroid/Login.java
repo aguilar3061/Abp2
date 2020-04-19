@@ -88,8 +88,6 @@ public class Login extends AppCompatActivity implements Serializable {
                     }
                     else
                     {
-                        finish();
-
                         Intent acceder = new Intent(Login.this, MainActivity.class);
                         acceder.putExtra("socio", soci);
                         startActivity(acceder);
