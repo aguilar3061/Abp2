@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class VerEvento extends AppCompatActivity  {
 
@@ -22,10 +24,11 @@ public class VerEvento extends AppCompatActivity  {
         setContentView(R.layout.activity_ver_evento);
 
         final Evento obj = (Evento) getIntent().getExtras().getSerializable("evento1");
-
         final TextView txtViewNombre = (TextView)findViewById(R.id.idNombreE);
         final ImageView img = (ImageView) findViewById(R.id.idImgEventoo);
 
+        final Button btnParticipar = (Button) findViewById(R.id.buttonApuntarse);
+        final EditText editTextCuants = (EditText) findViewById(R.id.idCuants);
 
         txtViewNombre.setText( obj.getNombreEvento().toString() );
 
@@ -49,7 +52,7 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                FragmentInformacion fragment = new FragmentInformacion();
+                FragmentInformacion fragment = new FragmentInformacion(obj);
                 getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
             }
@@ -59,8 +62,8 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                //FragmentUbicacion fragment = new FragmentUbicacion();
-              //  getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+                FragmentUbicacion fragment = new FragmentUbicacion(obj);
+                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
                 Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
                 startActivity(intent);
@@ -69,6 +72,19 @@ public class VerEvento extends AppCompatActivity  {
             }
         });
 
+        btnParticipar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getApplicationContext() , "Apuntado al evento: " + obj.getNombreEvento() , Toast.LENGTH_SHORT).show();
+
+
+
+                obj.setCuants(Integer.parseInt( editTextCuants.getText().toString() ) );
+                finish();
+
+            }
+        });
 
 
     }
