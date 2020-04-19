@@ -188,6 +188,9 @@ public class EventosFinalizados extends Fragment {
 
 
 
+
+
+
         for ( Evento ev : eventosFiltrados) {
 
             Date fecha2 = null ;

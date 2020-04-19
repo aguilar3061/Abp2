@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,11 @@ import com.example.appandroid.API.ApiServive.AssistirService;
 import com.example.appandroid.API.ApiServive.EsdevenimentsService;
 import com.example.appandroid.API.ApiServive.SocioService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,8 +42,9 @@ public class VerEvento extends AppCompatActivity  {
         final Evento evento = (Evento) getIntent().getExtras().getSerializable("evento1");
         final Socio socio = (Socio) getIntent().getExtras().getSerializable("socio1");
 
+        LinearLayout apuntarse = (LinearLayout) findViewById(R.id.idLinerLayautApuntarse);
 
-
+        LinearLayout puntuar = (LinearLayout) findViewById(R.id.idLinerLayautValorar);
 
 
         final TextView txtViewNombre = (TextView)findViewById(R.id.idNombreE);
@@ -89,68 +95,112 @@ public class VerEvento extends AppCompatActivity  {
             }
         });
 
-        btnParticipar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                evento.setCuants(Integer.parseInt( editTextCuants.getText().toString() ) + evento.getCuants() );
-
-
-
-                Assistir asistencia = new Assistir(socio.getId(), evento.getId() , true, 0 , "");
-
-                AssistirService asistirService = Api.getApi().create(AssistirService.class);
-                Call<Assistir> insertAsistencia = asistirService.insertAsistencia(asistencia);
-
-                insertAsistencia.enqueue(new Callback<Assistir>() {
-                    @Override
-                    public void onResponse(Call<Assistir> call, Response<Assistir> response) {
-                        Toast.makeText(getApplicationContext(),"Asistencia añadidaa" , Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onFailure(Call<Assistir> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
-                    }
-                });
-
-
-
-
-                EsdevenimentsService eventoService = Api.getApi().create(EsdevenimentsService.class);
-                Call<Evento> UpdateEvento = eventoService.updateEsdeveniments(evento.getId(),evento);
-
-                UpdateEvento.enqueue(new Callback<Evento>() {
-                    @Override
-                    public void onResponse(Call<Evento> call, Response<Evento> response) {
-
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<Evento> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
-                    }
-                });
 
 
 
 
 
+        Boolean sePuedeVotar = true;
+        Date fecha2 = null ;
+
+        String separarFechaH1= evento.getFechaFin() ;
+        String str11[] = separarFechaH1.split("T");
+        String fechafinal11 = str11[0];
 
 
 
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+
+        try {
+
+            fecha2 = (Date) formatter.parse(fechafinal11);
+
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
 
 
+        if ( date.before(fecha2) ) {
+
+            sePuedeVotar = false;
+
+        }
 
 
+        if (sePuedeVotar) {
 
 
-                finish();
+            if ( apuntarse.getVisibility()== View.VISIBLE ) {
+
+                apuntarse.setVisibility(View.INVISIBLE);
 
             }
-        });
+
+
+        }else{
+
+
+            if ( apuntarse.getVisibility()== View.INVISIBLE ) {
+
+                apuntarse.setVisibility(View.VISIBLE);
+
+            }
+
+            btnParticipar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    evento.setCuants(Integer.parseInt( editTextCuants.getText().toString() ) + evento.getCuants() );
+
+                    Assistir asistencia = new Assistir(socio.getId(), evento.getId() , true, 0 , "");
+
+                    AssistirService asistirService = Api.getApi().create(AssistirService.class);
+                    Call<Assistir> insertAsistencia = asistirService.insertAsistencia(asistencia);
+
+                    insertAsistencia.enqueue(new Callback<Assistir>() {
+                        @Override
+                        public void onResponse(Call<Assistir> call, Response<Assistir> response) {
+                            Toast.makeText(getApplicationContext(),"Asistencia añadidaa" , Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<Assistir> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
+
+
+                    EsdevenimentsService eventoService = Api.getApi().create(EsdevenimentsService.class);
+                    Call<Evento> UpdateEvento = eventoService.updateEsdeveniments(evento.getId(),evento);
+
+                    UpdateEvento.enqueue(new Callback<Evento>() {
+                        @Override
+                        public void onResponse(Call<Evento> call, Response<Evento> response) {
+
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<Evento> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                    finish();
+
+                }
+            });
+        }
+
+
+
+
+
+
 
 
     }

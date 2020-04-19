@@ -76,6 +76,7 @@
 
         />
     <LinearLayout
+        android:id="@+id/idLinerLayautApuntarse"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -111,6 +112,23 @@
             android:text="Participar"
 
             />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/idLinerLayautValorar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:paddingHorizontal="20dp"
+        android:visibility="invisible"
+        >
+
+
+
 
 
     </LinearLayout>
