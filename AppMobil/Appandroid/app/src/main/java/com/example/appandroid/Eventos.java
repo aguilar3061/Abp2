@@ -264,7 +264,7 @@ public class Eventos extends Fragment {
                 inteeentt.putExtra("evento1" , (Serializable) ev1);
 
                 // AQUI PETA CUANDO SE HACE EL PUTEXTA
-                getActivity().startActivity(inteeentt);
+                startActivity(inteeentt);
 
 
             }

@@ -1,7 +1,15 @@
 package com.example.appandroid;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class VerEvento extends AppCompatActivity  {
 
@@ -12,21 +20,14 @@ public class VerEvento extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_evento);
 
+        final Evento obj = (Evento) getIntent().getExtras().getSerializable("evento1");
+
+        final TextView txtViewNombre = (TextView)findViewById(R.id.idNombreE);
+        final ImageView img = (ImageView) findViewById(R.id.idImgEventoo);
 
 
-     //   final Evento obj = (Evento) getIntent().getExtras().getSerializable("evento1");
+        txtViewNombre.setText( obj.getNombreEvento().toString() );
 
-
-
-        //final Socio soci = (Socio) getIntent().getSerializableExtra("socio");
-
-
-
-     /*   TextView txtViewNombre = (TextView)findViewById(R.id.idNombre);
-        ImageView img = (ImageView) findViewById(R.id.idImgEventoo);
-
-
-        txtViewNombre.setText( obj.getNombreEvento());
         String imgByte = obj.getImagen();
         try{
 
@@ -37,7 +38,32 @@ public class VerEvento extends AppCompatActivity  {
         }catch(Exception e){
             e.getMessage();
         }
-*/
+
+
+
+        final Button btnInfo = (Button) findViewById(R.id.button_informacion);
+        final Button btnUbi= (Button) findViewById(R.id.button_ubicacion);
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentInformacion fragment = new FragmentInformacion();
+                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+
+            }
+        });
+
+        btnUbi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentUbicacion fragment = new FragmentUbicacion();
+                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+
+
+            }
+        });
 
 
 
