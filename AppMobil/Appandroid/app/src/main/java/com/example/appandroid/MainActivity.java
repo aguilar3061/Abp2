@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.nav_profile:
-                    fragment = new Perfil();
+                    fragment = new Perfil(socio);
                     break;
 
             }
