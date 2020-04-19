@@ -2,6 +2,7 @@ package com.example.appandroid;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -58,8 +59,11 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                FragmentUbicacion fragment = new FragmentUbicacion();
-                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+                //FragmentUbicacion fragment = new FragmentUbicacion();
+              //  getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+
+                Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
+                startActivity(intent);
 
 
             }
