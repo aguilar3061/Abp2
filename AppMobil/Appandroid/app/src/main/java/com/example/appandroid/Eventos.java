@@ -178,8 +178,8 @@ public class Eventos extends Fragment {
             for ( Assistir as2 : assistentsFiltrados) {
 
                 if (ev1.getId() == as2.getId_Esdeveniment()){
-                    aux = ev1;
                     ev1.setApuntado(true);
+                    aux = ev1;
                 }
 
             }
@@ -235,9 +235,6 @@ public class Eventos extends Fragment {
         }
 
 
-
-
-
         //ORDENAR POR FECHAAAS
         Collections.sort(eventosNoFinalizados);
 
@@ -255,17 +252,16 @@ public class Eventos extends Fragment {
 
                 Toast.makeText(getContext() ,"Pulsado el elemento: " + eventosNoFinalizados.get(recView.getChildPosition(v)).getNombreEvento() , Toast.LENGTH_SHORT).show();
 
-
-
                 Intent inteeentt = new Intent(getContext(), VerEvento.class);
 
-                Evento ev1 = eventosNoFinalizados.get( recView.getChildPosition(v) );
+                final Evento ev1 = eventosNoFinalizados.get( recView.getChildPosition(v) );
+
 
                 inteeentt.putExtra("evento1" , (Serializable) ev1);
                 inteeentt.putExtra("socio1" , (Serializable) socio);
 
                 // AQUI PETA CUANDO SE HACE EL PUTEXTA
-                startActivity(inteeentt);
+                getActivity().startActivity(inteeentt);
 
 
             }
@@ -274,6 +270,14 @@ public class Eventos extends Fragment {
 
 
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -305,8 +309,6 @@ public class Eventos extends Fragment {
         });
 
     }
-
-
 
 
     public void cargarSpiner() {

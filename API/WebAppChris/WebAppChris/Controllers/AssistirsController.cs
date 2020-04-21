@@ -16,6 +16,12 @@ namespace WebAppChris.Controllers
     {
         private chrysallis_grupo3Entities db = new chrysallis_grupo3Entities();
 
+        
+        
+        
+        
+        
+        
         // GET: api/Assistirs
         public IQueryable<Assistir> GetAssistir()
         {
@@ -23,6 +29,9 @@ namespace WebAppChris.Controllers
             db.Configuration.LazyLoadingEnabled = false;
             return db.Assistir;
         }
+
+
+
 
         // GET: api/Assistirs/5
         [ResponseType(typeof(Assistir))]
@@ -61,10 +70,11 @@ namespace WebAppChris.Controllers
 
             return resultado;
 
-
-
-
         }
+
+
+
+
 
         // PUT: api/Assistirs/5
         [ResponseType(typeof(void))]

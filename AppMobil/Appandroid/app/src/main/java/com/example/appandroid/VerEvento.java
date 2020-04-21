@@ -116,7 +116,6 @@ public class VerEvento extends AppCompatActivity  {
             getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentValorarOapuntarse, fragment).commit();
 
 
-
         }else{
 
             FragmentApuntarse fragment = new FragmentApuntarse(evento, socio);

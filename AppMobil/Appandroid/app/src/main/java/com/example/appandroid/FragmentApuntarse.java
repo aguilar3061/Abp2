@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appandroid.API.Api;
@@ -26,7 +28,6 @@ public class FragmentApuntarse extends Fragment {
     Socio socio;
 
     public FragmentApuntarse(Evento evento, Socio socio) {
-
 
         this.evento = evento;
         this.socio = socio;
@@ -48,63 +49,87 @@ public class FragmentApuntarse extends Fragment {
 
         final Button btnParticipar = (Button) getView().findViewById(R.id.buttonApuntarse);
         final EditText editTextCuants = (EditText)  getView().findViewById(R.id.idCuants);
-
-
-        btnParticipar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                evento.setCuants(Integer.parseInt(editTextCuants.getText().toString()) + evento.getCuants());
-                Assistir asistencia = new Assistir(socio.getId(), evento.getId(), true, 0, "");
+        final LinearLayout contenidoDeNoApuntado = (LinearLayout)  getView().findViewById(R.id.idLinerLayautApuntarse);
+        final TextView textoYaApuntado = (TextView)  getView().findViewById(R.id.idTextCuandoSeEstaApun);
 
 
 
+        if(!evento.isApuntado()){
 
-                AssistirService asistirService = Api.getApi().create(AssistirService.class);
-                Call<Assistir> insertAsistencia = asistirService.insertAsistencia(asistencia);
-                insertAsistencia.enqueue(new Callback<Assistir>() {
+            if ( contenidoDeNoApuntado.getVisibility() == View.INVISIBLE){
 
-                    @Override
-                    public void onResponse(Call<Assistir> call, retrofit2.Response<Assistir> response) {
-                        Toast.makeText(getContext(), "Asistencia añadidaa", Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onFailure(Call<Assistir> call, Throwable t) {
-                        Toast.makeText(getContext(), t.getCause() + " - " + t.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-
-
-
-
-                EsdevenimentsService eventoService = Api.getApi().create(EsdevenimentsService.class);
-                Call<Evento> UpdateEvento = eventoService.updateEsdeveniments(evento.getId(), evento);
-                UpdateEvento.enqueue(new Callback<Evento>() {
-                    @Override
-                    public void onResponse(Call<Evento> call, retrofit2.Response<Evento> response) {
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<Evento> call, Throwable t) {
-                        Toast.makeText(getContext(), t.getCause() + " - " + t.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-
-
-
-                getActivity().finish();
-
-
-
+                contenidoDeNoApuntado.setVisibility(View.VISIBLE);
 
             }
-        });
+            if ( textoYaApuntado.getVisibility() == View.VISIBLE){
 
+                textoYaApuntado.setVisibility(View.INVISIBLE);
+
+            }
+
+
+
+            btnParticipar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+
+                    evento.setCuants(Integer.parseInt(editTextCuants.getText().toString()) + evento.getCuants());
+                    Assistir asistencia = new Assistir(socio.getId(), evento.getId(), true, 0, "");
+
+
+                    AssistirService asistirService = Api.getApi().create(AssistirService.class);
+                    Call<Assistir> insertAsistencia = asistirService.insertAsistencia(asistencia);
+                    insertAsistencia.enqueue(new Callback<Assistir>() {
+
+                        @Override
+                        public void onResponse(Call<Assistir> call, retrofit2.Response<Assistir> response) {
+                            Toast.makeText(getContext(), "Asistencia añadidaa", Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<Assistir> call, Throwable t) {
+                            Toast.makeText(getContext(), t.getCause() + " - " + t.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
+                    EsdevenimentsService eventoService = Api.getApi().create(EsdevenimentsService.class);
+                    Call<Evento> UpdateEvento = eventoService.updateEsdeveniments(evento.getId(), evento);
+                    UpdateEvento.enqueue(new Callback<Evento>() {
+                        @Override
+                        public void onResponse(Call<Evento> call, retrofit2.Response<Evento> response) {
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<Evento> call, Throwable t) {
+                            Toast.makeText(getContext(), t.getCause() + " - " + t.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                    getActivity().finish();
+
+                }
+            });
+
+        }else{
+
+
+
+            if ( contenidoDeNoApuntado.getVisibility() == View.VISIBLE){
+
+                contenidoDeNoApuntado.setVisibility(View.INVISIBLE);
+
+            }
+            if ( textoYaApuntado.getVisibility() == View.INVISIBLE){
+
+                textoYaApuntado.setVisibility(View.VISIBLE);
+
+            }
+
+
+        }
 
 
 

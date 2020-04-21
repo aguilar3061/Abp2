@@ -27,7 +27,8 @@ public interface AssistirService {
 
 
     @PUT("api/Assistirs/{id}")
-    Call<Evento> updateAsistir(@Path("id") int id, @Body Assistir assistir);
+    Call<Assistir> updateAsistir(@Path("id") int id, @Body Assistir assistir);
+
 
 
 

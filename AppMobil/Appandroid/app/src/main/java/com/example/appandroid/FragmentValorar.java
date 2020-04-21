@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.appandroid.API.Api;
 import com.example.appandroid.API.ApiServive.AssistirService;
+import com.example.appandroid.API.ApiServive.SocioService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,9 +60,10 @@ public class FragmentValorar extends Fragment {
     public void onActivityCreated(Bundle state) {
         super.onActivityCreated(state);
 
-
+        todoPreparado();
+/*
         AssistirService assistirService = Api.getApi().create(AssistirService.class);
-        Call<List<Assistir>> listCallAssistir = assistirService.getAssistentsDeUnSocio(socio.getId());
+        Call<List<Assistir>> listCallAssistir = assistirService.getAssistents();
 
         listCallAssistir.enqueue(new Callback<List<Assistir>>() {
             @Override
@@ -72,11 +74,12 @@ public class FragmentValorar extends Fragment {
                         assistents = (ArrayList<Assistir>) response.body();
                         for (Assistir q : assistents) {
 
-                            if (q.getId_Esdeveniment() == evento.getId()) {
+                            if (q.getId_Esdeveniment() == evento.getId() && q.getId_Soci() == socio.getId()) {
 
                                 asistenciaDeElEventoYsocio = q;
                                 seHaIdo = true;
                             }
+
                         }
 
                         todoPreparado();
@@ -91,6 +94,7 @@ public class FragmentValorar extends Fragment {
                 Toast.makeText(getContext(), t.getCause() + " - " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+*/
 
 
 
@@ -110,7 +114,11 @@ public class FragmentValorar extends Fragment {
         final LinearLayout linearLayautValorar = (LinearLayout) getView().findViewById(R.id.idLinearLayautValorar);
 
 
-        if (seHaIdo) {
+
+
+
+        if (evento.isApuntado()) {
+
 
 
             btnValorar.setText("Valorar");
@@ -122,8 +130,45 @@ public class FragmentValorar extends Fragment {
                 public void onClick(View v) {
 
 
-                    asistenciaDeElEventoYsocio.setComentari(editTextComentar.getText().toString());
-                    asistenciaDeElEventoYsocio.setValoracio(Integer.parseInt(editTextValorar.getText().toString()) );
+
+
+                    try {
+
+
+                        int valoracion = Integer.parseInt(editTextValorar.getText().toString() );
+                        String comentario = (editTextComentar.getText().toString());
+
+                        asistenciaDeElEventoYsocio = new Assistir(socio.getId(), evento.getId(), true, valoracion, comentario);
+
+
+                        AssistirService socioService = Api.getApi().create(AssistirService.class);
+                        Call<Assistir> Updateassitir = socioService.updateAsistir(socio.getId(), asistenciaDeElEventoYsocio);
+
+                        Updateassitir.enqueue(new Callback<Assistir>() {
+                            @Override
+                            public void onResponse(Call<Assistir> call, Response<Assistir> response) {
+
+                                Toast.makeText(getContext(),"Valoracion echa correctamente GRACIAS :)" , Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onFailure(Call<Assistir> call, Throwable t) {
+
+                                Toast.makeText(getContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                        getActivity().finish();
+
+
+                    }catch (Exception ex){
+
+
+                        Toast.makeText(getContext(),"La valoracion tiene que ser un numero entre 1 y 5." , Toast.LENGTH_LONG).show();
+
+
+                    }
+
 
 
 
@@ -137,6 +182,7 @@ public class FragmentValorar extends Fragment {
             btnValorar.setText("No se ha ido :(");
             btnValorar.setBackgroundResource(R.drawable.text_vew_circular);
             linearLayautValorar.setVisibility(View.INVISIBLE);
+
         }
 
     }
