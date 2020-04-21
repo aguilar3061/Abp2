@@ -52,7 +52,7 @@ public class Eventos extends Fragment {
     ArrayList<Evento> eventosFiltrados = new ArrayList<>();
     ArrayList<Evento> eventosNoFinalizados = new ArrayList<>();
 
-    Socio socio = null;
+    Socio socio;
 
 
     public Eventos(Socio socio){

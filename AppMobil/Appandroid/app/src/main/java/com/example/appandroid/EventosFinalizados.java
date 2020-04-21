@@ -255,7 +255,10 @@ public class EventosFinalizados extends Fragment {
 
                 Intent inteeentt = new Intent(getContext(), VerEvento.class);
                 Evento ev1 = eventosFinalizados.get( recView.getChildPosition(v) );
+
                 inteeentt.putExtra("evento1" , (Serializable) ev1);
+                inteeentt.putExtra("socio1" , (Serializable) socio);
+
                 // AQUI PETA CUANDO SE HACE EL PUTEXTA
                 getActivity().startActivity(inteeentt);
 

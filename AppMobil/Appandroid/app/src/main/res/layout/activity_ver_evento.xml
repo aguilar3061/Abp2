@@ -75,65 +75,16 @@
         android:layout_weight="4"
 
         />
-    <LinearLayout
-        android:id="@+id/idLinerLayautApuntarse"
+
+
+
+    <FrameLayout
+        android:layout_margin="10dp"
+        android:id="@+id/FrgmentValorarOapuntarse"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="right"
-        android:paddingHorizontal="20dp"
-        >
-
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text = "Numero de Persnas"
-            android:textSize="20dp"
-            />
-
-        <EditText
-            android:id="@+id/idCuants"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:text="1"
-            android:gravity="center"
-            />
-
-
-        <Button
-            android:id="@+id/buttonApuntarse"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:background="@color/colorAzul"
-            android:text="Participar"
-
-            />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/idLinerLayautValorar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0"
-        android:orientation="horizontal"
-        android:gravity="right"
-        android:paddingHorizontal="20dp"
-        android:visibility="invisible"
-        >
-
-
-
-
-
-    </LinearLayout>
-
-
+        android:layout_weight="2"
+    />
 
 
 </LinearLayout>

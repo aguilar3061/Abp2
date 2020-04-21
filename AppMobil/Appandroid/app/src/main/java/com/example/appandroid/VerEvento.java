@@ -1,6 +1,5 @@
 package com.example.appandroid;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,26 +8,12 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.appandroid.API.Api;
-import com.example.appandroid.API.ApiServive.AssistirService;
-import com.example.appandroid.API.ApiServive.EsdevenimentsService;
-import com.example.appandroid.API.ApiServive.SocioService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class VerEvento extends AppCompatActivity  {
 
@@ -42,16 +27,13 @@ public class VerEvento extends AppCompatActivity  {
         final Evento evento = (Evento) getIntent().getExtras().getSerializable("evento1");
         final Socio socio = (Socio) getIntent().getExtras().getSerializable("socio1");
 
-        LinearLayout apuntarse = (LinearLayout) findViewById(R.id.idLinerLayautApuntarse);
+        //LinearLayout apuntarse = (LinearLayout) findViewById(R.id.idLinerLayautApuntarse);
 
-        LinearLayout puntuar = (LinearLayout) findViewById(R.id.idLinerLayautValorar);
+        //LinearLayout puntuar = (LinearLayout) findViewById(R.id.idLinerLayautValorar);
 
 
         final TextView txtViewNombre = (TextView)findViewById(R.id.idNombreE);
         final ImageView img = (ImageView) findViewById(R.id.idImgEventoo);
-
-        final Button btnParticipar = (Button) findViewById(R.id.buttonApuntarse);
-        final EditText editTextCuants = (EditText) findViewById(R.id.idCuants);
 
         txtViewNombre.setText( evento.getNombreEvento().toString() );
 
@@ -130,70 +112,16 @@ public class VerEvento extends AppCompatActivity  {
 
         if (sePuedeVotar) {
 
+            FragmentValorar fragment = new FragmentValorar(evento, socio);
+            getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentValorarOapuntarse, fragment).commit();
 
-            if ( apuntarse.getVisibility()== View.VISIBLE ) {
-
-                apuntarse.setVisibility(View.INVISIBLE);
-
-            }
 
 
         }else{
 
+            FragmentApuntarse fragment = new FragmentApuntarse(evento, socio);
+            getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentValorarOapuntarse, fragment).commit();
 
-            if ( apuntarse.getVisibility()== View.INVISIBLE ) {
-
-                apuntarse.setVisibility(View.VISIBLE);
-
-            }
-
-            btnParticipar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-
-                    evento.setCuants(Integer.parseInt( editTextCuants.getText().toString() ) + evento.getCuants() );
-
-                    Assistir asistencia = new Assistir(socio.getId(), evento.getId() , true, 0 , "");
-
-                    AssistirService asistirService = Api.getApi().create(AssistirService.class);
-                    Call<Assistir> insertAsistencia = asistirService.insertAsistencia(asistencia);
-
-                    insertAsistencia.enqueue(new Callback<Assistir>() {
-                        @Override
-                        public void onResponse(Call<Assistir> call, Response<Assistir> response) {
-                            Toast.makeText(getApplicationContext(),"Asistencia añadidaa" , Toast.LENGTH_LONG).show();
-                        }
-
-                        @Override
-                        public void onFailure(Call<Assistir> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
-                        }
-                    });
-
-
-
-
-                    EsdevenimentsService eventoService = Api.getApi().create(EsdevenimentsService.class);
-                    Call<Evento> UpdateEvento = eventoService.updateEsdeveniments(evento.getId(),evento);
-
-                    UpdateEvento.enqueue(new Callback<Evento>() {
-                        @Override
-                        public void onResponse(Call<Evento> call, Response<Evento> response) {
-
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<Evento> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
-                        }
-                    });
-
-                    finish();
-
-                }
-            });
         }
 
 

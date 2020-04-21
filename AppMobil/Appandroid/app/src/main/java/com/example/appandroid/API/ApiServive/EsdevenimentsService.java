@@ -19,5 +19,10 @@ public interface EsdevenimentsService {
     @PUT("api/Esdeveniments/{id}")
     Call<Evento> updateEsdeveniments(@Path("id") int id, @Body Evento evento);
 
+    @GET("api/Esdeveniments/{id}")
+    Call<Evento> getEvento();
+
+
+
 
 }

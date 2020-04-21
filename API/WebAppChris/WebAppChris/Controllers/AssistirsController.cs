@@ -28,13 +28,42 @@ namespace WebAppChris.Controllers
         [ResponseType(typeof(Assistir))]
         public IHttpActionResult GetAssistir(int id)
         {
-            Assistir assistir = db.Assistir.Find(id);
-            if (assistir == null)
+            //Assistir assistir = db.Assistir.Find(id);
+            //if (assistir == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return Ok(assistir);
+
+
+            IHttpActionResult resultado;
+            db.Configuration.LazyLoadingEnabled = false;
+
+
+            List<Assistir> _listasis = (from t in db.Assistir
+                               where t.id_Soci == id
+                               select t).ToList();
+
+
+            if (_listasis == null)
             {
-                return NotFound();
+
+                resultado = NotFound();
+
+            }
+            else
+            {
+
+                resultado = Ok(_listasis);
             }
 
-            return Ok(assistir);
+
+            return resultado;
+
+
+
+
         }
 
         // PUT: api/Assistirs/5

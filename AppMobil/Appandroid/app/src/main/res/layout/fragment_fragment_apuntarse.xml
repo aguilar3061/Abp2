@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".FragmentApuntarse"
+    android:background="@color/colorAzul"
+    >
+
+
+    <LinearLayout
+        android:id="@+id/idLinerLayautApuntarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:paddingHorizontal="20dp"
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Numero de Persnas"
+            android:textSize="20dp"
+            />
+
+        <EditText
+            android:id="@+id/idCuants"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:gravity="center"
+            />
+
+
+        <Button
+            android:id="@+id/buttonApuntarse"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:background="@color/colorAzul"
+            android:text="Participar"
+
+            />
+
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>
