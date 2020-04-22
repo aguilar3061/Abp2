@@ -40,8 +40,11 @@ public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapRe
         mMap = googleMap;
 
         // Marcador en el CEP
-        LatLng cep = new LatLng(41.388777, 2.173039);
-        mMap.addMarker(new MarkerOptions().position(cep).title("CEP")).setSnippet("Descripción bla bla bla bla bla bla asddadasdasd asd asd asd asd das das asd das");
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(cep));
+        LatLng latLng = new LatLng(41.388777, 2.173039);
+        mMap.addMarker(new MarkerOptions().position(latLng).title("CEP")).setSnippet("");
+
+        //Animación de zoom
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18), 5000, null);
+
     }
 }
