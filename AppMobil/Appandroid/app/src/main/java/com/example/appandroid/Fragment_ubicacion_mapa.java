@@ -9,11 +9,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private Marker infoMarker;
+    final Evento evento = (Evento) getIntent().getExtras().getSerializable("evento1");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +42,13 @@ public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapRe
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Marcador en el CEP
+        // // // // MARCADOR // // // //
         LatLng latLng = new LatLng(41.388777, 2.173039);
-        mMap.addMarker(new MarkerOptions().position(latLng).title("CEP")).setSnippet("");
-
+        // Marcador con Nombre y Descripción del evento (no se si funciona por que no me funciona la api)
+        mMap.addMarker(new MarkerOptions().position(latLng).title(evento.getNombreEvento())).setSnippet(evento.getDescripcion());
         //Animación de zoom
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18), 5000, null);
+
 
     }
 }
