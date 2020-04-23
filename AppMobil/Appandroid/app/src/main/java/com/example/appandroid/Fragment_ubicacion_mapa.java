@@ -2,6 +2,8 @@ package com.example.appandroid;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -44,10 +46,19 @@ public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapRe
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        // Dirección
+
+        Uri gmmIntentUri = Uri.parse(evento.getDireccio());
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
+
+/*
         // // // // MARCADOR // // // //
         LatLng latLng = new LatLng(41.388777, 2.173039);
         // Marcador con Nombre y Descripción del evento.
         // DAVID --> (no se si funciona por que no me funciona la api)
+
         mMap.addMarker(new MarkerOptions().position(latLng).title(evento.getNombreEvento())).setSnippet("Haz click para extender la descripción del evento.");
         //Animación de zoom
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18), 5000, null);

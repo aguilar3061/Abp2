@@ -70,8 +70,8 @@ public class VerEvento extends AppCompatActivity  {
                 FragmentUbicacion fragment = new FragmentUbicacion(evento);
                 getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
-                Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
-                startActivity(intent);
+                Intent mapIntent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
+                startActivity(mapIntent);
 
 
             }
