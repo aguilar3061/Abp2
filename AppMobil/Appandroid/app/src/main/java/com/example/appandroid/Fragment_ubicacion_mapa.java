@@ -48,7 +48,7 @@ public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapRe
 
         // Dirección
 
-        Uri gmmIntentUri = Uri.parse(evento.getDireccio());
+        Uri gmmIntentUri = Uri.parse("geo:0,0?z=10&q=" + evento.getDireccio());
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
