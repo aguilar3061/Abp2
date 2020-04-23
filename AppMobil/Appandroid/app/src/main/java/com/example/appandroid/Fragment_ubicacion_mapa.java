@@ -69,7 +69,7 @@ public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapRe
     @Override
     public void onInfoWindowClick(Marker marker) {
 
-        if (marker.equals(mMap)||marker.equals(infoMarker) ){
+        if (marker.equals(mMap)){
             InfoMarcadorMapaFragment.newInstance(marker.getTitle(),evento.getDescripcion()).show(getSupportFragmentManager(), null);
         }
 
