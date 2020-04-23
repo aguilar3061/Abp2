@@ -51,6 +51,7 @@ public class Eventos extends Fragment {
     ArrayList<Evento> eventos = new ArrayList<>();
     ArrayList<Evento> eventosFiltrados = new ArrayList<>();
     ArrayList<Evento> eventosNoFinalizados = new ArrayList<>();
+    Comunitat comunitat;
 
     Socio socio;
 
@@ -91,6 +92,7 @@ public class Eventos extends Fragment {
                 switch (response.code()){
                     case 200:
                         eventos = (ArrayList<Evento>) response.body();
+                        eventos = eventosPorComunidad(comunitat, eventos);
                         recagrgarAsistencias();
                         break;
                     default:
@@ -319,13 +321,44 @@ public class Eventos extends Fragment {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         comboBoxComunidades.setAdapter(arrayAdapter);
 
+        /*ArrayAdapter<String> spinnerAdap = (ArrayAdapter<String>) mySpinner.getAdapter();
 
+          int spinnerPosition = messgAdap.getPosition(theDefaultValue);
+
+          mySpinner.setSelection(spinnerPosition);*/
+
+
+        comboBoxComunidades.setSelection(socio.getId_comunidad_socio());
+        //eventos = eventosPorComunidad(comunitat, eventos);
 
         comboBoxComunidades.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
 
+        EsdevenimentsService esdevenimentsService = Api.getApi().create(EsdevenimentsService.class);
+        Call<List<Evento>> listCal1Eventos = esdevenimentsService.getEventos();
+        listCal1Eventos.enqueue(new Callback<List<Evento>>() {
+            @Override
+            public void onResponse(Call<List<Evento>> call, Response<List<Evento>> response) {
 
+                switch (response.code()){
+                    case 200:
+                        eventos = (ArrayList<Evento>) response.body();
+                        comunitat = listaComunidades.get(position);
+                        eventos = eventosPorComunidad(comunitat, eventos);
+                        recagrgarAsistencias();
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Evento>> call, Throwable t) {
+                Toast.makeText(getContext(),t.getCause()+ " - " + t.getMessage() , Toast.LENGTH_LONG).show();
+            }
+        });
 
             }
             @Override
@@ -341,7 +374,20 @@ public class Eventos extends Fragment {
 
     }
 
+public ArrayList<Evento> eventosPorComunidad(Comunitat comunitat, ArrayList<Evento> eventos)
+{
+    ArrayList<Evento> eventosFiltradoPorComunidad = new ArrayList<>();
 
+    for (int i = 0; i < eventos.size(); i++)
+    {
+        if (eventos.get(i).getId_Comunitat() == comunitat.getId())
+        {
+            eventosFiltradoPorComunidad.add(eventos.get(i));
+        }
+    }
+
+    return eventosFiltradoPorComunidad;
+}
 
 
 }
