@@ -8,11 +8,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapReadyCallback {
+public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
     private Marker infoMarker;
@@ -44,11 +46,32 @@ public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapRe
 
         // // // // MARCADOR // // // //
         LatLng latLng = new LatLng(41.388777, 2.173039);
-        // Marcador con Nombre y Descripción del evento (no se si funciona por que no me funciona la api)
-        mMap.addMarker(new MarkerOptions().position(latLng).title(evento.getNombreEvento())).setSnippet(evento.getDescripcion());
+        // Marcador con Nombre y Descripción del evento.
+        // DAVID --> (no se si funciona por que no me funciona la api)
+        mMap.addMarker(new MarkerOptions().position(latLng).title(evento.getNombreEvento())).setSnippet("Haz click para extender la descripción del evento.");
         //Animación de zoom
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18), 5000, null);
 
+      /*  infoMarker = mMap.addMarker(new MarkerOptions()
+                        .position(latLng)
+                        .title(evento.getNombreEvento())
+                        .snippet("Haz click para extender la descripción del evento.")
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        */
+
+
+        //Dialog
+        googleMap.setOnInfoWindowClickListener(this);
+
+
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+
+        if (marker.equals(mMap)||marker.equals(infoMarker) ){
+            InfoMarcadorMapaFragment.newInstance(marker.getTitle(),evento.getDescripcion()).show(getSupportFragmentManager(), null);
+        }
 
     }
 }
