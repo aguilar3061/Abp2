@@ -16,7 +16,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Marker infoMarker;
@@ -47,42 +47,26 @@ public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapRe
         mMap = googleMap;
 
         // Dirección
-
+/*
         Uri gmmIntentUri = Uri.parse("geo:0,0?z=10&q=" + evento.getDireccio());
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
+*/
 
-/*
         // // // // MARCADOR // // // //
         LatLng latLng = new LatLng(41.388777, 2.173039);
         // Marcador con Nombre y Descripción del evento.
         // DAVID --> (no se si funciona por que no me funciona la api)
-
         mMap.addMarker(new MarkerOptions().position(latLng).title(evento.getNombreEvento())).setSnippet("Haz click para extender la descripción del evento.");
         //Animación de zoom
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18), 5000, null);
 
-      /*  infoMarker = mMap.addMarker(new MarkerOptions()
-                        .position(latLng)
-                        .title(evento.getNombreEvento())
-                        .snippet("Haz click para extender la descripción del evento.")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        */
 
 
-        //Dialog
-        googleMap.setOnInfoWindowClickListener(this);
+
 
 
     }
 
-    @Override
-    public void onInfoWindowClick(Marker marker) {
-
-        if (marker.equals(mMap)){
-            InfoMarcadorMapaFragment.newInstance(marker.getTitle(),evento.getDescripcion()).show(getSupportFragmentManager(), null);
-        }
-
-    }
 }
