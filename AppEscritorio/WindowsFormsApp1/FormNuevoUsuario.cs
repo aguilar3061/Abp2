@@ -102,7 +102,14 @@ namespace WindowsFormsApp1
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
 
-            this.Close();
+            DialogResult respuesta = MessageBox.Show("Seguro que desea cerrar la pantalla de crear un nuevo usuario? Los datos introducidos de este evento se borraran ", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+            if (respuesta == DialogResult.Yes)
+            {
+
+                this.Close();
+
+            }
         }
     }
 }

@@ -148,8 +148,15 @@ namespace WindowsFormsApp1
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+             DialogResult respuesta = MessageBox.Show("Seguro que desea cerrar la pantalla de editar usuario? Los datos introducidos de este evento se borraran ", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-            this.Close();
+            if ( respuesta == DialogResult.Yes)
+            {
+
+                this.Close();
+                
+            }
+           
 
         }
 
