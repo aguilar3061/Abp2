@@ -39,7 +39,6 @@
             this.checkBoxAdministrador = new System.Windows.Forms.CheckBox();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.bindingSourceComunitats = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxCorreu = new System.Windows.Forms.TextBox();
             this.comboBoxComunidad = new System.Windows.Forms.ComboBox();
@@ -51,7 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.checkBoxActivo = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,17 +137,6 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxLogo.Image = global::WindowsFormsApp1.Properties.Resources.FlechaParaAtras;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(12, 12);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(48, 38);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 21;
-            this.pictureBoxLogo.TabStop = false;
             // 
             // bindingSourceComunitats
             // 
@@ -271,7 +258,6 @@
             this.Controls.Add(this.comboBoxComunidad);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBoxCorreu);
-            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.checkBoxAdministrador);
@@ -286,7 +272,6 @@
             this.MinimizeBox = false;
             this.Name = "FormNuevoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -304,7 +289,6 @@
         private System.Windows.Forms.CheckBox checkBoxAdministrador;
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Button buttonCancelar;
-        private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.BindingSource bindingSourceComunitats;
         private System.Windows.Forms.TextBox textBoxCorreu;
         private System.Windows.Forms.ComboBox comboBoxComunidad;

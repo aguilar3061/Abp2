@@ -227,6 +227,7 @@
             // 
             // pictureBoxImatgeEsdeveniment
             // 
+            this.pictureBoxImatgeEsdeveniment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxImatgeEsdeveniment.Location = new System.Drawing.Point(548, 13);
             this.pictureBoxImatgeEsdeveniment.Name = "pictureBoxImatgeEsdeveniment";
             this.pictureBoxImatgeEsdeveniment.Size = new System.Drawing.Size(209, 80);
