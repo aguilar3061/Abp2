@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormModificarEvento));
             this.bindingSourceComunidades = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePickerHoraFinal = new System.Windows.Forms.DateTimePicker();
@@ -290,6 +291,7 @@
             this.Controls.Add(this.textBoxNombreEvento);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormModificarEvento";
             this.Text = "FormModificarEvento";
             this.Load += new System.EventHandler(this.FormModificarEvento_Load);

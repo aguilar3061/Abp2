@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInformacioEsdeveniment));
             this.labelNomEsdeveniment = new System.Windows.Forms.Label();
             this.dataGridViewValoracions = new System.Windows.Forms.DataGridView();
             this.valoracioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,6 +115,7 @@
             this.Controls.Add(this.labelParticipants);
             this.Controls.Add(this.dataGridViewValoracions);
             this.Controls.Add(this.labelNomEsdeveniment);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormInformacioEsdeveniment";
