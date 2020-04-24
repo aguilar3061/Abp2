@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -19,7 +20,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Marker infoMarker;
     final Evento evento = (Evento) getIntent().getExtras().getSerializable("evento1");
 
     @Override
@@ -46,26 +46,20 @@ public class Fragment_ubicacion_mapa extends FragmentActivity implements OnMapRe
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Dirección
-/*
+        // // // // MARCADOR // // // //
         Uri gmmIntentUri = Uri.parse("geo:0,0?z=10&q=" + evento.getDireccio());
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);
-*/
 
+/*
         // // // // MARCADOR // // // //
         LatLng latLng = new LatLng(41.388777, 2.173039);
-        // Marcador con Nombre y Descripción del evento.
-        // DAVID --> (no se si funciona por que no me funciona la api)
-        mMap.addMarker(new MarkerOptions().position(latLng).title(evento.getNombreEvento())).setSnippet("Haz click para extender la descripción del evento.");
+        mMap.addMarker(new MarkerOptions().position(latLng).title("TITULO")).setSnippet("Pequeña descripción");
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         //Animación de zoom
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18), 5000, null);
-
-
-
-
-
+        //mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18), 5000, null);
+*/
 
     }
 

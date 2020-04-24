@@ -67,11 +67,11 @@ public class VerEvento extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                FragmentUbicacion fragment = new FragmentUbicacion(evento);
-                getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
+               // FragmentUbicacion fragment = new FragmentUbicacion(evento);
+               // getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
-                Intent mapIntent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
-                startActivity(mapIntent);
+                Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
+                startActivity(intent);
 
 
             }
