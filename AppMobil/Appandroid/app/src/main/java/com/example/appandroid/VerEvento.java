@@ -133,7 +133,8 @@ public class VerEvento extends AppCompatActivity  {
 
 
 
-
+        FragmentInformacion fragment = new FragmentInformacion(evento);
+        getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
 
 
