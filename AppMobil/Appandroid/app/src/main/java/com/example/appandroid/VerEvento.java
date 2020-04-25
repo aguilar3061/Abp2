@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -70,9 +71,15 @@ public class VerEvento extends AppCompatActivity  {
                // FragmentUbicacion fragment = new FragmentUbicacion(evento);
                // getSupportFragmentManager().beginTransaction().replace(R.id.FrgmentEventooo, fragment).commit();
 
-                Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
-                startActivity(intent);
+              //  Intent intent = new Intent(getApplicationContext(), Fragment_ubicacion_mapa.class);
+                // startActivity(intent);
 
+
+                //Abre app google maps del dispositivo y muestra la dirección del evento
+                Uri gmmIntentUri = Uri.parse("geo:0,0?z=10&q=" + evento.getDireccio());
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
 
             }
         });

@@ -111,12 +111,6 @@ public class Eventos extends Fragment {
             }
         });
 
-
-
-
-
-
-
         adapter = new AdaptadorEventos(eventos);
         recView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext(), RecyclerView.VERTICAL, false));
         recView.setHasFixedSize(true);
